@@ -26,6 +26,7 @@ import './style.scss'
 import 'virtual:uno.css'
 
 import Feedback from './components/Feedback.vue'
+import VPLocalSearchBox from './components/VPLocalSearchBox.vue'
 
 export default {
   extends: DefaultTheme,
@@ -34,8 +35,8 @@ export default {
     app.use(Components)
     app.component('Post', Post)
     app.component('Feedback', Feedback)
+    app.component('VPLocalSearchBox', VPLocalSearchBox)
     loadProgress(router)
-    // Initialize theme handler
     useThemeHandler()
   }
 } satisfies Theme

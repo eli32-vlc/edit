@@ -10,3 +10,4 @@ dist
 .eslintcache
 docs/.vitepress/.temp
 result
+*.timestamp-*.mjs
