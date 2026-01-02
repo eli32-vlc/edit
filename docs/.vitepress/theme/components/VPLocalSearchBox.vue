@@ -38,6 +38,10 @@ interface ModalTranslations {
     resetButtonTitle?: string
     backButtonTitle?: string
     noResultsText?: string
+    fuzzySearchButtonTitle?: string
+    exactSearchButtonTitle?: string
+    fuzzySearchButtonAriaLabel?: string
+    exactSearchButtonAriaLabel?: string
     footer?: {
       selectText?: string
       selectKeyAriaLabel?: string
@@ -471,6 +475,10 @@ const defaultTranslations: { modal: ModalTranslations } = {
     resetButtonTitle: 'Reset search',
     backButtonTitle: 'Close search',
     noResultsText: 'No results for',
+    fuzzySearchButtonTitle: 'Toggle fuzzy search',
+    exactSearchButtonTitle: 'Toggle exact search',
+    fuzzySearchButtonAriaLabel: 'Switch to fuzzy search (currently exact)',
+    exactSearchButtonAriaLabel: 'Switch to exact search (currently fuzzy)',
     footer: {
       selectText: 'to select',
       selectKeyAriaLabel: 'enter',
@@ -608,11 +616,12 @@ function onMouseMove(e: MouseEvent) {
               class="toggle-fuzzy-button"
               type="button"
               :class="{ 'fuzzy-enabled': enableFuzzySearch }"
-              :title="enableFuzzySearch ? 'Exact search (currently fuzzy)' : 'Fuzzy search (currently exact)'"
+              :title="enableFuzzySearch ? translate('modal.exactSearchButtonTitle') : translate('modal.fuzzySearchButtonTitle')"
+              :aria-label="enableFuzzySearch ? translate('modal.exactSearchButtonAriaLabel') : translate('modal.fuzzySearchButtonAriaLabel')"
               @click="enableFuzzySearch = !enableFuzzySearch"
             >
-              <span v-if="enableFuzzySearch" class="local-search-icon">~</span>
-              <span v-else class="local-search-icon">=</span>
+              <span v-if="enableFuzzySearch" class="local-search-icon" aria-hidden="true">~</span>
+              <span v-else class="local-search-icon" aria-hidden="true">=</span>
             </button>
 
             <button
