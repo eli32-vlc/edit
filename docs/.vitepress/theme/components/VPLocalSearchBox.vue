@@ -191,8 +191,10 @@ const { activate } = useFocusTrap(el, {
   escapeDeactivates: true
 })
 const { localeIndex, theme } = vitePressData
-const searchIndex = computedAsync(async () =>
-  markRaw(
+const searchIndex = computedAsync(async () => {
+  // Explicitly read enableFuzzySearch to ensure reactivity tracking
+  const fuzzyEnabled = enableFuzzySearch.value
+  return markRaw(
     MiniSearch.loadJSON<Result>(
       (await searchIndexData.value[localeIndex.value]?.())?.default,
       {
@@ -201,7 +203,7 @@ const searchIndex = computedAsync(async () =>
         searchOptions: {
           ...(theme.value.search?.provider === 'local' &&
             theme.value.search.options?.miniSearch?.searchOptions),
-          fuzzy: enableFuzzySearch.value ? 0.2 : false,
+          fuzzy: fuzzyEnabled ? 0.2 : false,
           prefix: true,
           boost: { title: 4, text: 2, titles: 1 }
         },
@@ -210,7 +212,7 @@ const searchIndex = computedAsync(async () =>
       }
     )
   )
-)
+})
 
 const disableQueryPersistence = computed(() => {
   return (
