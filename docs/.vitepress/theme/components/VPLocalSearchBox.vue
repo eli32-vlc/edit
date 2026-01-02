@@ -199,11 +199,11 @@ const searchIndex = computedAsync(async () =>
         fields: ['title', 'titles', 'text'],
         storeFields: ['title', 'titles'],
         searchOptions: {
+          ...(theme.value.search?.provider === 'local' &&
+            theme.value.search.options?.miniSearch?.searchOptions),
           fuzzy: enableFuzzySearch.value ? 0.2 : false,
           prefix: true,
-          boost: { title: 4, text: 2, titles: 1 },
-          ...(theme.value.search?.provider === 'local' &&
-            theme.value.search.options?.miniSearch?.searchOptions)
+          boost: { title: 4, text: 2, titles: 1 }
         },
         ...(theme.value.search?.provider === 'local' &&
           theme.value.search.options?.miniSearch?.options)

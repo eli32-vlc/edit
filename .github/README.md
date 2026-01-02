@@ -17,6 +17,24 @@
 * ↪️ - **Storage Page Links**
 * ⭐ - **Community Recommendations**
 
+## 🔍 Search Features
+
+### Fuzzy & Exact Match Toggle
+
+The site's search bar includes a toggle to switch between **exact** and **fuzzy** search modes:
+
+* **Exact Match (=)**: Default mode. Searches for exact matches of your query.
+* **Fuzzy Match (~)**: Enables approximate matching, useful for finding results even with typos or partial words.
+
+**How to Use:**
+1. Press `Ctrl + K` (or `Cmd + K` on Mac) to open the search bar
+2. Click the **=** or **~** button in the search bar to toggle between exact and fuzzy search
+3. The icon changes to show the current mode:
+   - **=** indicates exact search mode
+   - **~** indicates fuzzy search mode
+
+Your preference is saved automatically and will persist across sessions.
+
 ## 📝 Contribute
 
 We invite you to contribute and help improve the wiki! 💙
