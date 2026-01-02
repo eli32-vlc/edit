@@ -846,6 +846,7 @@ function onMouseMove(e: MouseEvent) {
 .toggle-fuzzy-button {
   font-weight: bold;
   font-size: 16px;
+  color: var(--vp-c-text-2);
 }
 
 .search-actions button.clear-button:disabled {
