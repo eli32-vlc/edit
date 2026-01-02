@@ -192,7 +192,7 @@ const { activate } = useFocusTrap(el, {
 })
 const { localeIndex, theme } = vitePressData
 const searchIndex = computedAsync(async () => {
-  // Explicitly read enableFuzzySearch to ensure reactivity tracking
+  // Read enableFuzzySearch.value before async operation to ensure Vue's reactivity system tracks it as a dependency
   const fuzzyEnabled = enableFuzzySearch.value
   return markRaw(
     MiniSearch.loadJSON<Result>(
