@@ -144,8 +144,5 @@ export const monochromeTheme: Theme = {
         heroImageFilter: 'blur(44px)'
       }
     }
-  },
-  customProperties: {
-    '--monochrome-filter': 'grayscale(100%) contrast(1.2)'
   }
 }
