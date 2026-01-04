@@ -101,7 +101,7 @@ export class ThemeHandler {
     const root = document.documentElement
     
     // Remove all mode classes
-    root.classList.remove('dark', 'light', 'amoled')
+    root.classList.remove('dark', 'light', 'amoled', 'monochrome')
     
     // Add current mode class
     root.classList.add(mode)
@@ -109,6 +109,11 @@ export class ThemeHandler {
     // Add amoled class if enabled in dark mode
     if (mode === 'dark' && this.amoledEnabled.value) {
       root.classList.add('amoled')
+    }
+    
+    // Add monochrome class if monochrome theme is active
+    if (this.state.value.currentTheme === 'monochrome') {
+      root.classList.add('monochrome')
     }
   }
 
@@ -168,20 +173,6 @@ export class ThemeHandler {
       root.style.removeProperty('--vp-c-text-1')
       root.style.removeProperty('--vp-c-text-2')
       root.style.removeProperty('--vp-c-text-3')
-    }
-
-    // Debug: log applied text color variables so we can inspect in console
-    try {
-      // eslint-disable-next-line no-console
-      console.log('[ThemeHandler] applied text vars', {
-        theme: theme.name,
-        mode: this.state.value.currentMode,
-        vp_text_1: root.style.getPropertyValue('--vp-c-text-1'),
-        vp_text_2: root.style.getPropertyValue('--vp-c-text-2'),
-        vp_text_3: root.style.getPropertyValue('--vp-c-text-3')
-      })
-    } catch (e) {
-      // ignore
     }
 
     // Apply button colors

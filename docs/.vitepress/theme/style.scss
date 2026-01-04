@@ -359,3 +359,14 @@
   background-color: currentColor;
   color: inherit;
 }
+
+html.monochrome {
+  img,
+  svg,
+  [class*='i-'],
+  .VPImage,
+  .VPNavBarMenuLink img,
+  .VPFeature .icon {
+    filter: grayscale(100%) contrast(1.2);
+  }
+}
