@@ -16,6 +16,7 @@
 const files = (
   [
     'privacy.md',
+    'ai.md',
     'mobile.md',
     'audio.md',
     'beginners-guide.md',

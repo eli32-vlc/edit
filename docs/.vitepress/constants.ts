@@ -213,6 +213,10 @@ export const sidebar: DefaultTheme.Sidebar | DefaultTheme.NavItemWithLink[] = [
         link: '/privacy'
       },
       {
+        text: '<span class="i-twemoji:robot"></span> Artificial Intelligence',
+        link: '/ai'
+      },
+      {
         text: '<span class="i-twemoji:television"></span> Movies / TV / Anime',
         link: '/video'
       },
