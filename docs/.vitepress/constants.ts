@@ -36,7 +36,6 @@ export const excluded = [
   'single-page',
   'feedback.md',
   'index.md',
-  'sandbox.md',
   'startpage.md'
 ]
 
@@ -212,10 +211,6 @@ export const sidebar: DefaultTheme.Sidebar | DefaultTheme.NavItemWithLink[] = [
       {
         text: '<span class="i-twemoji:name-badge"></span> Adblocking / Privacy',
         link: '/privacy'
-      },
-      {
-        text: '<span class="i-twemoji:robot"></span> Artificial Intelligence',
-        link: '/ai'
       },
       {
         text: '<span class="i-twemoji:television"></span> Movies / TV / Anime',
