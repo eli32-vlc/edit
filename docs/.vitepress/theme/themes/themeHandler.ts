@@ -175,20 +175,6 @@ export class ThemeHandler {
       root.style.removeProperty('--vp-c-text-3')
     }
 
-    // Debug: log applied text color variables so we can inspect in console
-    try {
-      // eslint-disable-next-line no-console
-      console.log('[ThemeHandler] applied text vars', {
-        theme: theme.name,
-        mode: this.state.value.currentMode,
-        vp_text_1: root.style.getPropertyValue('--vp-c-text-1'),
-        vp_text_2: root.style.getPropertyValue('--vp-c-text-2'),
-        vp_text_3: root.style.getPropertyValue('--vp-c-text-3')
-      })
-    } catch (e) {
-      // ignore
-    }
-
     // Apply button colors
     root.style.setProperty('--vp-button-brand-bg', colors.button.brand.bg)
     root.style.setProperty('--vp-button-brand-border', colors.button.brand.border)
