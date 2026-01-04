@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { colors } from '@fmhy/colors'
 import { useStorage } from '@vueuse/core'
-import { watch, onMounted, nextTick } from 'vue'
+import { watch, onMounted, nextTick, computed } from 'vue'
 import { useTheme } from '../themes/themeHandler'
 import { themeRegistry } from '../themes/configs'
 import type { Theme } from '../themes/types'
@@ -195,6 +195,18 @@ const normalizeColorName = (colorName: string) =>
   colorName.replaceAll(/-/g, ' ').charAt(0).toUpperCase() +
   colorName.slice(1).replaceAll(/-/g, ' ')
 
+// Computed property to filter themes based on current mode
+const availablePresetThemes = computed(() => {
+  const currentMode = mode && (mode as any).value ? (mode as any).value : 'light'
+  return presetThemeNames.filter((themeName) => {
+    // Hide monochrome theme in light mode
+    if (themeName === 'monochrome' && currentMode === 'light') {
+      return false
+    }
+    return true
+  })
+})
+
 onMounted(async () => {
   // apply saved theme on load
   if (selectedColor.value) {
@@ -247,7 +259,7 @@ const toggleAmoled = () => {
       </div>
 
       <!-- Preset themes (render at the end) -->
-      <div v-for="t in presetThemeNames" :key="t">
+      <div v-for="t in availablePresetThemes" :key="t">
         <button
           :class="[
             'inline-block w-6 h-6 rounded-full transition-all duration-200 border-2',
