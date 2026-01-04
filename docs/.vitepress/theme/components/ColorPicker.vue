@@ -197,7 +197,7 @@ const normalizeColorName = (colorName: string) =>
 
 // Computed property to filter themes based on current mode
 const availablePresetThemes = computed(() => {
-  const currentMode = mode && (mode as any).value ? (mode as any).value : 'light'
+  const currentMode = mode?.value ?? 'light'
   return presetThemeNames.filter((themeName) => {
     // Hide monochrome theme in light mode
     if (themeName === 'monochrome' && currentMode === 'light') {

@@ -20,6 +20,7 @@ export const monochromeTheme: Theme = {
   name: 'monochrome',
   displayName: 'Monochrome',
   modes: {
+    // Light mode configuration (required by Theme interface, but theme is hidden in light mode)
     light: {
       bg: '#ffffff',
       bgAlt: '#f5f5f5',
