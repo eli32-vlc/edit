@@ -39,9 +39,10 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SHARD_INDEX: ${{ matrix.shard_index }}
           SHARD_TOTAL: ${{ env.SHARD_TOTAL }}
-          MAX_CHARS: 3000
-          READ_TIMEOUT: 180
-          CONNECT_TIMEOUT: 10
+          MAX_CHARS: 2000
+          READ_TIMEOUT: 1200
+          CONNECT_TIMEOUT: 15
+          MAX_RETRIES: 2
         run: python translate.py
 
       - name: Sync translated docs into docs/
