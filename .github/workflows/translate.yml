@@ -25,6 +25,13 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
+      - name: Preflight model availability
+        env:
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+        run: |
+          echo "Checking model endpoint availability..."
+          curl -v --max-time 15 "${OPENAI_BASE_URL}/models" || exit 1
+
       - name: Translate shard
         env:
           OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
@@ -32,6 +39,9 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           SHARD_INDEX: ${{ matrix.shard_index }}
           SHARD_TOTAL: ${{ env.SHARD_TOTAL }}
+          MAX_CHARS: 3000
+          READ_TIMEOUT: 180
+          CONNECT_TIMEOUT: 10
         run: python translate.py
 
       - name: Sync translated docs into docs/

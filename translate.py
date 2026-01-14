@@ -22,7 +22,11 @@ MODEL = os.environ["OPENAI_MODEL"]
 API_KEY = os.environ["OPENAI_API_KEY"]
 MAX_CHARS = int(os.environ.get("MAX_CHARS", "6000"))
 SLEEP_SECONDS = float(os.environ.get("SLEEP_SECONDS", "1"))
-REQUEST_TIMEOUT = int(os.environ.get("REQUEST_TIMEOUT", "60"))
+CONNECT_TIMEOUT = float(os.environ.get("CONNECT_TIMEOUT", "10"))
+READ_TIMEOUT = float(os.environ.get("READ_TIMEOUT", "60"))
+MAX_RETRIES = int(os.environ.get("MAX_RETRIES", "3"))
+BACKOFF_SECONDS = float(os.environ.get("BACKOFF_SECONDS", "2"))
+REQUEST_TIMEOUT = READ_TIMEOUT
 DOCS_DIR = pathlib.Path(os.environ.get("DOCS_DIR", "docs"))
 OUT_DIR = pathlib.Path(os.environ.get("OUT_DIR", "translated"))
 
@@ -82,17 +86,32 @@ def translate_chunk(chunk: str) -> str:
         ],
     }
     headers = {"Authorization": f"Bearer {API_KEY}"}
-    print(f"Calling LLM with {len(chunk)} chars")
-    resp = requests.post(
-        f"{BASE_URL}/chat/completions",
-        headers=headers,
-        json=payload,
-        timeout=REQUEST_TIMEOUT,
-    )
-    resp.raise_for_status()
-    raw = resp.json()["choices"][0]["message"]["content"]
-    print("LLM response received; stripping <think> block if present")
-    return strip_think(raw)
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            print(
+                f"Calling LLM with {len(chunk)} chars (attempt {attempt}/{MAX_RETRIES})"
+            )
+            resp = requests.post(
+                f"{BASE_URL}/chat/completions",
+                headers=headers,
+                json=payload,
+                timeout=(CONNECT_TIMEOUT, READ_TIMEOUT),
+            )
+            resp.raise_for_status()
+            raw = resp.json()["choices"][0]["message"]["content"]
+            print("LLM response received; stripping <think> block if present")
+            return strip_think(raw)
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as exc:
+            if attempt == MAX_RETRIES:
+                print(f"LLM request failed after {attempt} attempts: {exc}")
+                raise
+            wait = BACKOFF_SECONDS * attempt
+            print(
+                f"LLM request failed (attempt {attempt}/{MAX_RETRIES}): {exc}; "
+                f"retrying in {wait}s"
+            )
+            time.sleep(wait)
+    raise RuntimeError("Unreachable retry loop in translate_chunk")
 
 
 def translate_translatable(text: str) -> str:
