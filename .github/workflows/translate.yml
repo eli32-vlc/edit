@@ -1,0 +1,50 @@
+name: Translate Docs
+
+on:
+  workflow_dispatch:
+
+env:
+  TARGET_REPO: eli32-vlc/FMHY-Chinese
+  SHARD_TOTAL: 4
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        shard_index: [0, 1, 2, 3]
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Translate shard
+        env:
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SHARD_INDEX: ${{ matrix.shard_index }}
+          SHARD_TOTAL: ${{ env.SHARD_TOTAL }}
+        run: python translate.py
+
+      - name: Sync translated docs into docs/
+        run: rsync -av translated/ docs/
+
+      - name: Push to target repo (force)
+        env:
+          TARGET_REPO_TOKEN: ${{ secrets.TARGET_REPO_TOKEN }}
+          TARGET_REPO: ${{ env.TARGET_REPO }}
+        run: |
+          git config user.name "docs-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git remote add target https://x-access-token:${TARGET_REPO_TOKEN}@github.com/${TARGET_REPO}.git
+          git add docs
+          git commit -m "chore: add zh translations" || true
+          git push target HEAD:main --force
