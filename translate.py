@@ -82,6 +82,7 @@ def translate_chunk(chunk: str) -> str:
         ],
     }
     headers = {"Authorization": f"Bearer {API_KEY}"}
+    print(f"Calling LLM with {len(chunk)} chars")
     resp = requests.post(
         f"{BASE_URL}/chat/completions",
         headers=headers,
@@ -90,6 +91,7 @@ def translate_chunk(chunk: str) -> str:
     )
     resp.raise_for_status()
     raw = resp.json()["choices"][0]["message"]["content"]
+    print("LLM response received; stripping <think> block if present")
     return strip_think(raw)
 
 
@@ -105,6 +107,7 @@ def translate_translatable(text: str) -> str:
 
 def translate_file(src_path: pathlib.Path, dst_path: pathlib.Path) -> None:
     content = src_path.read_text(encoding="utf-8")
+    print(f"Processing file {src_path}")
     segments = split_segments(content)
     out_parts: List[str] = []
     for kind, text in segments:
@@ -114,6 +117,7 @@ def translate_file(src_path: pathlib.Path, dst_path: pathlib.Path) -> None:
             out_parts.append(translate_translatable(text))
     dst_path.parent.mkdir(parents=True, exist_ok=True)
     dst_path.write_text("".join(out_parts), encoding="utf-8")
+    print(f"Wrote translated file to {dst_path}")
 
 
 def main() -> None:
