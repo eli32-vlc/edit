@@ -9,6 +9,7 @@
 * [Mockoops](https://mockoops.mohitya.dev/) - Animated Mockups
 * [Really Good Emails](https://reallygoodemails.com/) - Product Email Mobile Designs and Templates
 * [Screen from Traction](https://screen.traction.one/) - Create App Screenshots
+* [Screenshot Rocks](https://screenshot.rocks/) - Create Screenshot Mockups of Websites / [GitHub](https://github.com/daveearley/screenshot.rocks) 
 
 [PostSpark](https://postspark.app/), [Previewed](https://previewed.app/), [Mockup World](https://www.mockupworld.co/), [DeviceShots](https://deviceshots.com/), [DeviceFrames](https://deviceframes.com/), [shots.so](https://shots.so/), [medialoot](https://medialoot.com/free-mockups/), [MockMagic](https://www.mockmagic.com/), [zippypixels](https://zippypixels.com/), [Mockuphone](https://mockuphone.com/), [TheMockupClub](https://themockup.club/), [RiseShot](https://www.riseshot.com/), [Upmock](https://www.upmock.io/), [LS Graphics](https://www.ls.graphics/), [Picasso](https://getpicasso.com/), [mrmockup](https://mrmockup.com/free-mockups/), [mockupnest](https://mockupnest.com/), [Jam Mockup](http://t.me/+Hp5DjFnpWXdhMTBi)
 
@@ -20,7 +21,7 @@
 * 🌐 **[Classless CSS](https://github.com/dbohdan/classless-css)** - Classless CSS Themes & Frameworks
 * 🌐 **[Awesome TailwindCSS](https://github.com/aniftyco/awesome-tailwindcss)** - Tailwind CSS Resources
 * ⭐ **[Tailwind CSS](https://tailwindcss.com/)**, [⁠Panda CSS](https://panda-css.com/) / [GitHub](https://github.com/chakra-ui/panda), [Bulma](https://bulma.io/) or [UnoCSS](https://unocss.dev/) - CSS Frameworks
-* [Tailwind Toolbox](https://tailwindtoolbox.com/) - Tailwind Starter Templates & Components
+* [Tailwind Toolbox](https://windytoolbox.com/) - Tailwind Starter Templates & Components
 * [daisyUI](https://daisyui.com/), [Float UI](https://floatui.com/) / [GitHub](https://github.com/MarsX-dev/floatui), [Aceternity UI](https://ui.aceternity.com/) or [Tailspark](https://tailspark.co/) - Tailwind CSS Components
 * [TailBlocks](https://tailblocks.cc/) - Ready-to-use Tailwind CSS Blocks
 * [Terminal CSS](https://terminalcss.xyz/) - Terminal-style CSS Framework
@@ -64,7 +65,7 @@
 * ⭐ **[Arts and Culture](https://artsandculture.google.com/)**
 * [poly.booru](https://poly.booru.nl/) - Historical Artifact Images / [Discord](https://discord.gg/jHnYbGJZSn) / [GitHub](https://github.com/cosbooru/cosbooru)
 
-[The Last Museum](https://lastmuseum.com/), [strauh.al](https://strauh.al/), [⁠The Met](https://www.metmuseum.org/art/collection), [rijksstudio](https://www.rijksmuseum.nl/en/rijksstudio), [Haltadefinizione](https://www.haltadefinizione.com/en/), [Artcyclopedia](http://www.artcyclopedia.com/), [The Wolfman Museum of Art](https://wolfmanmuseum.org/), [DarkClassics](https://darkclassics.blogspot.com/), [European Art](https://photos.app.goo.gl/q5GRdpSvARAqhbSh6), [The Watercolour World](https://www.watercolourworld.org/), [Museo](https://museo.app/), [Arthur](https://arthur.io/), [WGA](https://www.wga.hu/), [Gallerix](https://gallerix.org/), [WikiArt](https://www.wikiart.org/), [Public Work](https://public.work/), [Public Domain Image Archive](https://pdimagearchive.org/), [V&A](https://www.vam.ac.uk/), [Louvre](https://collections.louvre.fr/en/), [Artchive](https://www.artchive.com/), [S.D. Cason](https://sdcason.com/categories/), [Frick](https://www.frick.org/art), [RCT](https://www.rct.uk/collection/), [Artic](https://www.artic.edu/collection), [Artvee](https://artvee.com/), [MoMA](https://www.moma.org/collection/), [Guggenheim](https://www.guggenheim.org/collection-online), [Deutsche Digitale](https://www.deutsche-digitale-bibliothek.de/?lang=en), [NGA](https://www.nga.gov), [Semantic Art Search](https://semantic-art-search.com/) / [GitHub](https://github.com/KristianMSchmidt/semantic-art-search), [Gardner Museum](https://www.gardnermuseum.org/experience/collection), [Centre Pompidou](https://www.centrepompidou.fr/en/collection), [NPG](https://www.npg.org.uk/collections/), [Ashmolean](https://www.ashmolean.org/collections-online), [faenum](https://faenum.com/)
+[The Last Museum](https://lastmuseum.com/), [strauh.al](https://strauh.al/), [⁠The Met](https://www.metmuseum.org/art/collection), [rijksstudio](https://www.rijksmuseum.nl/en/collection), [Haltadefinizione](https://www.haltadefinizione.com/en/), [Artcyclopedia](http://www.artcyclopedia.com/), [The Wolfman Museum of Art](https://wolfmanmuseum.org/), [DarkClassics](https://darkclassics.blogspot.com/), [European Art](https://photos.app.goo.gl/q5GRdpSvARAqhbSh6), [The Watercolour World](https://www.watercolourworld.org/), [Museo](https://museo.app/), [Arthur](https://arthur.io/), [WGA](https://www.wga.hu/), [Gallerix](https://gallerix.org/), [WikiArt](https://www.wikiart.org/), [Public Work](https://www.cosmos.so/public-work), [Public Domain Image Archive](https://pdimagearchive.org/), [V&A](https://www.vam.ac.uk/), [Louvre](https://collections.louvre.fr/en/), [Artchive](https://www.artchive.com/), [S.D. Cason](https://sdcason.com/categories/), [Frick](https://www.frick.org/art), [RCT](https://www.rct.uk/collection/), [Artic](https://www.artic.edu/collection), [Artvee](https://artvee.com/), [MoMA](https://www.moma.org/collection/), [Guggenheim](https://www.guggenheim.org/collection-online), [Deutsche Digitale](https://www.deutsche-digitale-bibliothek.de/?lang=en), [NGA](https://www.nga.gov), [Semantic Art Search](https://semantic-art-search.com/) / [GitHub](https://github.com/KristianMSchmidt/semantic-art-search), [Gardner Museum](https://www.gardnermuseum.org/experience/collection), [Centre Pompidou](https://www.centrepompidou.fr/en/collection), [NPG](https://www.npg.org.uk/collections/), [Ashmolean](https://www.ashmolean.org/collections-online), [faenum](https://faenum.com/)
 
 ***
 
@@ -115,14 +116,13 @@
 
 * 🌐 **[Public DNS indexes](https://www.publicdns.xyz/)** / [2](https://acavalin.com/p/free_dns) / [3](https://publicdnsserver.com/) / [4](https://public-dns.info/)
 * ⭐ **[Cloudflare 1.1.1.1](https://developers.cloudflare.com/1.1.1.1/ip-addresses/)**
-* ⭐ **[Quad9](https://quad9.net/)** - Malware, Phishing, Spyware & Botnet DNS Protection
-* ⭐ **[Mullvad](https://mullvad.net/en/help/dns-over-https-and-dns-over-tls)** - Ads, Trackers, Adult, Malware, Gambling & Social Media DNS Protection
+* ⭐ **[Quad9](https://quad9.net/)** - Malware, Phishing, Spyware & Botnet DNS Protection / [GitHub](https://github.com/NLnetLabs/unbound)
+* [Unbound](https://www.nlnetlabs.nl/projects/unbound/) - Self-Hosted, Validating, Recursive, Caching Resolver
 * [Control D](https://controld.com/free-dns) / [X](https://x.com/controldns) / [Subreddit](https://reddit.com/r/ControlD/) / [Discord](https://discord.gg/dns)
 * [NextDNS](https://nextdns.io) / [2](https://adguard-dns.io/kb/general/dns-providers/#nextdns) / [Guide](https://github.com/yokoffing/NextDNS-Config)
 * [Rethink DNS](https://rethinkdns.com/configure)
 * [⁠Tiarap](https://tiar.app/)
 * [HaGeZi DNS](https://github.com/hagezi/dns-servers)
-* [Unbound](https://www.nlnetlabs.nl/projects/unbound/) / [GitHub](https://github.com/NLnetLabs/unbound)
 * [Bancuh](https://bancuh.com/) / [GitHub](https://github.com/ragibkl/adblock-dns-server)
 * [AdGuard](https://adguard-dns.io/en/public-dns.html) / [GitHub](https://github.com/AdguardTeam/AdguardSDNSFilter)
 * [DNS for Family](https://dnsforfamily.com/)
@@ -196,7 +196,7 @@
 
 * ⭐ **[TheMoeWay](https://learnjapanese.moe/)** / [Discord](https://discord.gg/nhqjydaR8j)
 
-[Kakugo](https://github.com/blastrock/kakugo), [Marshall's Site](https://marshallyin.com/), [HeyJapan](https://heyjapan.net/), [Renshuu](https://www.renshuu.org/), [GuideToJapanese](https://guidetojapanese.org/), [jpdb](https://jpdb.io/), [NativShark](https://www.nativshark.com/), [Donkuri](https://donkuri.github.io/learn-japanese/), [Tofugu](https://www.tofugu.com/), [KanaDojo](https://kanadojo.com/en) / [GitHub](https://github.com/lingdojo/kana-dojo), [⁠Lingual Ninja](https://www.lingual-ninja.com/), [⁠Ten](https://www.ten.guide/) / [Discord](https://discord.com/invite/immerse)
+[Kakugo](https://github.com/blastrock/kakugo), [Marshall's Site](https://marshallyin.com/), [HeyJapan](https://heylearning.net/), [Renshuu](https://www.renshuu.org/), [GuideToJapanese](https://guidetojapanese.org/), [jpdb](https://jpdb.io/), [NativShark](https://www.nativshark.com/), [Donkuri](https://donkuri.github.io/learn-japanese/), [Tofugu](https://www.tofugu.com/), [KanaDojo](https://kanadojo.com/en) / [GitHub](https://github.com/lingdojo/kana-dojo), [⁠Lingual Ninja](https://www.lingual-ninja.com/), [⁠Ten](https://www.ten.guide/) / [Discord](https://discord.com/invite/immerse)
 
 ### YouTube Channels
 
@@ -257,7 +257,7 @@
 
 ### Trakt Tools
 
-[Apps](https://trakt.tv/apps) / [Recommendations](https://couchmoney.tv/) / [Universal Scrobble](https://github.com/trakt-tools/universal-trakt-scrobbler) / [Anilist Sync](https://anitrakt.huere.net/) / [List Import](https://github.com/damienhaynes/TraktRater)
+[Apps](https://trakt.tv/apps) / [Recommendations](https://couchmoney.tv/) / [Universal Scrobble](https://github.com/trakt-tools/universal-trakt-scrobbler) / [List Import](https://github.com/damienhaynes/TraktRater)
 
 
 ### Letterboxd Tools
@@ -321,7 +321,7 @@
 
 ## PNG Images / Clipart
 
-[CleanPNG](https://www.cleanpng.com/), [PNGWing](https://www.pngwing.com/), [PNGEgg](https://www.pngegg.com/), [AnyRGB](https://www.anyrgb.com/), [HiClipart](https://www.hiclipart.com/), [HDClipArtAll](https://hdclipartall.com/), [pngmart](https://www.pngmart.com/), [pngall](https://www.pngall.com/), [pngplay](https://www.pngplay.com/), [freepngimg](https://www.freepngimg.com/), [KindPNG](https://www.kindpng.com/), [FreePNGLogos](https://www.freepnglogos.com/), [PNGFind](https://www.pngfind.com), [PNGHero](https://pnghero.com/), [PlusPNG](https://pluspng.com/), [PNGHut](https://pnghut.com/), [openclipart](https://openclipart.org), [transparentpng](https://www.transparentpng.com/), [pngfind](https://www.pngfind.com/), [pikpng](https://www.pikpng.com/)
+[CleanPNG](https://www.cleanpng.com/), [PNGWing](https://www.pngwing.com/), [PNGEgg](https://www.pngegg.com/), [AnyRGB](https://www.anyrgb.com/), [HiClipart](https://www.hiclipart.com/), [HDClipArtAll](https://hdclipartall.com/), [pngmart](https://www.pngmart.com/), [pngall](https://www.pngall.com/), [pngplay](https://www.pngplay.com/), [freepngimg](https://www.freepngimg.com/), [KindPNG](https://www.kindpng.com/), [FreePNGLogos](https://www.freepnglogos.com/), [PNGFind](https://www.pngfind.com), [PNGHero](https://pnghero.com/), [PlusPNG](https://pluspng.com/), [PNGHut](https://pnghut.com/), [openclipart](https://openclipart.org), [transparentpng](https://www.transparentpng.com/), [pngfind](https://www.pngfind.com/), [pikpng](https://www.pikpng.com/), [⁠PNGitem](https://www.pngitem.com/)
 
 ***
 
@@ -337,23 +337,18 @@
 
 ## Presentation Tools
 
+* [⁠Touying](https://touying-typ.github.io/) - Typst-Based Presentation Tool
+* [Slidev](https://sli.dev/) - Markdown Presentation Slides / [GitHub](https://github.com/slidevjs/slidev)
 * [Slides](https://maaslalani.com/slides/) - Terminal-Based Presentation Tool / [GitHub](https://github.com/maaslalani/slides)
 * [⁠Z.ai](https://chat.z.ai/), [Presentation](https://presenton.ai/) / [GitHub](https://github.com/presenton/presenton) or [PPTX](https://github.com/AmNotAGoose/PPTX-Presentation-Generator) - AI Presentation Generators
 * [GSlides Maker](https://github.com/vilmacio/gslides-maker) - Turn Wiki Pages into Google Slides
 * [Inscribed](https://inscribed.app/) - Sketch-Based Slides / [GitHub](https://github.com/chunrapeepat/inscribed)
-* [Slidev](https://sli.dev/) - Markdown Presentation Slides / [GitHub](https://github.com/slidevjs/slidev)
 
 [Marp](https://marp.app/), [ZoomIt](https://learn.microsoft.com/en-us/sysinternals/downloads/zoomit), [Presentator](https://presentator.io/), [Fusuma](https://hiroppy.github.io/fusuma/), [Pitch](https://pitch.com/), [Zoho Show](https://www.zoho.com/show/), [Webslides](https://webslides.tv/), [FreeShow](https://freeshow.app/), [Presenta](https://play.presenta.cc/), [OpenLearning](https://www.openelearning.org/), [Slideshare](https://www.slideshare.net/), [Excalideck](https://excalideck.com/), [⁠Bento](https://github.com/nyblnet/bento)
 
 ### Presentation Templates
 
 [Showeet](https://www.showeet.com/), [Powerpoint Hub](https://www.powerpointhub.com/freetemplate/?lang=en), [Slides Carnival](https://www.slidescarnival.com/), [PresentationGO](https://www.presentationgo.com/), [ThePOPP](https://thepopp.com/)
-
-***
-
-### Slideshare Downloaders
-
-[SlideShareSaver](https://slidesharesaver.com/)
 
 ***
 
@@ -367,7 +362,7 @@
 
 ## Self-Hosted Wiki Alts
 
-[WikiDocs](https://www.wikidocs.app/) / [GitHub](https://github.com/Zavy86/WikiDocs), [Media Wiki](https://www.mediawiki.org/) / [GitHub](https://github.com/Wikia/mediawiki), [xWiki](https://www.xwiki.org/xwiki/bin/view/Main/), [DokuWiki](https://www.dokuwiki.org/dokuwiki) / [GitHub](https://github.com/dokuwiki/dokuwiki), [Archivy](https://github.com/archivy/archivy/), [Miraheze](https://miraheze.org/), [wikmd](https://linbreux.github.io/wikmd/), [Fandom](https://www.fandom.com/)
+[WikiDocs](https://www.wikidocs.app/) / [GitHub](https://github.com/Zavy86/WikiDocs), [Media Wiki](https://www.mediawiki.org/) / [GitHub](https://github.com/Wikia/mediawiki), [xWiki](https://www.xwiki.org/xwiki/bin/view/Main/), [DokuWiki](https://www.dokuwiki.org/dokuwiki) / [GitHub](https://github.com/dokuwiki/dokuwiki), [Miraheze](https://miraheze.org/), [wikmd](https://linbreux.github.io/wikmd/), [Fandom](https://www.fandom.com/)
 
 ***
 
@@ -398,7 +393,7 @@
 * ⭐ **[receive-sms](https://receive-sms.cc/)**
 * ⭐ **[⁠SMSOnline](https://www.smsonline.cloud/)**
 
-[TemporaryNumber](https://temporarynumber.com/), [TextNow](https://www.textnow.com/), [GetFreeSMSNUmber](https://getfreesmsnumber.com/), [Smser](https://smser.net/), [Receive SMS Online](https://www.receivesmsonline.net/), [My Trash Mobile](https://www.mytrashmobile.com/), [temp-sms](https://temp-sms.org/), [temporary-phone-number](https://temporary-phone-number.com/), [storytrain](https://www.storytrain.info/), [Temp Number](https://temp-number.com/), [receive-smss](https://receive-smss.com), [receive-sms-free](https://receive-sms-free.cc/), [quackr](https://quackr.io/), [smsnator](https://smsnator.online/), [InboxSMS](https://inboxsms.me/), [anonymsms](https://anonymsms.com/temporary-phone-number/), [receivesmsonline](https://receivesmsonline.in/), [jiemadi](https://www.jiemadi.com/en), [7sim](https://7sim.net/), [yunjiema](https://yunjiema.net/), [shownumber](https://lothelper.com/en/shownumber), [yunduanxin](https://yunduanxin.net/), [free-sms-receive](https://www.free-sms-receive.com/), [receivefreesms](https://receivefreesms.co.uk/), [smspinverify](https://smspinverify.com/), [receivefreesms.net](https://receivefreesms.net/), [smspool](https://www.smspool.net/free-sms-verification), [receive-smss](https://receive-smss.live/), [⁠eSIM Plus](https://esimplus.me/temporary-numbers), [receivesms](https://www.receivesms.co/), [PVAPins](https://pvapins.com/free-numbers), [⁠OnlineSim](https://onlinesim.io/), [⁠ReceiveSMSFast](https://receivesmsfast.com/), [Receive-SMS](https://receive-sms.io/), [⁠Verify SMS](https://verifysmsfree.com/), [⁠TempSMSOnline](https://tempsmsonline.com/), [SMSReceiveFree](https://smsreceivefree.xyz/), [⁠Sanalonay](https://sanalonay.com/), [⁠Text Verification](https://text-verification.net/), [⁠Online Sim](https://online-sim.pro/), [⁠FreePhone](https://freephone.io/), [⁠FreeReceiveSMS](https://freereceivesms.top/), [⁠Receive SMS Free](https://receivesms-free.com/), [⁠TempBoxPro](https://tempboxpro.com/temp-number), [gettempnumber](https://gettempnumber.com/), [ZUSMS](https://www.zusms.com/en), [PVAcodes](https://pvacodes.com/free-number), [Anosim](https://www.anosim.net/freenumbers)
+[TemporaryNumber](https://temporarynumber.com/), [TextNow](https://www.textnow.com/), [GetFreeSMSNUmber](https://getfreesmsnumber.com/), [Smser](https://smser.net/), [Receive SMS Online](https://www.receivesmsonline.net/), [My Trash Mobile](https://www.mytrashmobile.com/), [temp-sms](https://temp-sms.org/), [temporary-phone-number](https://temporary-phone-number.com/), [storytrain](https://www.storytrain.info/), [Temp Number](https://temp-number.com/), [receive-smss](https://receive-smss.com), [receive-sms-free](https://receive-sms-free.cc/), [quackr](https://quackr.io/), [smsnator](https://smsnator.online/), [InboxSMS](https://inboxsms.me/), [anonymsms](https://anonymsms.com/temporary-phone-number/), [receivesmsonline](https://receivesmsonline.in/), [jiemadi](https://www.jiemadi.com/en), [7sim](https://7sim.net/), [yunjiema](https://yunjiema.net/), [yunduanxin](https://yunduanxin.net/), [free-sms-receive](https://www.free-sms-receive.com/), [receivefreesms](https://receivefreesms.co.uk/), [smspinverify](https://smspinverify.com/), [receivefreesms.net](https://receivefreesms.net/), [smspool](https://www.smspool.net/free-sms-verification), [receive-smss](https://receive-smss.live/), [⁠eSIM Plus](https://esimplus.me/temporary-numbers), [receivesms](https://www.receivesms.co/), [PVAPins](https://pvapins.com/free-numbers), [⁠OnlineSim](https://onlinesim.io/), [⁠ReceiveSMSFast](https://receivesmsfast.com/), [Receive-SMS](https://receive-sms.io/), [⁠Verify SMS](https://verifysmsfree.com/), [⁠TempSMSOnline](https://tempsmsonline.com/), [SMSReceiveFree](https://smsreceivefree.xyz/), [⁠Sanalonay](https://sanalonay.com/), [⁠Text Verification](https://text-verification.net/), [⁠Online Sim](https://online-sim.pro/), [⁠FreePhone](https://freephone.io/), [⁠FreeReceiveSMS](https://freereceivesms.top/), [⁠TempBoxPro](https://tempboxpro.com/temp-number), [gettempnumber](https://gettempnumber.com/), [ZUSMS](https://www.zusms.com/en), [PVAcodes](https://pvacodes.com/free-number), [Anosim](https://www.anosim.net/freenumbers), [⁠Receive SMS](https://receive-sms-number.com/), [⁠Online Sim](https://online-sim.org/)
 
 ***
 
@@ -421,12 +416,13 @@
 * ⭐ **[Icons8](https://icons8.com/icons)** - Icon Collections
 * ⭐ **[SVG Repo](https://www.svgrepo.com/)** - Icon Collections
 * ⭐ **[Noun Project](https://thenounproject.com/)** - Monochrome Icons
+* [⁠3DIcons](https://3dicons.co/) - 3D SVG Icons
 * ⭐ **[SVGL](https://svgl.app/)**, [Dashboard Icons](https://dashboardicons.com/) or [selfh.st](https://selfh.st/icons/) / [GitHub](https://github.com/selfhst/icons) - Company / Program Icons
 * [useAnimations](https://useanimations.com/index.html), [heroicons-animated](https://www.heroicons-animated.com/), [lucide-animated](https://lucide-animated.com/) or [LordIcon](https://lordicon.com/) - Animated Icons
 * [GrommetIcons](https://icons.grommet.io/) - SVG Icons for React
 * [HealthIcons](https://healthicons.org/) - Medical Icons
 
-[Icofont](https://icofont.com/icons), [VisualPharm](https://visualpharm.com/), [Google Icons](https://fonts.google.com/icons), [iconer](https://iconer.app/), [SimpleIcons](https://simpleicons.org/), [xIcons](https://xicons.org), [Polaris](https://polaris.shopify.com/icons), [Phosphor Icons](https://phosphoricons.com/), [iCongo](https://icongo.github.io/), [IconFinder](https://www.iconfinder.com/), [Lucide](https://lucide.dev/), [Ant Design](https://ant.design/components/icon/), [IconPacks](https://www.iconpacks.net/), [Iconbuddy](https://iconbuddy.com/), [Orion](https://www.orioniconlibrary.com/), [Flaticon](https://www.flaticon.com/), [Devicon](https://devicon.dev/), [Glyphs](https://glyphs.fyi/), [IconArchive](https://iconarchive.com/), [IconDuck](https://iconduck.com/), [icon icons](https://icon-icons.com/), [Streamline](https://www.streamlinehq.com/), [Icones](https://icones.js.org/) / [GitHub](https://github.com/antfu-collective/icones), [CaptainIconWeb](https://mariodelvalle.github.io/CaptainIconWeb/), [IconNinja](https://www.iconninja.com/), [awsicons](https://awsicons.dev/), [iconoir](https://iconoir.com/), [heroicons](https://heroicons.dev/), [composeicons](https://composeicons.com/), [iconmonstr](https://iconmonstr.com/), [Nerd Fonts](https://www.nerdfonts.com/), [websvg](https://websvg.com/), [svgsilh](https://svgsilh.com/), [pictogrammers](https://pictogrammers.com/), [svgstack](https://svgstack.com/), [iconshelf](https://iconshelf.com/), [tabler icons](https://tabler.io/icons), [FreeSVG](https://freesvg.org/), [GriddyIcons](https://griddyicons.com/), [icons-for-free](https://icons-for-free.com/), [Solar](https://github.com/480-Design/Solar-Icon-Set), [Reicon](https://reicon.dev/)
+[Icofont](https://icofont.com/icons), [VisualPharm](https://visualpharm.com/), [Google Icons](https://fonts.google.com/icons), [iconer](https://iconer.app/), [SimpleIcons](https://simpleicons.org/), [xIcons](https://xicons.org), [Polaris](https://polaris.shopify.com/icons), [Phosphor Icons](https://phosphoricons.com/), [iCongo](https://icongo.github.io/), [IconFinder](https://www.iconfinder.com/), [Lucide](https://lucide.dev/), [Ant Design](https://ant.design/components/icon/), [IconPacks](https://www.iconpacks.net/), [Iconbuddy](https://iconbuddy.com/), [Orion](https://www.orioniconlibrary.com/), [Flaticon](https://www.flaticon.com/), [Devicon](https://devicon.dev/), [Glyphs](https://glyphs.fyi/), [IconArchive](https://iconarchive.com/), [IconDuck](https://iconduck.com/), [icon icons](https://icon-icons.com/), [Streamline](https://www.streamlinehq.com/), [Icones](https://icones.js.org/) / [GitHub](https://github.com/antfu-collective/icones), [CaptainIconWeb](https://mariodelvalle.github.io/CaptainIconWeb/), [IconNinja](https://www.iconninja.com/), [awsicons](https://awsicons.dev/), [iconoir](https://iconoir.com/), [heroicons](https://heroicons.dev/), [composeicons](https://composables.com/icons), [iconmonstr](https://iconmonstr.com/), [Nerd Fonts](https://www.nerdfonts.com/), [websvg](https://websvg.com/), [svgsilh](https://svgsilh.com/), [pictogrammers](https://pictogrammers.com/), [svgstack](https://svgstack.com/), [iconshelf](https://iconshelf.com/), [tabler icons](https://tabler.io/icons), [FreeSVG](https://freesvg.org/), [GriddyIcons](https://griddyicons.com/), [icons-for-free](https://icons-for-free.com/), [Solar](https://github.com/480-Design/Solar-Icon-Set), [Reicon](https://reicon.dev/)
 
 ***
 
@@ -462,4 +458,4 @@
 * [udemy-downloader](https://github.com/Puyodead1/udemy-downloader) - Udemy Downloader
 * [Udemy Download Guide](https://docs.google.com/document/d/1W91OS9rj7h9DBp5UwR68lA2zMEtqNmxdGaNVmBktIaw/) / [Discord](https://discord.gg/tMzrSxQ)
 
-[discudemy](https://www.discudemy.com/), [BARONIP COUPONS](https://baronip-coupons.blogspot.com/), [freebiesglobal](https://freebiesglobal.com/), [onlinecourses](https://www.onlinecourses.ooo/), [UdemyKing](https://t.me/udemyking1), [CourseArray](https://t.me/udemycoursesfree), [Udemy 24](https://coursesbag.com/), [UdemyFreeCourses](https://udemyfreecourses.org/), [Study Bullet](https://studybullet.com/) / [Telegram](https://telegram.me/joinchat/AAAAAFdxBDqPv7ZzVoUASw), [r/udemyfreebies](https://reddit.com/r/udemyfreebies), [Online Courses Tracker](https://comidoc.com/), [Real.Discount](https://www.real.discount/), [OnlineTutorials](https://www.onlinetutorials.org/), [Scroll Coupons](https://scrollcoupons.com/) / [Telegram](https://t.me/scroll_coupons), [UdemyXpert](https://udemyxpert.com/) / [Telegram](https://t.me/UdemyXpert), [FreeCourseSites](https://freecoursesites.com/)
+[discudemy](https://www.discudemy.com/), [BARONIP COUPONS](https://baronip-coupons.blogspot.com/), [freebiesglobal](https://freebiesglobal.com/), [onlinecourses](https://www.onlinecourses.ooo/), [UdemyKing](https://t.me/udemyking1), [CourseArray](https://t.me/udemycoursesfree), [Udemy 24](https://coursesbag.com/), [UdemyFreeCourses](https://udemyfreecourses.org/), [Study Bullet](https://studybullet.com/) / [Telegram](https://telegram.me/joinchat/AAAAAFdxBDqPv7ZzVoUASw), [r/udemyfreebies](https://reddit.com/r/udemyfreebies), [Online Courses Tracker](https://comidoc.com/), [Real.Discount](https://www.real.discount/), [OnlineTutorials](https://www.onlinetutorials.org/), [Scroll Coupons](https://scrollcoupons.com/) / [Telegram](https://t.me/scroll_coupons), [UdemyXpert](https://udemyxpert.com/) / [Telegram](https://t.me/UdemyXpert), [FreeCourseSites](https://fcsnew.net/)

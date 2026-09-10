@@ -45,7 +45,7 @@
 ## ▷ Archiving / Compression
 
 * 🌐 **[SuperCompression](https://supercompression.org/)** - File Compression Resources
-* ⭐ **[NanaZip](https://nanazip.org/)** / [GitHub](https://github.com/M2Team/NanaZip) or **[7-Zip](https://www.7-zip.org/)** - File Archiver
+* ⭐ **[NanaZip](https://nanazip.org/)** / [GitHub](https://github.com/M2Team/NanaZip) or **[7-Zip](https://www.7-zip.org/)** / [GitHub](https://github.com/ip7z/7zip) - File Archiver
 * ⭐ **[PeaZip](https://peazip.github.io/)** - Cross-Platform File Archiver / [GitHub](https://github.com/peazip/PeaZip/)
 * ⭐ **[CompactGUI](https://github.com/IridiumIO/CompactGUI)** - Transparent Compression
 * [Fileforums](https://fileforums.com/) or [Encode](https://encode.su/) - Data Compression Forums
@@ -108,7 +108,7 @@
 
 * ⭐ **[Everything](https://voidtools.com/)** - File Search Engine / [Alpha](https://www.voidtools.com/everything-1.5a/) / [Date Searching](https://rentry.co/etfd)
 * [Recoll](https://www.recoll.org/) / [Addon](https://addons.mozilla.org/en-US/firefox/addon/recoll-we/), [DocFetcher](https://docfetcher.sourceforge.io/) or [Orange](https://0-range.github.io/) - Cross-Platform Search Engines
-* [AnyTXT](https://anytxt.net/), [WizFile](https://antibody-software.com/wizfile/) or [FluentSearch](https://fluentsearch.net/) - Windows Search Engines
+* [AnyTXT](https://anytxt.net/) or [WizFile](https://antibody-software.com/wizfile/) - Windows Search Engines
 * [AstroGrep](https://sourceforge.net/projects/astrogrep/), [grepWin](https://github.com/stefankueng/grepWin) or [dnGrep](https://dngrep.github.io/) - Windows GUI Grep Utilities
 * [fselect](https://github.com/jhspetersson/fselect) - SQL-like Search Engine
 * [fd](https://github.com/sharkdp/fd) - User Friendly "find" Alternative
@@ -189,7 +189,7 @@
 * [Attribute Changer](https://www.petges.lu/) - Edit File & Folder Properties
 * [WhatsLink](https://whatslink.info/) - View File Download Web Metadata
 * [Magika](https://github.com/google/magika) or [TridUI](https://github.com/JMcrafter26/TridUI) - File Type Detection Tools
-* [TagSpaces](https://www.tagspaces.org/) or [Tagging for Windows](https://tagging.connectpaste.com/) - Tag-Based File Systems
+* [TagSpaces](https://www.tagspaces.org/) or [Tagging for Windows](https://www.taggingforwindows.com/) - Tag-Based File Systems
 * [SKTimeStamp](https://tools.stefankueng.com/SKTimeStamp.html) - Change File Created / Modified Time
 
 ***
@@ -239,8 +239,7 @@
 * [BreezePDF](https://breezepdf.com/) - Client-Side
 * [⁠itinypdf](https://itinypdf.com/) - Client-Side
 * [⁠PDFKing](https://pdfking.app/) - Client-Side / [Discord](https://discord.gg/TdQeMGz3A)
-* [PDFClear](https://www.pdfclear.com/) - Client-Side
-* [DigiPDF](https://digipdf.app/?lang=en_US) - Client-Side
+* [DigiPDF](https://digipdf.app/?lang=en_US) - Client-Side / [Codeberg](https://codeberg.org/ladigitale/digipdf)
 * [Sejda](https://www.sejda.com/) - Server-Side
 * [ILovePDF](https://www.ilovepdf.com/) - Server-Side
 * [⁠PDFResizer](https://pdfresizer.com/) - Server-Side
@@ -330,11 +329,11 @@
 * ⭐ **[Pixeldrain](https://pixeldrain.com/)** - 10GB / 60 Days After Last Download (10% min) / [Mirrors](https://docs.pixeldrain.com/questions_and_answers/#alternative-domain-names) / [Speedtest](https://pixeldrain.com/speedtest) / [Bypass](https://pixeldrain-bypass.gamedrive.to/)
 * ⭐ **[VikingFile](https://vikingfile.com/)** - Unlimited / 15 Days After Last Download / [Discord](https://discord.gg/EPEFC6KkpF)
 * ⭐ **[0807](https://0807.st/)** - 10GB / 30 Days After Last Download / [Discord](https://discord.gg/0807) / [Codeberg](https://codeberg.org/Sauul/0807)
-* ⭐ **[⁠DropDrive](https://dropdrive.org/)** - 100GB / 30 Days After Last Download
+* ⭐ **[⁠DropDrive](https://dropdrive.org/)** - 100GB / 60 Days After Last Download / [Discord](https://discord.com/invite/YSABtmnD7a)
 * ⭐ **[Mocha](https://mocha.my/)** - 15GB / 30 Days After Last Download / Signup Required / [Multi-Tool App](https://github.com/nxllvxxd/Mocha-Tools) / [Lite Version](https://lite.mocha.my/) (500MB, No Signup) / [Discord](https://discord.gg/hWPqHpCD3A)
 * ⭐ **[Pillowcase](https://pillows.su/)** - Audio File Host / 200MB (500MB w/ Account) / Forever
-* [Buzzheavier](https://buzzheavier.com/), [2](https://fuckingfast.net/), [3](https://bzzhr.co/) - Unlimited / 15 Day Expiry / +1 Hour Per DDL / **Use uBlock** / [File Expiry](https://buzzheavier.com/help) / [Discord](https://discord.gg/ttQjgC28WP) / [Warning](https://github.com/fmhy/edit/blob/main/docs/.vitepress/notes/buzzheavier-warning.md)
-* [⁠Rootz](https://rootz.so/) - 25GB / 15 Days After Last Download / Account Required / Unlimited for Backstage Users / **Use uBlock** / [Discord](https://discord.com/invite/rtz)
+* [Buzzheavier](https://buzzheavier.com/), [2](https://fuckingfast.net/), [3](https://bzzhr.co/) - Unlimited / 15 Day Expiry / +1 Hour Per DDL / 500MB Permanent (with account) / **Use uBlock** / [File Expiry](https://buzzheavier.com/help) / [Discord](https://discord.gg/ttQjgC28WP) / [Warning](https://github.com/fmhy/edit/blob/main/docs/.vitepress/notes/buzzheavier-warning.md)
+* [⁠Rootz](https://rootz.so/) - 25GB / 15 Days After Last Download / Account Required / Unlimited for Backstage Users / **Use uBlock**
 * [FileQ](https://fileq.net/) - 50GB / 20GB / 3 Days After Last Download / Has Unlimited Plans / **Use uBlock** / [Discord](https://discord.gg/zc2r9pZzF)
 * [FileMirage](https://filemirage.com/) - 50GB / 30 Days After Last View / **Use uBlock**
 * [Send.now](https://send.now/) - 100GB / 15 Days After Last Download (w/ Account)
@@ -354,7 +353,7 @@
 * [FileDitch](https://new.fileditch.com/) / [Discord](https://discord.gg/gACnap5kKx) or [SendGB](https://www.sendgb.com/) - 150GB / 90 Days
 * [hostb](https://hostb.org/) - Unlimited / 30 Days After Last Download / [Source Code](https://r-w-x.org/r/hostb.git)
 * [MixDrop](https://mixdrop.ag/) - Unlimited / 60 Days / Requires Signup
-* [Fast File](https://fast-file.com/) - 10GB / 20 Days After Last Download / [Status](https://status.fast-file.com/)
+* [Fast File](https://fast-file.com/) - 10GB / 20 Days After Last Download
 * [1fichier.com](https://1fichier.com/) - 300GB / 15 Days (30 Days w/ Account)
 * [Filebin](https://filebin.net/) - Unlimited / 6 Days / [Warning](https://github.com/fmhy/edit/blob/main/docs/.vitepress/notes/filebin-warning.md)
 * [file.kiwi](https://file.kiwi/) - Unlimited / 90 Hours / [File Expiry](https://file.kiwi/en/price)
@@ -371,13 +370,14 @@
 * [UploadNow](https://uploadnow.io/) - 100GB / 7 Days After Last Download
 * [eDisk](https://www.edisk.cz/) - 20GB / 30 Days
 * [SwissTransfer](https://www.swisstransfer.com/) - 50GB / 30 Days / 250 Downloads
-* [⁠Dfiles](https://dfiles.com/) - 10GB / 90 Days
+* [Depositfiles](https://depositfiles.com/) - 10GB / 90 Days
 * [BowFile](https://bowfile.com/) - 20GB / 20 Days / **Use uBlock**
 * [⁠TheUserCloud](https://theuser.cloud/) - 10GB / 60 Days
 * [Hexupload](https://hexload.com/) - 15GB / 30 Days
 * [Tempcloud](https://temp.kotol.cloud/) - 10GB / 3 Days
 * [GrosFichiers](https://www.grosfichiers.com/) - 10GB / 14 Days
 * [FileFast](https://file.fast/) - 5GB / Unlimited
+* [Akira Box](https://akirabox.com/), [2](https://akirabox.to/) - 20GB Free / 30 Days After Last Download / **Use uBlock**
 * [Imagenetz](https://www.imagenetz.de/?setLang=en) - 5GB / 30 Days After Last Download
 * [patchy.moe](https://patchy.moe/), [2](https://ayaya.beauty/) - 4GB / 14 Days / [Source Code](https://codeberg.org/Fijxu/patchy)
 * [FilePort](https://fileport.io/) - 5GB / 7 Days

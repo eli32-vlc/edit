@@ -154,7 +154,7 @@
 * ⭐ **[Ditto](https://ditto-cp.sourceforge.io/)** / Windows / [GitHub](https://sabrogden.github.io/Ditto/)
 * [PasteBar](https://www.pastebar.app/) / Windows, macOS / [GitHub](https://github.com/PasteBar/PasteBarApp)
 * [CrossPaste](https://crosspaste.com/) / Windows, macOS, Linux / [GitHub](https://github.com/crosspaste/crosspaste-desktop)
-* [UniClipboard](https://www.uniclipboard.app/) - Windows, macOS, Linux, Android, iOS / [GitHub](https://github.com/UniClipboard/UniClipboard)
+* [UniClipboard](https://www.uniclipboard.app/) / Windows, macOS, Linux, Android, iOS / [GitHub](https://github.com/UniClipboard/UniClipboard)
 * [ArsClip](https://www.joejoesoft.com/vcms/97/) / Windows
 * [ClipAngel](https://sourceforge.net/projects/clip-angel/) / Windows
 * [CopyQ](https://hluk.github.io/CopyQ/) / Windows, macOS, Linux / [GitHub](https://github.com/hluk/CopyQ) - Clipboard Manager with Editing and Scripting Features
@@ -181,7 +181,7 @@
 * ⭐ **[VMware Workstation](https://www.techpowerup.com/download/vmware-workstation-pro/)** - Virtual Machine / [macOS VM](https://rentry.co/FMHYB64#vmware-workstation)
 * ⭐ **[QEMU](https://www.qemu.org/)** - Virtual Machine / Use w/ Virt-Manager or Vagrantup / [Docker Container](https://github.com/qemus/qemu) / [GitLab](https://gitlab.com/qemu-project/qemu)
 * ⭐ **[VirtualBox](https://www.virtualbox.org/)** - Virtual Machine / [GitHub](https://github.com/VirtualBox/virtualbox)
-* ⭐ **[Virt-Manager](https://virt-manager.org/)** / [GitHub](https://github.com/virt-manager/virt-manager), [Dexpot](https://www.dexpot.de/) or [Vagrantup](https://www.vagrantup.com/) / [GitHub](https://github.com/hashicorp/vagrant) - Virtual Machine Managers
+* ⭐ **[Virt-Manager](https://virt-manager.org/)** / [GitHub](https://github.com/virt-manager/virt-manager), [Dexpot](https://www.dexpot.de/) or [Vagrantup](https://developer.hashicorp.com/vagrant) / [GitHub](https://github.com/hashicorp/vagrant) - Virtual Machine Managers
 * [Looking Glass](https://looking-glass.io/) - Kernel-Based Virtual Machine for VGA PCI Pass-Through / [GitHub](https://github.com/gnif/LookingGlass)
 * [Hyper-V](https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/) - Virtual Machine
 * [OSBoxes](https://www.osboxes.org/) - Preinstalled Virtual Machine
@@ -288,7 +288,7 @@
 * ⭐ **[DisplayFusion](https://www.displayfusion.com/)** or [Dual Monitor Tool](https://sourceforge.net/projects/dualmonitortool/) - Dual Monitor Tools
 * ⭐ **[f.lux](https://justgetflux.com/)**, [LightBulb](https://github.com/Tyrrrz/LightBulb) or [ScreenTemperature](https://github.com/massaiTHEdog1/ScreenTemperature) - Auto-Adjust Display Color / Temperature
 * ⭐ **[Monitorian](https://github.com/emoacht/Monitorian)**, **[Twinkle Tray](https://twinkletray.com/)** / [GitHub](https://github.com/xanderfrangos/twinkle-tray) or [Dimmer](https://www.nelsonpires.com/software/dimmer) - Adjust Monitor Brightness
-* [EIZO](https://www.eizo.be/monitor-test/), [Monitor](https://www.monitortests.com/) or [LCDTech](https://lcdtech.info/en/tests/) - Monitor Performance Tests
+* [EIZO](https://www.eizo.be/monitor-test/), [Monitor](https://www.monitortests.com/) or [LCDTech](https://displaytech.org/en/tests/) - Monitor Performance Tests
 * [TestUFO](https://www.testufo.com/) - Monitor Framerate Test
 * [LittleBigMouse](https://github.com/mgth/LittleBigMouse) - DPI Test
 * [Scalizer](https://github.com/wonmor/Scalizer-Windows) - Auto DPI Scaling / [YouTube](https://youtu.be/f_3XWlmyat4)
@@ -320,7 +320,9 @@
 * [Ergogen](https://ergogen.xyz/) - Design / Make Ergonomic Keyboards
 * [⁠Keyboard Tester](https://keyboardtest.io/) or [Key Test](https://en.key-test.ru/) - Keyboard Testers
 * [HotkeyP](https://sourceforge.net/projects/hotkeyp/) or [CheatKeys](https://cheatkeys.com/cheatsheet) - Hotkey Remapping
-* [⁠Mouse Tester](https://mousetester.io/) - Mouse Testing Tools 
+* [OpenMouse](https://openmouse.app/) / [Discord](https://discord.com/invite/yxC9jzMdw6) / [GitHub](https://github.com/OpenMouse-Project) or [Piper](https://github.com/libratbag/piper) - Mouse Config Tools
+* [⁠Onboard Memory Manager](https://support.logi.com/hc/en-gb/articles/360059641133-Onboard-Memory-Manager) - Modify Logitech G Mouse Memory
+* [⁠Mouse Tester](https://mousetester.io/) - Mouse Testing Tools
 * [X-Mouse Button Control](https://www.highrez.co.uk/downloads/XMouseButtonControl.htm) - Re-Map Mouse Buttons / Scroll Wheel
 * [MoveMouse](https://github.com/sw3103/movemouse/) or [MouseJiggler](https://github.com/arkane-systems/mousejiggler) - Simulate User Activity
 * [Raw Accel](https://github.com/RawAccelOfficial/rawaccel) - Mouse Acceleration Tool

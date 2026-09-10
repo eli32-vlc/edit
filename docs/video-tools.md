@@ -12,7 +12,7 @@
 * ↪️ **[AI Video Generators](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/ai#wiki_.25BA_video_generation)**
 * ⭐ **[Reincubate Camo](https://camo.com/studio)** - Use Any Camera as Webcam
 * [Kast](https://kast.gg/), [Screensy](https://screensy.marijn.it/) / [GitHub](https://github.com/screensy/screensy), [⁠Broadcast Box](https://b.siobud.com/) / [GitHub](https://github.com/Glimesh/broadcast-box), [Screen Share Party](https://ba.net/screen/), [Screego](https://app.screego.net/) / [GitHub](https://github.com/screego/server/) or [Screen-Sharing](https://share-your-screen.vercel.app/) / [GitHub](https://github.com/tonghohin/screen-sharing) - Web-Based Screen Sharing
-* [⁠LonelyScreen](https://www.lonelyscreen.com/) - AirPlay Receiver for PC / macOS
+* [⁠LonelyScreen](https://www.lonelyscreen.com/) or [⁠uxplay-windows](https://github.com/leapbtw/uxplay-windows) - AirPlay Receivers
 * [Deep-Live-Cam](https://github.com/hacksider/Deep-Live-Cam), [Rope](https://github.com/Hillobar/Rope), [SimSwap](https://github.com/neuralchen/SimSwap) or [Roop](https://github.com/s0md3v/roop) - Video Face Swap Tools
 * [VideoHelp Forum](https://forum.videohelp.com/) - All Things Media / Video
 * [ICAT](https://www.nvidia.com/en-us/geforce/technologies/icat/) or [Video Compare](https://github.com/pixop/video-compare) - Video Quality Comparison & Analysis Tools
@@ -46,14 +46,14 @@
 * ↪️ **[Streaming Hosts](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/video#wiki_.25B7_video_streaming)** - Host Videos on YouTube Style Sites
 * ⭐ **[DoodStream](https://doodstream.com/)** - 5GB / 60 Days / Requires Sign-Up
 * ⭐ **[Litterbox](https://litterbox.catbox.moe/)** - 1GB / 3 Days
-* ⭐ **[Catbox](https://catbox.moe/)** - 200MB / Forever / Allows Hotlinking
+* ⭐ **[Catbox](https://catbox.moe/)** - 200MB / Forever  (w/ Account) / Allows Hotlinking
 * ⭐ **[Gofile](https://gofile.io/)** - 100GB Monthly / 10 Days
 * ⭐ **[Send.now](https://send.now/)** - Unlimited / 15 Days After Last View (w/ Account)
 * [VOE](https://voe.sx/) - Unlimited / 60 Days / 720p / Requires Sign-Up
 * [MixDrop](https://mixdrop.ag/) - Unlimited / 60 Days / 720p / Requires Sign-Up
 * [FEX.NET](https://fex.net/) - 100GB / 10GB Guest / 7 Days / [Telegram](https://t.me/FEXNETWORK)
 * [Byse](https://byse.sx/), [2](https://filemoon.sx/), [3](https://filemoon.to/) - 50GB / 40TB per account / Forever / Requires Sign-Up
-* [Hexupload](https://hexload.com/) or [AnonTransfer](https://anontransfer.com/) - 15GB / 30 Days
+* [Hexupload](https://hexload.com/) - 15GB / 30 Days
 * [Vidoza](https://vidoza.net/) - 15GB / 15 Days / Requires Sign-Up
 * [⁠Streamain](https://streamain.com/) - Unlimited / Forever
 * [Vidmoly](https://vidmoly.me/) - 15TB / 1 Year
@@ -135,7 +135,7 @@
 * [ffmpeg-web](https://ffmpeg-web.netlify.app/) / [GitHub](https://github.com/Dinoosauro/ffmpeg-web), [FFmpeg Online](https://ffmpeg.wide.video/), [⁠ffmpeg webCLI](https://tejaswigowda.com/ffmpeg-webCLI/) / [GitHub](https://github.com/tejaswigowda/ffmpeg-webCLI) or [ffmpegwasm](https://ffmpegwasm.netlify.app/) / [2](https://ffmpeg.gcc.ac.cn/) / [GitHub](https://github.com/ffmpegwasm/ffmpeg.wasm) - FFmpeg Web Apps
 * [FFmpeg Libav](https://github.com/leandromoreira/ffmpeg-libav-tutorial) or [ffmprovisr](https://amiaopensource.github.io/ffmprovisr/) - FFmpeg Guides
 * [ASM Lessons](https://github.com/FFmpeg/asm-lessons) - FFmpeg Assembly Language Lessons / Multiple Languages
-* [FFmpeg Cheat Sheet](https://gist.github.com/steven2358/ba153c642fe2bb1e47485962df07c730), [FFmpeg Commander](https://alfg.github.io/ffmpeg-commander/) or [FFmpeg Buddy](https://evanhahn.github.io/ffmpeg-buddy/) - Command Lists
+* [FFmpeg Cheat Sheet](https://gist.github.com/steven2358/ba153c642fe2bb1e47485962df07c730), [FFmpeg Commander](https://ffmpeg-commander.com/) or [FFmpeg Buddy](https://evanhahn.github.io/ffmpeg-buddy/) - Command Lists
 * [WebMConverter](https://argorar.github.io/WebMConverter/) - WebM Converter
 * [PureMPV](https://github.com/4ndrs/PureMPV) - Info Copy Tool
 * [FFmpeg Batch](https://ffmpeg-batch.sourceforge.io/) - Bulk Conversion Tools
@@ -247,7 +247,7 @@
 * [Mzelo](https://mzelo.com/) - Online Player
 * [CyTube](https://cytu.be/) - Online Player
 * [⁠CinevoSync](https://sync.cinevo.us/) - Online Player
-* [VideoTogether](https://2gether.video/en-us/) - App
+* [VideoTogether](https://videotogether.github.io/) - App
 * [baked.live](https://baked.live/) - Online Player
 * [Rave.io](https://rave.io/) - Online Extension
 * [MovieNight](https://github.com/zorchenhimer/MovieNight) - Docker / [Discord](https://discord.gg/F2VSgjJ)
@@ -316,9 +316,9 @@
 * [Frames](https://github.com/Eleven-am/frames) - Google Drive Server
 * [HTPC](https://r-htpc.github.io/wiki/) - Home Theater PC guides / [Subreddit](https://www.reddit.com/r/htpc/)
 * [MSX](https://msx.benzac.de/info/) - Web App
-* [TheIntroDB](https://theintrodb.org/) / [Discord](https://discord.gg/Qn6RhamxT5) / [Telegram](https://t.me/theintrodb) / [GitHub](https://github.com/TheIntroDB) or [SkipDB](https://skipdb.tv/) - Intro / Credit Skipping
+* [TheIntroDB](https://theintrodb.org/) / [Discord](https://discord.gg/Qn6RhamxT5) / [Telegram](https://t.me/theintrodb) / [GitHub](https://github.com/TheIntroDB) or [SkipDB](https://skipdb.tv/) / [Status](https://status.skipdb.tv/) / [GitHub](https://github.com/SkipDB-TV/skipdb) - Intro / Credit Skipping
 * [Tunarr](https://tunarr.com/) / [GitHub](https://github.com/chrisbenincasa/tunarr/), [ErsatzTV](https://ersatztv.org/) or [dizqueTV](https://github.com/vexorian/dizquetv) - Custom Live Channel Servers
-* [⁠YAMS](https://yams.media/) - Linux Media Server Auto-Install Script 
+* [⁠YAMS](https://yams.media/) - Linux Media Server Auto-Install Script / [Discord](https://discord.com/invite/Gwae3tNMST)
 * [ansible-hms-docker](https://github.com/ahembree/ansible-hms-docker) or [DockSTARTer](https://github.com/GhostWriters/DockSTARTer) - Automated Docker Media Server Setups
 * [Seerr](https://github.com/seerr-team/seerr) / [Mobile](https://github.com/seerr-team/mobile-app) or [Ombi](https://github.com/Ombi-app/Ombi) - User Request Management 
 * [Dispatcharr](https://github.com/Dispatcharr/Dispatcharr) or [⁠tuliprox](https://github.com/euzu/tuliprox) - IPTV Playlist Managers for Servers
@@ -332,12 +332,12 @@
 * [Reddit Guide](https://redd.it/ma1hlm) - Plex Setup Guides
 * [Tautulli](https://tautulli.com/) - Server Monitor / [Note](https://github.com/fmhy/edit/blob/main/docs/.vitepress/notes/tautulli-note.md)
 * [Kitana](https://github.com/pannal/Kitana) - Plugin Frontend
-* [Reaparr](https://www.reaparr.rocks/) - Merge Plex Libraries w/ Your Own
-* [PlexDrive](https://github.com/plexdrive/plexdrive) or [mergerfs](https://docs.ultra.cc/books/rclone/page/rclone-vfs-and-mergerfs-setup) - Mount Google Drive
-* [SyncLounge](https://synclounge.tv/) - Media Sync
+* [Reaparr](https://www.reaparr.rocks/) - Merge Plex Libraries w/ Your Own / [Docs](https://github.com/Reaparr/Docs) / [Discord](https://discord.com/invite/k2KvDJbnNm) / [GitHub](https://github.com/Reaparr/Reaparr)
+* [PlexDrive](https://github.com/plexdrive/plexdrive) - Mount Google Drive
+* [SyncLounge](https://github.com/synclounge/synclounge) - Media Sync
 * [PseudoTV](https://github.com/DEFENDORe/pseudotv) - Create TV Channels
-* [Overseerr](https://overseerr.dev/) - User Requests / [IMDb Extension](https://chromewebstore.google.com/detail/overseerr-assistant/hopnjiadheaagfhpipecoamoegijhnij)
-* [Pasta Tool](https://www.pastatool.com/) - Audio / Sub Changer
+* [Overseerr](https://seerr.dev/) - User Requests / [IMDb Extension](https://chromewebstore.google.com/detail/overseerr-assistant/hopnjiadheaagfhpipecoamoegijhnij)
+* [Pasta Tool](https://www.pastatool.com/) - Audio / Sub Changer / [GitHub](https://github.com/cglatot/pasta)
 
 ***
 
@@ -360,7 +360,6 @@
 ## ▷ Kodi Tools
 
 * ⭐ **[Elementum](https://elementum.surge.sh/)** - Torrent Streaming / Trakt Sync / Similar to Stremio + Torrentio
-* [EverythingKodi](https://rumble.com/c/EverythingKodi) - Kodi Addon Tutorials
 * [Kodi Builds Chart](https://kodiapps.com/builds-chart)
 * [r/Addons4Kodi](https://www.reddit.com/r/Addons4Kodi/) / [Tracker](https://kinkeadtech.com/best-kodi-streaming-addons/) / [Trending](https://kodiapps.com/addons-chart) or [⁠TroyPoint](https://troypoint.com/) - Kodi Addons
 * [Kodi Skins](https://kodi.tv/addons/omega/category/skins/) or [WIP Skins](https://forum.kodi.tv/forumdisplay.php?fid=160) - Kodi Skins
@@ -490,6 +489,7 @@
 * [Download Pirate](https://www.downloadpirate.com/) - **Use [Adblock](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/adblock-vpn-privacy/#wiki_.25BA_adblocking)** / [Discord](https://discord.gg/ucTvVtBz9Z)
 * [Ae Blender](https://www.aeblender.com/)
 * [HunterAE](https://hunterae.com/)
+* [⁠ScenePacks](https://t.me/moviescenepack)
 * [AETemp](https://t.me/AETemp)
 * [Visual Effects Pack](https://t.me/visual_effects_pack)
 * [AEDownloadPro](https://aedownloadpro.com/)
@@ -512,7 +512,6 @@
 * [cgplugdump](https://t.me/cgplugdump) - CG Software Plugins
 * [Physically Based](https://physicallybased.info/) - RGB Values of Elements
 * [AnimeEffects](https://github.com/AnimeEffectsDevs/AnimeEffects), [enve](https://maurycyliebner.github.io/), [Cavalry](https://cavalry.studio/), [TupiTube](https://tupitube.com/) or [Synfig](https://www.synfig.org/) - 2D Animation Tools
-* [ScribbleDiffusion](https://scribblediffusion.com/) - Turn Doodles into Artwork
 * [MonsterMash](https://monstermash.zone/) - Sketch-Based Modeling & Animation Tool
 * [Storyboarder](https://wonderunit.com/storyboarder/) - Quickly Visualize & Test Animations / [GitHub](https://github.com/wonderunit/storyboarder)
 * [LuxCoreRender](https://luxcorerender.org/) - Rendering Engine
@@ -520,7 +519,7 @@
 * [Mandelbulber](https://mandelbulber.com/) or [FragM](https://github.com/3Dickulus/FragM) - Fractal Rendering Software / [3D](https://mb3d.overwhale.com/)
 * [JWildfire](https://jwildfire.overwhale.com/), [IFSRenderer](https://github.com/bezo97/IFSRenderer) or [Fractorium](http://fractorium.com/) - Flame Fractal Rendering Software
 * [BestSnip](https://bestsnip.com/animation/), [Sketch Machine](https://sketchmachine.net/), [Plask](https://plask.ai/) or [Rive](https://rive.app/) - Online Animation Tools
-* [Glaxnimate](https://glaxnimate.mattbas.org/) or [Trangram](https://www.trangram.com/) - Vector Animation Tools
+* [Glaxnimate](https://glaxnimate.org/) or [Trangram](https://www.trangram.com/) - Vector Animation Tools
 * [LibreSprite](https://libresprite.github.io/) / [GitHub](https://github.com/LibreSprite/LibreSprite), [GraphicsGale](https://graphicsgale.com/us/), [Poxil](https://poxil.vercel.app/) / [GitHub](https://github.com/F4tal1t/Poxil), [JPixel](https://pixelfromhell.itch.io/jpixel), [Aseprite](https://github.com/aseprite/aseprite) / [Guide](https://youtu.be/Z4Enx-Nb43E), [SpriteSheep](https://spritesheep.com/) / [Discord](https://discord.gg/cQBZV3FcEZ), [fizzy](https://fizzyed.it/) / [Web App](https://fizzyed.it/app/) / [GitHub](https://github.com/fizzyedit/fizzy), [KPix](https://github.com/krush62/KPix) or [SpookyGhost](https://encelo.itch.io/spookyghost) - Pixel Art Animation Tools
 * [⁠Wigglypaint](https://wigglypaint.com/) / [2](https://wigglypaint.net/) or [FizzPaint](https://fizzpaint.ameniwa.com/) - Browser Painting / Animated Brushes
 * [Spritesheet Generator](https://spritesheetgenerator.online/) - Spritesheet Generator
@@ -537,6 +536,7 @@
 ## ▷ Stock Videos
 
 * 🌐 **[Awesome Stock Resources](https://github.com/neutraltone/awesome-stock-resources#videos)** or **[CuteStockFootage](https://cutestockfootage.com/free/video)** - Stock Video Indexes
+* [⁠Destockd](https://www.destockd.com/) - Stock Videos
 * [Pexels](https://www.pexels.com/) - Stock Videos
 * [Dareful](https://dareful.com/) - 4K Stock Videos
 * [Monzoom](https://www.monzoom.com/) - 4K Stock Videos
