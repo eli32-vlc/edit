@@ -1099,9 +1099,64 @@ html.monolith {
     --vp-nav-height: 48px;
     --vp-nav-logo-height: 20px;
   }
+}
 
+/* ≥768px: the search pill sits next to the logo, so the local nav
+   keeps its own row below the navbar (overlaying it would block search). */
+@media (min-width: 768px) {
+  html.fmhy-doc-layout .VPLocalNav {
+    top: var(--vp-nav-height) !important;
+  }
+}
+
+/* Below 768px the navbar's right side is just search + hamburger, so the
+   local nav merges into the same row on doc pages:
+   [logo] [≡ Menu] [On this page] … [🔍] [☰]
+   Range syntax matches the innerWidth < 768 check in Layout.vue — fractional
+   viewports (e.g. 767.5px) must not fall between the two rules. */
+@media (width < 768px) {
   .DocSearch-Button {
     width: 44px;
     height: 48px;
+  }
+
+  html.fmhy-doc-layout {
+    .VPLocalNav {
+      position: fixed;
+      top: var(--vp-layout-top-height, 0px) !important;
+      height: var(--vp-nav-height);
+      padding-top: 0;
+      background: transparent;
+      border-bottom: none;
+      pointer-events: none;
+      z-index: calc(var(--vp-z-index-nav) + 1);
+    }
+
+    .VPLocalNav .container {
+      justify-content: flex-start;
+      height: var(--vp-nav-height);
+      padding-left: 44px; /* clear of the logo icon */
+      padding-right: 92px; /* clear of search + hamburger */
+      pointer-events: none;
+    }
+
+    .VPLocalNav .menu,
+    .VPLocalNav .VPLocalNavOutlineDropdown,
+    .VPLocalNav .items {
+      pointer-events: auto;
+    }
+
+    .VPLocalNav .menu {
+      padding: 12px 8px 11px;
+    }
+
+    .VPLocalNav .VPLocalNavOutlineDropdown {
+      padding: 12px 8px 11px;
+    }
+
+    /* Icon-only logo so it doesn't collide with the Menu button. */
+    .VPNavBarTitle .title span {
+      display: none;
+    }
   }
 }
