@@ -197,10 +197,21 @@ func internalURL(url string) bool {
 }
 
 // Stable ID: wiki edits must not renumber sites, or saved feed state
-// (likes/saves) would silently transfer to different entries.
+// (likes/saves) would silently transfer to different entries. Guides repeat
+// some URLs (312 dupes today), so later occurrences get an index suffix —
+// stable as long as the wiki doesn't reorder within a duplicate group.
+var siteKeyCount = map[string]int{}
+
 func siteID(slug, url string) string {
+	key := slug + "|" + url
+	n := siteKeyCount[key]
+	siteKeyCount[key]++
 	h := fnv.New64a()
-	fmt.Fprintf(h, "%s|%s", slug, url)
+	if n == 0 {
+		fmt.Fprintf(h, "%s", key)
+	} else {
+		fmt.Fprintf(h, "%s|%d", key, n)
+	}
 	return "s" + strconv.FormatUint(h.Sum64(), 36)
 }
 

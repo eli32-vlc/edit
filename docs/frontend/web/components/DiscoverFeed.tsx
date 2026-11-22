@@ -8,7 +8,7 @@ import {
   buildTaste,
   loadFeed,
   markSeen,
-  resetFeed
+  resetTaste
 } from '@/lib/feed'
 import {
   ArrowUpRight,
@@ -85,8 +85,7 @@ export function DiscoverFeed({ sites }: { sites: Site[] }) {
   )
 
   const onReset = useCallback(() => {
-    resetFeed()
-    setState(loadFeed())
+    setState((st) => st && resetTaste(st))
     setCursor(0)
     setEpoch((e) => e + 1)
   }, [])

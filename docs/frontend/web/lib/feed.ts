@@ -22,8 +22,14 @@ export function loadFeed(): FeedState {
   }
 }
 
-export function resetFeed() {
-  localStorage.removeItem(KEY)
+// Clears tuning signals but keeps saved bookmarks — they're user data,
+// not part of the taste model.
+export function resetTaste(state: FeedState): FeedState {
+  const s = { ...empty(), saves: { ...state.saves } }
+
+  persist(s)
+
+  return s
 }
 
 function empty(): FeedState {
