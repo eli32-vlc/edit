@@ -7,6 +7,7 @@ export interface FeedState {
   likes: Record<string, true>
   saves: Record<string, true>
   dismisses: Record<string, true>
+  frozenSaves: Record<string, true>
   pageW: Record<string, number>
   secW: Record<string, number>
   seen: Record<string, number>
@@ -23,9 +24,14 @@ export function loadFeed(): FeedState {
 }
 
 // Clears tuning signals but keeps saved bookmarks — they're user data,
-// not part of the taste model.
+// not part of the taste model. Kept saves are frozen: excluded from the
+// taste vector until the user re-saves them.
 export function resetTaste(state: FeedState): FeedState {
-  const s = { ...empty(), saves: { ...state.saves } }
+  const s = {
+    ...empty(),
+    saves: { ...state.saves },
+    frozenSaves: { ...state.saves }
+  }
 
   persist(s)
 
@@ -33,7 +39,15 @@ export function resetTaste(state: FeedState): FeedState {
 }
 
 function empty(): FeedState {
-  return { likes: {}, saves: {}, dismisses: {}, pageW: {}, secW: {}, seen: {} }
+  return {
+    likes: {},
+    saves: {},
+    dismisses: {},
+    frozenSaves: {},
+    pageW: {},
+    secW: {},
+    seen: {}
+  }
 }
 
 function persist(s: FeedState) {
@@ -64,10 +78,12 @@ export function act(
   } else if (action === 'save') {
     if (s.saves[site.id]) {
       delete s.saves[site.id]
+      delete s.frozenSaves[site.id]
       bump(s.pageW, site.page, -1.4)
       bump(s.secW, site.section, -0.8)
     } else {
       s.saves[site.id] = true
+      delete s.frozenSaves[site.id]
       bump(s.pageW, site.page, 1.4)
       bump(s.secW, site.section, 0.8)
     }
@@ -123,7 +139,8 @@ export async function buildTaste(state: FeedState): Promise<TasteModel> {
 
   for (const id of Object.keys(state.likes)) add(id, 1)
 
-  for (const id of Object.keys(state.saves)) add(id, 1.5)
+  for (const id of Object.keys(state.saves))
+    if (!state.frozenSaves[id]) add(id, 1.5)
 
   for (const id of Object.keys(state.dismisses)) add(id, -1.2)
 
