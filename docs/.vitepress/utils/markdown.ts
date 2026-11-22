@@ -1,4 +1,6 @@
 import type { MarkdownRenderer } from 'vitepress'
+import { localeNotesDir, t } from '../i18n/node'
+import { LOCALE } from '../i18n/shared'
 import { getTooltip } from './tooltips'
 
 const NOTE_MATCH_RE = /\.vitepress\/notes\/([\w-]+)(?:\.md)?$/
@@ -102,7 +104,12 @@ export function replaceNoteLink(md: MarkdownRenderer) {
         const match = href.match(NOTE_MATCH_RE)
         if (!match) continue
 
-        const item = getTooltip(match[1])
+        const isLocalePage = String(state.env?.relativePath ?? '').startsWith(
+          `${LOCALE}/`
+        )
+        const item =
+          (isLocalePage && getTooltip(match[1], localeNotesDir)) ||
+          getTooltip(match[1])
         if (!item) continue
 
         // Find closing link tag
@@ -120,7 +127,7 @@ export function replaceNoteLink(md: MarkdownRenderer) {
 
         const rendered = md.render(content)
         const props = title ? `title="${title.replace(/"/g, '&quot;')}"` : ''
-        const footer = `<div class="mt-2 text-right opacity-50 text-xs"><a class="tooltip-source-link" href="${href}">Source</a></div>`
+        const footer = `<div class="mt-2 text-right opacity-50 text-xs"><a class="tooltip-source-link" href="${href}">${isLocalePage ? t('Source') : 'Source'}</a></div>`
         if (item.critical) {
           const slashList = SLASH_LIST_PAGES.has(state.env?.relativePath ?? '')
           for (const k of findGuardedLinks(children, i, slashList)) {

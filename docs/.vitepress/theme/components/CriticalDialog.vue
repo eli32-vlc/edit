@@ -8,6 +8,9 @@ import {
   DialogTitle
 } from 'reka-ui'
 import { ref } from 'vue'
+import { useT } from '../composables/i18n'
+
+const t = useT()
 
 const props = withDefaults(
   defineProps<{
@@ -59,7 +62,7 @@ const confirm = () => {
             class="i-ph-warning-circle-duotone critical-dialog-icon"
             aria-hidden="true"
           />
-          {{ title || 'Warning' }}
+          {{ title || t('Warning') }}
         </DialogTitle>
 
         <DialogDescription class="critical-dialog-text">
@@ -76,7 +79,9 @@ const confirm = () => {
             type="checkbox"
             class="critical-checkbox"
           />
-          <span class="critical-checkbox-label">Don't show again</span>
+          <span class="critical-checkbox-label">
+            {{ t("Don't show again") }}
+          </span>
         </label>
 
         <div class="critical-dialog-actions">

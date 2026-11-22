@@ -30,9 +30,11 @@
  */
 
 import type { MarkdownRenderer } from 'vitepress'
+import { t } from '../i18n/node'
 import { headers } from '../transformer/constants'
 
-const titles = Object.keys(headers).map((key) => headers[key].title)
+const titles = Object.values(headers).flatMap((h) => [h.title, t(h.title)])
+const removedTitle = headers['recently-removed.md'].title
 
 // Escape a value for safe interpolation into a double-quoted HTML attribute.
 const escapeAttr = (str: string): string =>
@@ -59,7 +61,7 @@ export const headersPlugin = (md: MarkdownRenderer) => {
     const level = tokens[idx].tag.slice(1)
     if (
       !titles.includes(env.frontmatter.title) ||
-      env.frontmatter.title === 'Recently Removed Sites' ||
+      [removedTitle, t(removedTitle)].includes(env.frontmatter.title) ||
       level !== '2'
     )
       return result

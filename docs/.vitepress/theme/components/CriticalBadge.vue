@@ -3,6 +3,9 @@ import { useMediaQuery } from '@vueuse/core'
 import { withBase } from 'vitepress'
 import { computed, onMounted, ref } from 'vue'
 import { registerCriticalNote } from '../composables/criticalRegistry'
+import { useT } from '../composables/i18n'
+
+const t = useT()
 
 const props = withDefaults(
   defineProps<{ title?: string; noteId?: string; contentHash?: string }>(),
@@ -49,7 +52,9 @@ onMounted(() => {
     >
       <button
         type="button"
-        :aria-label="title ? `Warning: ${title}` : 'More information'"
+        :aria-label="
+          title ? t('Warning: {title}', { title }) : t('More information')
+        "
         aria-haspopup="dialog"
         :aria-expanded="shown"
         class="warning-note-trigger relative inline-flex items-center justify-center leading-none p-0 select-none font-bold cursor-pointer h-[1.5em] w-[1.5em] overflow-visible align-middle"

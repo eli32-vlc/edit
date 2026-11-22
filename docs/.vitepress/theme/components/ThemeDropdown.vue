@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
+import { useT } from '../composables/i18n'
 import AppearancePanel from './AppearancePanel.vue'
+
+const t = useT()
 
 const dropdownRef = ref<{
   hide: (options?: { skipDelay?: boolean }) => void
@@ -49,8 +52,8 @@ onUnmounted(() => {
           type="button"
           class="theme-dropdown-toggle"
           :class="{ active: shown }"
-          title="Appearance and themes"
-          aria-label="Appearance and themes"
+          :title="t('Appearance and themes')"
+          :aria-label="t('Appearance and themes')"
         >
           <ClientOnly>
             <div class="i-ph-palette-duotone text-xl" />

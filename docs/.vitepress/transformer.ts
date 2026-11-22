@@ -16,6 +16,8 @@
 
 import type { Plugin } from 'vitepress'
 import { basename } from 'node:path'
+import { t } from './i18n/node'
+import { LOCALE } from './i18n/shared'
 import { ICON_LINKS, REDDIT_WIKI_PATHS } from './shared'
 import { excluded, getHeader } from './transformer/constants'
 import { replaceUnderscore, transformer } from './transformer/core'
@@ -27,27 +29,31 @@ export function transformsPlugin(): Plugin {
     transform(code, id) {
       const _id = basename(id)
 
-      if (
-        id.endsWith('.md') &&
-        !excluded.includes(_id) &&
-        // check if it's a post
-        !id.includes('posts') &&
-        !id.includes('other')
-      ) {
-        const header = getHeader(_id)
-        if (_id === 'recently-removed.md') return header + code
-        const contents = transform(code)
-
-        if (_id === 'beginners-guide.md') {
-          const _contents = transformGuide(contents)
-          return header + _contents
-        }
-        if (_id === 'storage.md') return header + contents
-
-        return header + transformLinks(contents)
+      if (isWikiPage(id)) {
+        // Locale pages are rendered from already transformed sources.
+        if (id.includes(`/docs/${LOCALE}/`)) return getHeader(_id, t) + code
+        return getHeader(_id) + transformPage(_id, code)
       }
     }
   }
+}
+
+export function isWikiPage(id: string) {
+  const _id = basename(id)
+  return (
+    id.endsWith('.md') &&
+    !excluded.includes(_id) &&
+    !id.includes('posts') &&
+    !id.includes('other')
+  )
+}
+
+export function transformPage(_id: string, code: string): string {
+  if (_id === 'recently-removed.md') return code
+  const contents = transform(code)
+  if (_id === 'beginners-guide.md') return transformGuide(contents)
+  if (_id === 'storage.md') return contents
+  return transformLinks(contents)
 }
 
 export const transformGuide = (text: string): string =>

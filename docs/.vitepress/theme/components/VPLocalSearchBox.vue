@@ -63,7 +63,14 @@ import {
   watch,
   watchEffect
 } from 'vue'
-import { normalizeSearchUrl, sidebar, stripSchemeAndWww } from '../../shared'
+import {
+  minTermLength,
+  normalizeSearchUrl,
+  sidebar,
+  splitHanWords,
+  stripSchemeAndWww
+} from '../../shared'
+import { useT } from '../composables/i18n'
 import { sanitizeRichHtml, sanitizeSearchHtml } from '../composables/sanitize'
 import {
   cancelPendingScroll,
@@ -275,19 +282,20 @@ const TOKEN_STOP_WORDS = new Set([
 ])
 const INVISIBLE_CHARS_RE = /\u2060|\u200B|\u200C|\u200D|\uFEFF/g
 const TOKEN_SPLIT_RE = /[\n\r #%*,=/:;?[\]{}()&]+/u
-const MIN_TERM_LENGTH = 2
 
 function tokenizeIndexLike(text: string, splitDottedParts = false): string[] {
   const out: string[] = []
-  const raw = text.replace(INVISIBLE_CHARS_RE, '').split(TOKEN_SPLIT_RE)
+  const raw = splitHanWords(
+    text.replace(INVISIBLE_CHARS_RE, '').split(TOKEN_SPLIT_RE)
+  )
   for (const piece of raw) {
     if (!piece) continue
     const t = piece.trim().toLowerCase().replace(/^\.+/, '').replace(/\.+$/, '')
-    if (t.length < MIN_TERM_LENGTH || TOKEN_STOP_WORDS.has(t)) continue
+    if (t.length < minTermLength(t) || TOKEN_STOP_WORDS.has(t)) continue
     out.push(t)
     if (splitDottedParts && t.includes('.')) {
       for (const part of t.split('.')) {
-        if (part.length >= MIN_TERM_LENGTH && !TOKEN_STOP_WORDS.has(part))
+        if (part.length >= minTermLength(part) && !TOKEN_STOP_WORDS.has(part))
           out.push(part)
       }
     }
@@ -604,10 +612,9 @@ const searchIndex = computedAsync(async () => {
       fields: ['title', 'titles', 'text'],
       storeFields: ['title', 'titles'],
       tokenize: (text: string) =>
-        text
-          .replace(INVISIBLE_CHARS_RE, '')
-          .split(TOKEN_SPLIT_RE)
-          .filter((t) => t),
+        splitHanWords(
+          text.replace(INVISIBLE_CHARS_RE, '').split(TOKEN_SPLIT_RE)
+        ).filter((t) => t),
       searchOptions: {
         fuzzy: false,
         prefix: true,
@@ -1946,18 +1953,20 @@ const defaultTranslations: { modal: ModalTranslations } = {
 
 const translate = createSearchTranslate(defaultTranslations)
 
+const t = useT()
+
 const customTitles = {
-  prevMatch: 'Previous match',
-  nextMatch: 'Next match',
-  fuzzyOn: 'Switch to Exact Search',
-  fuzzyOff: 'Switch to Fuzzy Search',
-  urlOn: 'Only search names and text',
-  urlOff: 'Search link URLs too',
-  urlAuto: 'URL detected — searching link URLs. Click to keep this on.',
-  searching: 'Searching...',
-  cycleMatches: 'to cycle matches',
-  detailedViewOn: 'Detailed view',
-  detailedViewOff: 'Compact view'
+  prevMatch: t('Previous match'),
+  nextMatch: t('Next match'),
+  fuzzyOn: t('Switch to Exact Search'),
+  fuzzyOff: t('Switch to Fuzzy Search'),
+  urlOn: t('Only search names and text'),
+  urlOff: t('Search link URLs too'),
+  urlAuto: t('URL detected — searching link URLs. Click to keep this on.'),
+  searching: t('Searching...'),
+  cycleMatches: t('to cycle matches'),
+  detailedViewOn: t('Detailed view'),
+  detailedViewOff: t('Compact view')
 }
 
 // Back
@@ -2318,8 +2327,8 @@ function isSamePageComparison(destPath: string) {
                 <span class="visually-hidden">
                   {{
                     isFuzzySearch
-                      ? 'Fuzzy Search Active'
-                      : 'Exact Search Active'
+                      ? t('Fuzzy Search Active')
+                      : t('Exact Search Active')
                   }}
                 </span>
               </button>
@@ -2400,7 +2409,7 @@ function isSamePageComparison(destPath: string) {
               class="category-chip"
               :class="{ active: !activeCategory }"
               :aria-pressed="!activeCategory"
-              title="All sections"
+              :title="t('All sections')"
               @click="selectCategory('')"
             >
               All
@@ -2457,11 +2466,11 @@ function isSamePageComparison(destPath: string) {
                     <div class="titles">
                       <span class="title-icon">#</span>
                       <span
-                        v-for="(t, titleIndex) in p.titles"
+                        v-for="(title, titleIndex) in p.titles"
                         :key="titleIndex"
                         class="title"
                       >
-                        <span class="text" v-html="sanitizeSearchHtml(t)" />
+                        <span class="text" v-html="sanitizeSearchHtml(title)" />
                         <span class="vpi-chevron-right local-search-icon" />
                       </span>
                       <span class="title main">
@@ -2565,7 +2574,7 @@ function isSamePageComparison(destPath: string) {
                 class="recent-searches"
               >
                 <div class="recent-header">
-                  <span class="recent-label">Recent</span>
+                  <span class="recent-label">{{ t('Recent') }}</span>
                   <button class="clear-all-btn" @click="clearAllRecentSearches">
                     Clear all
                   </button>
@@ -2581,7 +2590,7 @@ function isSamePageComparison(destPath: string) {
                     </button>
                     <button
                       class="recent-delete-btn"
-                      title="Remove search"
+                      :title="t('Remove search')"
                       @click.stop.prevent="removeRecentSearch(s)"
                     >
                       <span class="vpi-delete delete-icon-mini" />

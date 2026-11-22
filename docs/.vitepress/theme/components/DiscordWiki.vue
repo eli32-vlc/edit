@@ -5,7 +5,10 @@
  */
 
 import { onMounted, ref } from 'vue'
+import { useT } from '../composables/i18n'
 import { sanitizeRichHtml } from '../composables/sanitize'
+
+const t = useT()
 
 const SOURCE_URL =
   'https://raw.githubusercontent.com/wiki/fmhy/FMHY/FMHY-Discord.md'
@@ -54,7 +57,7 @@ function isDiscordInvite(url: string): boolean {
 function linkHtml(safe: string, label: string): string {
   const href = `href="${escapeHtml(safe)}" rel="noopener noreferrer" target="_blank"`
   return isDiscordInvite(safe)
-    ? `<a class="dw-join" ${href}>Join Server</a>`
+    ? `<a class="dw-join" ${href}>${t('Join Server')}</a>`
     : `<a ${href}>${label}</a>`
 }
 
@@ -201,7 +204,7 @@ onMounted(load)
     </noscript>
 
     <ClientOnly>
-      <p v-if="status === 'loading'" class="dw-note">Loading…</p>
+      <p v-if="status === 'loading'" class="dw-note">{{ t('Loading…') }}</p>
 
       <p v-else-if="status === 'error'" class="dw-note">
         Could not load ({{ errorText }}).
@@ -209,7 +212,7 @@ onMounted(load)
 
       <template v-else>
         <p class="dw-status">
-          <span class="dw-status-label">Current Status:</span>
+          <span class="dw-status-label">{{ t('Current Status:') }}</span>
           <span class="dw-pill" :class="`dw-pill-${tone}`">
             {{ statusText }}
           </span>

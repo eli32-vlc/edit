@@ -97,6 +97,23 @@ export const excluded = [
 export const stripSchemeAndWww = (value: string) =>
   value.replace(/^[a-z][a-z0-9+.-]*:\/\//, '').replace(/^www\./, '')
 
+const HAN_RE = /\p{Script=Han}/u
+const zhSegmenter = new Intl.Segmenter('zh', { granularity: 'word' })
+
+// Chinese has no spaces between words, so search tokens containing Han
+// characters are split into words with Intl.Segmenter.
+export function splitHanWords(pieces: string[]): string[] {
+  return pieces.flatMap((piece) =>
+    HAN_RE.test(piece)
+      ? [...zhSegmenter.segment(piece)]
+          .filter((s) => s.isWordLike)
+          .map((s) => s.segment)
+      : [piece]
+  )
+}
+
+export const minTermLength = (term: string) => (HAN_RE.test(term) ? 1 : 2)
+
 const TRACKING_QUERY_PARAMS = new Set([
   'fbclid',
   'gclid',

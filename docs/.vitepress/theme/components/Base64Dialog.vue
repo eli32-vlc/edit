@@ -8,6 +8,9 @@ import {
   DialogTitle
 } from 'reka-ui'
 import { ref } from 'vue'
+import { useT } from '../composables/i18n'
+
+const t = useT()
 
 const props = defineProps<{
   show: boolean
@@ -114,7 +117,7 @@ const openLink = () => {
             type="checkbox"
             class="dialog-checkbox"
           />
-          <span class="dialog-checkbox-label">Don't show again</span>
+          <span class="dialog-checkbox-label">{{ t("Don't show again") }}</span>
         </label>
 
         <div class="dialog-actions">

@@ -11,10 +11,12 @@ import {
   isCriticalDismissed
 } from './composables/criticalNotes'
 import { getCriticalNote } from './composables/criticalRegistry'
+import { useT } from './composables/i18n'
 import { useSearchFromQuery } from './composables/searchFromQuery'
 
 useSearchFromQuery()
 
+const t = useT()
 const { Layout } = DefaultTheme
 const showBase64Dialog = ref(false)
 const formattedUrl = ref('')
@@ -315,7 +317,7 @@ onUnmounted(() => {
     </template>
     <template #home-features-before>
       <p class="text-center text-lg text-text-2 mb-2">
-        Or browse these pages
+        {{ t('Or browse these pages') }}
         <span class="inline-block i-twemoji:sparkles" />
       </p>
     </template>

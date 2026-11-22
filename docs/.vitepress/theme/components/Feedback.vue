@@ -3,31 +3,34 @@ import type { FeedbackType } from '../../types/Feedback'
 import { useRouter } from 'vitepress'
 import { computed, onMounted, onUnmounted, reactive, ref } from 'vue'
 import { feedbackOptions, getFeedbackOption } from '../../types/Feedback'
+import { useT } from '../composables/i18n'
 import {
   getRateLimitCooldown,
   recordSubmission
 } from '../composables/rateLimit'
 import { sanitizeRichHtml } from '../composables/sanitize'
 
+const t = useT()
+
 const props = defineProps<{
   heading?: string
 }>()
 
 const prompts = [
-  'Make it count!',
-  'Leave some feedback for us!',
-  "We're all ears 🐰",
-  'Tell us what is missing in FMHY',
-  'Your thoughts matter to us 💡',
-  'Feedback is a gift 🎁',
-  'What do you think?',
-  'We appreciate your support 🙏',
-  'Help us make FMHY better 🤝',
-  'We need your help 👋',
-  'Your feedback is valuable 💯',
-  'So... what do you think?',
-  "We're always looking for ways to improve!",
-  'Your feedback is valuable and helps us make FMHY better.'
+  t('Make it count!'),
+  t('Leave some feedback for us!'),
+  t("We're all ears 🐰"),
+  t('Tell us what is missing in FMHY'),
+  t('Your thoughts matter to us 💡'),
+  t('Feedback is a gift 🎁'),
+  t('What do you think?'),
+  t('We appreciate your support 🙏'),
+  t('Help us make FMHY better 🤝'),
+  t('We need your help 👋'),
+  t('Your feedback is valuable 💯'),
+  t('So... what do you think?'),
+  t("We're always looking for ways to improve!"),
+  t('Your feedback is valuable and helps us make FMHY better.')
 ]
 
 function getPrompt() {
@@ -36,18 +39,20 @@ function getPrompt() {
 
 const messages = {
   suggestion: [
-    "We're glad you want to share your ideas!",
-    "We'll be happy to read your thoughts and incorporate them into our wiki!",
-    "Hello! We're glad you want to share your ideas!"
+    t("We're glad you want to share your ideas!"),
+    t(
+      "We'll be happy to read your thoughts and incorporate them into our wiki!"
+    ),
+    t("Hello! We're glad you want to share your ideas!")
   ],
   appreciation: [
-    'We appreciate your support!',
-    "We're always looking for ways to improve!.",
-    'Your feedback is valuable and helps us make FMHY better.'
+    t('We appreciate your support!'),
+    t("We're always looking for ways to improve!."),
+    t('Your feedback is valuable and helps us make FMHY better.')
   ],
   other: [
-    "We're always looking for ways to improve!",
-    'Your feedback is valuable and helps us make FMHY better.'
+    t("We're always looking for ways to improve!"),
+    t('Your feedback is valuable and helps us make FMHY better.')
   ]
 }
 
@@ -264,7 +269,7 @@ async function handleSubmit() {
 
     const data = await response.json()
     if (!response.ok || data.error) {
-      error.value = data.message || data.error || 'Failed to send feedback'
+      error.value = data.message || data.error || t('Failed to send feedback')
       return
     }
     if (data.status === 'ok') {
@@ -273,7 +278,7 @@ async function handleSubmit() {
     }
   } catch (err) {
     error.value =
-      err instanceof Error ? err.message : 'An unexpected error occurred'
+      err instanceof Error ? err.message : t('An unexpected error occurred')
   } finally {
     loading.value = false
   }
@@ -281,11 +286,11 @@ async function handleSubmit() {
 
 const isCardShown = ref<boolean>(false)
 const helpfulText = props.heading
-  ? 'What do you think about this section?'
-  : 'What do you think about this page?'
+  ? t('What do you think about this section?')
+  : t('What do you think about this page?')
 const helpfulDescription = props.heading
-  ? 'Let us know how helpful this section is.'
-  : 'Let us know how helpful this page is.'
+  ? t('Let us know how helpful this section is.')
+  : t('Let us know how helpful this page is.')
 
 const prompt = computed(() => getPrompt())
 const message = computed(() => getMessage(feedback.type!))
@@ -344,9 +349,11 @@ const resetFeedback = () => {
           class="flex-grow flex items-start md:items-center gap-3 flex-col md:flex-row"
         >
           <div class="flex-grow">
-            <div class="font-semibold text-$vp-c-text-1">Got feedback?</div>
+            <div class="font-semibold text-$vp-c-text-1">
+              {{ t('Got feedback?') }}
+            </div>
             <div class="text-sm text-$vp-c-text-2">
-              We'd love to know what you think about this page.
+              {{ t("We'd love to know what you think about this page.") }}
             </div>
           </div>
           <div>
@@ -354,7 +361,7 @@ const resetFeedback = () => {
               class="bg-[#25262B] inline-block text-center rounded-full px-4 py-2.5 text-sm font-medium border-2 border-solid text-white border-$vp-c-divider"
               @click="toggleCard()"
             >
-              Share Feedback
+              {{ t('Share Feedback') }}
             </button>
           </div>
         </div>
@@ -389,7 +396,7 @@ const resetFeedback = () => {
             <div class="flex items-center gap-3 mt-1">
               <button
                 class="bg-$vp-c-default-soft text-primary border-$vp-c-default-soft hover:border-primary inline-flex h-7 w-7 items-center justify-center rounded-md border-2 border-solid transition-all duration-300"
-                title="Back to options"
+                :title="t('Back to options')"
                 @click="goBackToOptions()"
               >
                 <span class="i-lucide:arrow-left w-4 h-4"></span>
@@ -403,7 +410,7 @@ const resetFeedback = () => {
           <div v-if="feedback.type === 'suggestion'" class="mb-2 text-sm">
             <p>
               Please read the
-              <a href="/other/contributing">contribution guide</a>
+              <a href="/other/contributing">{{ t('contribution guide') }}</a>
               before submitting your feedback, and be sure to include a link if
               you want something added!
             </p>
@@ -412,12 +419,12 @@ const resetFeedback = () => {
             v-if="error"
             class="error-msg mb-4 p-3 rounded-lg bg-red-900/20 border border-red-500/50 text-red-300 text-xs"
           >
-            <span class="font-bold">Error:</span>
+            <span class="font-bold">{{ t('Error:') }}</span>
             {{
               typeof error === 'string'
                 ? error
                 : (error as any).message ||
-                  'Failed to send feedback. Please try again.'
+                  t('Failed to send feedback. Please try again.')
             }}
           </div>
           <div
@@ -435,7 +442,7 @@ const resetFeedback = () => {
             ></div>
             <button
               class="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-$vp-c-default-soft rounded text-$vp-c-text-3 hover:text-red-400"
-              title="Remove selected line"
+              :title="t('Remove selected line')"
               @click="clearSelectedLine"
             >
               <span class="i-lucide:trash-2 w-4 h-4"></span>
@@ -446,7 +453,7 @@ const resetFeedback = () => {
             v-model="feedback.message"
             autofocus
             class="font-sans bg-$vp-c-bg-alt text-$vp-c-text-2 w-full min-h-[100px] max-h-[400px] border border-$vp-c-divider rounded px-3 py-1.5 b-rd-4 border-2 border-solid resize-none overflow-y-auto"
-            placeholder="(e.g. What a lovely wiki!)"
+            :placeholder="t('(e.g. What a lovely wiki!)')"
             @input="handleInput"
           />
           <div class="flex items-center gap-2 mt-2 mb-2">
@@ -464,7 +471,9 @@ const resetFeedback = () => {
                 class="w-3.5 h-3.5"
               ></span>
               {{
-                isSelectingLine ? 'Cancel Selection' : 'Select a line from page'
+                isSelectingLine
+                  ? t('Cancel Selection')
+                  : t('Select a line from page')
               }}
             </button>
             <span
@@ -492,7 +501,7 @@ const resetFeedback = () => {
             v-model="feedback.contact"
             type="text"
             class="bg-$vp-c-bg-alt text-$vp-c-text-2 w-full border border-$vp-c-divider rounded px-3 py-1.5 border-$vp-c-divider bg-$vp-c-bg-alt b-rd-4 border-2 border-solid"
-            placeholder="(e.g. Discord: username)"
+            :placeholder="t('(e.g. Discord: username)')"
             @input="error = null"
           />
           <div class="flex flex-row gap-2 mt-4">
@@ -511,12 +520,12 @@ const resetFeedback = () => {
               "
               @click="handleSubmit()"
             >
-              {{ loading ? 'Sending...' : 'Send Feedback 📩' }}
+              {{ loading ? t('Sending...') : t('Send Feedback 📩') }}
             </button>
           </div>
         </div>
         <div v-else class="text-center py-4">
-          <p class="heading mb-4">Thanks for your feedback!</p>
+          <p class="heading mb-4">{{ t('Thanks for your feedback!') }}</p>
           <button class="btn btn-primary" @click="resetFeedback()">
             Send Another Message
           </button>

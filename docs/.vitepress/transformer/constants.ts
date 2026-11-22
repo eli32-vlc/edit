@@ -40,11 +40,14 @@ function escapeHtml(value: string) {
     .replaceAll("'", '&#39;')
 }
 
-export function getHeader(id: string) {
+export function getHeader(id: string, t: (en: string) => string = (en) => en) {
   const title = '<div class="fmhy-page-header"><h1>'
   const description = '<p>'
   const feedback = meta.build.api ? '<Feedback />' : ''
-  const data = headers[id]
+  const data = {
+    title: t(headers[id].title),
+    description: t(headers[id].description)
+  }
 
   let header = '---\n'
   header += `title: "${data.title}"\n`

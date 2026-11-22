@@ -1,3 +1,4 @@
+import type { DefaultTheme } from 'vitepress'
 import { fileURLToPath } from 'node:url'
 import consola from 'consola'
 import UnoCSS from 'unocss/vite'
@@ -16,6 +17,8 @@ import {
   socialLinks
 } from './constants'
 import { generateFeed, generateImages, generateMeta } from './hooks'
+import { hasLocale, t } from './i18n/node'
+import { LOCALE, localizeItems, localizePath } from './i18n/shared'
 import { defs, emojiRender, movePlugin } from './markdown/emoji'
 import { headersPlugin } from './markdown/headers'
 import { localLinksPlugin } from './markdown/localLinks'
@@ -26,6 +29,67 @@ import { replaceNoteLink } from './utils/markdown'
 // @unocss-include
 
 const baseUrl = process.env.GITHUB_ACTIONS ? '/edit' : '/'
+const editPattern = 'https://github.com/fmhy/edit/edit/main/docs/:path'
+
+const zhLocale = {
+  label: '简体中文',
+  lang: 'zh-CN',
+  link: `/${LOCALE}/`,
+  description: t(meta.description),
+  themeConfig: {
+    nav: localizeItems(nav, t),
+    sidebar: localizeItems(sidebar as DefaultTheme.SidebarItem[], t),
+    footer: {
+      message: `<a href="${localizePath('/feedback')}" class="feedback-footer">${t('Made with ❤')}</a> (rev: ${commitRef})`,
+      copyright:
+        `© ${new Date().getFullYear()}, <a href="https://i.ibb.co/VJQmQ9t/image.png">${t('Estd 2018.')}</a>` +
+        `<br/> ${t('This site does not host any files.')}`
+    },
+    editLink: {
+      // Serialized to the client, so it cannot close over module variables.
+      pattern: ({ filePath }: { filePath: string }) =>
+        `https://github.com/fmhy/edit/edit/main/docs/${filePath.replace(/^zh\//, '')}`,
+      text: t('Edit this page')
+    },
+    outline: { level: 'deep' as const, label: t('On this page') },
+    docFooter: { prev: t('Previous page'), next: t('Next page') },
+    darkModeSwitchLabel: t('Appearance'),
+    lightModeSwitchTitle: t('Switch to light theme'),
+    darkModeSwitchTitle: t('Switch to dark theme'),
+    sidebarMenuLabel: t('Menu'),
+    returnToTopLabel: t('Return to top'),
+    langMenuLabel: t('Change language'),
+    skipToContentLabel: t('Skip to content'),
+    notFound: {
+      title: t('PAGE NOT FOUND'),
+      quote: t(
+        "But if you don't change your direction, and if you keep looking, you may end up where you are heading."
+      ),
+      linkLabel: t('go to home'),
+      linkText: t('Take me home')
+    }
+  }
+}
+
+const zhSearchTranslations = {
+  button: { buttonText: t('Search'), buttonAriaLabel: t('Search') },
+  modal: {
+    displayDetails: t('Display detailed list'),
+    resetButtonTitle: t('Reset search'),
+    backButtonTitle: t('Close search'),
+    noResultsText: t('No results for'),
+    footer: {
+      selectText: t('to select'),
+      selectKeyAriaLabel: t('enter'),
+      navigateText: t('to navigate'),
+      navigateUpKeyAriaLabel: t('up arrow'),
+      navigateDownKeyAriaLabel: t('down arrow'),
+      closeText: t('to close'),
+      closeKeyAriaLabel: t('escape')
+    }
+  }
+}
+
 export default defineConfig({
   title: 'FMHY',
   description: meta.description,
@@ -35,6 +99,10 @@ export default defineConfig({
   cleanUrls: true,
   appearance: true,
   base: baseUrl,
+  locales: {
+    root: { label: 'English', lang: 'en-US' },
+    ...(hasLocale ? { [LOCALE]: zhLocale } : {})
+  },
   scrollOffset: { selector: '.fmhy-scroll-inset', padding: 0 },
   srcExclude: ['README.md', 'public/single-page.md', 'single-page'],
   ignoreDeadLinks: true,
@@ -295,7 +363,15 @@ export default defineConfig({
     }
   },
   themeConfig: {
-    search,
+    search: hasLocale
+      ? ({
+          ...search,
+          options: {
+            ...search!.options,
+            locales: { [LOCALE]: { translations: zhSearchTranslations } }
+          }
+        } as DefaultTheme.Config['search'])
+      : search,
     footer: {
       message: `${feedback} (rev: ${commitRef})`,
       copyright:
@@ -303,7 +379,7 @@ export default defineConfig({
         `<br/> This site does not host any files.`
     },
     editLink: {
-      pattern: 'https://github.com/fmhy/edit/edit/main/docs/:path',
+      pattern: editPattern,
       text: 'Edit this page'
     },
     outline: 'deep',

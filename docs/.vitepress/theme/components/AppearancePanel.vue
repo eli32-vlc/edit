@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import type { DisplayMode } from '../themes/types'
 import { useData } from 'vitepress'
+import { useT } from '../composables/i18n'
 import { useTheme } from '../themes/themeHandler'
 import { revealThemeChange } from '../themes/themeTransition'
 import ColorPicker from './ColorPicker.vue'
+
+const t = useT()
 
 const props = withDefaults(defineProps<{ closeOnSelect?: boolean }>(), {
   closeOnSelect: false
@@ -22,8 +25,8 @@ interface ModeChoice {
 }
 
 const modeChoices: ModeChoice[] = [
-  { mode: 'light', label: 'Light', icon: 'i-ph-sun-duotone' },
-  { mode: 'dark', label: 'Dark', icon: 'i-ph-moon-duotone' },
+  { mode: 'light', label: t('Light'), icon: 'i-ph-sun-duotone' },
+  { mode: 'dark', label: t('Dark'), icon: 'i-ph-moon-duotone' },
   {
     mode: 'dark',
     label: 'AMOLED',
@@ -61,8 +64,8 @@ const selectMode = async (choice: ModeChoice, event: MouseEvent) => {
 
 <template>
   <div class="appearance-panel">
-    <div class="appearance-panel-title">Appearance</div>
-    <div role="group" aria-label="Display mode">
+    <div class="appearance-panel-title">{{ t('Appearance') }}</div>
+    <div role="group" :aria-label="t('Display mode')">
       <button
         v-for="choice in modeChoices"
         :key="choice.label"

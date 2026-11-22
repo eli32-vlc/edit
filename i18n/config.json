@@ -1,0 +1,9 @@
+{
+  "baseUrl": "https://amr-link.open-design.ai/v1",
+  "model": "deepseek-v4.1-flash-eco",
+  "concurrency": 6,
+  "batchItems": 25,
+  "batchChars": 3000,
+  "timeoutMs": 600000,
+  "translateReasoning": "none"
+}

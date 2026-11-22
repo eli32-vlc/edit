@@ -269,8 +269,11 @@ export const search: DefaultTheme.Config['search'] = {
         ''
       )
 
+      // Locale pages are generated from already transformed English sources.
       const isPostOrOther =
-        relativePath.includes('posts') || relativePath.includes('other')
+        relativePath.includes('posts') ||
+        relativePath.includes('other') ||
+        relativePath.startsWith('zh/')
 
       if (!isPostOrOther) {
         // I do this as env.frontmatter is not available until I call `md.render`
@@ -365,10 +368,21 @@ export const search: DefaultTheme.Config['search'] = {
       // min-length here, update the copy there too \u2014 search ranking breaks
       // silently when they disagree.
       options: {
-        tokenize: (text: string) =>
-          text
+        // These functions are serialized to the client, so they must stay
+        // self-contained; splitHanWords/minTermLength in shared.ts mirror them.
+        tokenize: (text: string) => {
+          const segmenter = new Intl.Segmenter('zh', { granularity: 'word' })
+          return text
             .replace(/\u2060|\u200B|\u200C|\u200D|\uFEFF/g, '')
-            .split(/[\n\r #%*,=/:;?[\]{}()&]+/u),
+            .split(/[\n\r #%*,=/:;?[\]{}()&]+/u)
+            .flatMap((piece) =>
+              /\p{Script=Han}/u.test(piece)
+                ? [...segmenter.segment(piece)]
+                    .filter((s) => s.isWordLike)
+                    .map((s) => s.segment)
+                : [piece]
+            )
+        },
         processTerm: (term: string, fieldName?: string): any => {
           term = term
             .trim()
@@ -386,13 +400,15 @@ export const search: DefaultTheme.Config['search'] = {
             'with',
             'you'
           ]
-          if (term.length < 2 || stopWords.includes(term)) return false
+          const minLength = (t: string) => (/\p{Script=Han}/u.test(t) ? 1 : 2)
+          if (term.length < minLength(term) || stopWords.includes(term))
+            return false
 
           if (fieldName === 'text') {
             const parts = term.split('.')
             if (parts.length > 1) {
               const newTerms = [term, ...parts]
-                .filter((t) => t.length >= 2)
+                .filter((t) => t.length >= minLength(t))
                 .filter((t) => !stopWords.includes(t))
               return newTerms
             }

@@ -1,4 +1,5 @@
 import type { MarkdownRenderer } from 'vitepress'
+import { LOCALE, localizePath } from '../i18n/shared'
 
 const FMHY_ORIGIN_RE = /^(?:https?:)?\/\/fmhy\.net(?=\/|[?#]|$)/i
 
@@ -15,25 +16,31 @@ export function localLinksPlugin(md: MarkdownRenderer, base: string) {
   md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
     const token = tokens[idx]
     const href = token.attrGet('href') || ''
+    const pagePath =
+      typeof env?.relativePath === 'string'
+        ? env.relativePath.replace(/\\/g, '/')
+        : ''
+    const isLocalePage = pagePath.startsWith(`${LOCALE}/`)
     if (!FMHY_ORIGIN_RE.test(href)) {
+      if (isLocalePage) token.attrSet('href', localizePath(href))
       return defaultRender(tokens, idx, options, env, self)
     }
 
-    const path = href.replace(FMHY_ORIGIN_RE, '')
+    let path = href.replace(FMHY_ORIGIN_RE, '')
     // A leading // would become an external, protocol-relative URL on a mirror.
     if (path.startsWith('//')) {
       return defaultRender(tokens, idx, options, env, self)
     }
 
-    const relativePath =
-      typeof env?.relativePath === 'string'
-        ? env.relativePath.replace(/\\/g, '/')
-        : ''
+    const relativePath = isLocalePage
+      ? pagePath.slice(LOCALE.length + 1)
+      : pagePath
     const normalizedPath =
       (path.split(/[?#]/)[0] || '/').replace(/\/+$/, '') || '/'
     if (EXCLUDED_PATHS_BY_FILE[relativePath]?.has(normalizedPath)) {
       return defaultRender(tokens, idx, options, env, self)
     }
+    if (isLocalePage) path = localizePath(path || '/')
 
     token.attrSet(
       'href',

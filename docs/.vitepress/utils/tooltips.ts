@@ -15,8 +15,11 @@ function hashContent(content: string): string {
   return createHash('sha256').update(content).digest('hex').slice(0, 12)
 }
 
-export function getTooltip(id: string): TooltipData | undefined {
-  const filePath = join(notesDir, `${id}.md`)
+export function getTooltip(
+  id: string,
+  dir: string = notesDir
+): TooltipData | undefined {
+  const filePath = join(dir, `${id}.md`)
   if (!existsSync(filePath)) return undefined
 
   try {
