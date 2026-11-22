@@ -61,12 +61,7 @@ export const transformer = (text: string) => {
 }
 
 export function replaceUnderscore(text: string): string {
-  const pattern = /\/#[\w\-]+(?:_[\w]+)*/g
-  const matches = text.match(pattern) || []
-  let _text = text
-  for (const match of matches) {
-    const replacement = match.replace(/_/g, '-')
-    _text = _text.replace(match, replacement)
-  }
-  return _text
+  return text.replace(/\/#[\w\-]+(?:_[\w]+)*/g, (match) =>
+    match.replace(/_/g, '-')
+  )
 }

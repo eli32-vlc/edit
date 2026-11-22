@@ -21,32 +21,40 @@ import { excluded, getHeader } from './transformer/constants'
 import { replaceUnderscore, transformer } from './transformer/core'
 
 export function transformsPlugin(): Plugin {
+  // The client and SSR builds transform every page with identical input.
+  const results = new Map<string, string | undefined>()
   return {
     name: 'custom:transform-content',
     enforce: 'pre',
     transform(code, id) {
-      const _id = basename(id)
-
-      if (
-        id.endsWith('.md') &&
-        !excluded.includes(_id) &&
-        // check if it's a post
-        !id.includes('posts') &&
-        !id.includes('other')
-      ) {
-        const header = getHeader(_id)
-        if (_id === 'recently-removed.md') return header + code
-        const contents = transform(code)
-
-        if (_id === 'beginners-guide.md') {
-          const _contents = transformGuide(contents)
-          return header + _contents
-        }
-        if (_id === 'storage.md') return header + contents
-
-        return header + transformLinks(contents)
-      }
+      if (!id.endsWith('.md')) return
+      const key = `${id}\0${code}`
+      if (!results.has(key)) results.set(key, transformContent(code, id))
+      return results.get(key)
     }
+  }
+}
+
+function transformContent(code: string, id: string): string | undefined {
+  const _id = basename(id)
+
+  if (
+    !excluded.includes(_id) &&
+    // check if it's a post
+    !id.includes('posts') &&
+    !id.includes('other')
+  ) {
+    const header = getHeader(_id)
+    if (_id === 'recently-removed.md') return header + code
+    const contents = transform(code)
+
+    if (_id === 'beginners-guide.md') {
+      const _contents = transformGuide(contents)
+      return header + _contents
+    }
+    if (_id === 'storage.md') return header + contents
+
+    return header + transformLinks(contents)
   }
 }
 
@@ -188,43 +196,43 @@ const transformLinks = (text: string): string =>
       // Platform indicators
       {
         name: 'Windows',
-        find: /(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)Windows(?=,|[ \t]\/|$)/gm,
+        find: /(?=(?:,\s)?Windows)(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)Windows(?=,|[ \t]\/|$)/gm,
         replace:
           ' <span v-tooltip="\'Windows\'" alt="Windows" class="i-qlementine-icons:windows-24" /> '
       },
       {
         name: 'macOS',
-        find: /(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)(?:Mac|macOS)(?=,|[ \t]\/|$)/gm,
+        find: /(?=(?:,\s)?(?:Mac|macOS))(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)(?:Mac|macOS)(?=,|[ \t]\/|$)/gm,
         replace:
           ' <div v-tooltip="\'macOS\'" alt="macOS" class="i-qlementine-icons:mac-fill-16" /> '
       },
       {
         name: 'Linux',
-        find: /(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)Linux(?=,|[ \t]\/|$)/gm,
+        find: /(?=(?:,\s)?Linux)(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)Linux(?=,|[ \t]\/|$)/gm,
         replace:
           ' <span v-tooltip="\'Linux\'" alt="Linux" class="i-fluent-mdl2:linux-logo-32" /> '
       },
       {
         name: 'Android',
-        find: /(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)Android(?=,|[ \t]\/|$)/gm,
+        find: /(?=(?:,\s)?Android)(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)Android(?=,|[ \t]\/|$)/gm,
         replace:
           ' <span v-tooltip="\'Android\'" alt="Android" class="i-material-symbols:android" /> '
       },
       {
         name: 'iOS',
-        find: /(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)iOS(?=,|[ \t]\/|$)/gm,
+        find: /(?=(?:,\s)?iOS)(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)iOS(?=,|[ \t]\/|$)/gm,
         replace:
           ' <span v-tooltip="\'iOS\'" alt="iOS" class="i-simple-icons:ios" /> '
       },
       {
         name: 'Web',
-        find: /(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)Web(?=,|[ \t]\/|$)/gm,
+        find: /(?=(?:,\s)?Web)(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)Web(?=,|[ \t]\/|$)/gm,
         replace:
           ' <span v-tooltip="\'Web\'" alt="Web" class="i-fluent:globe-32-filled" /> '
       },
       {
         name: 'Docker',
-        find: /(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)Docker(?=,|[ \t]\/|$)/gm,
+        find: /(?=(?:,\s)?Docker)(?<=\/ (\/>|[^/\r\n])*)(,\s)?(?<![a-z]\s)Docker(?=,|[ \t]\/|$)/gm,
         replace:
           ' <span v-tooltip="\'Docker\'" alt="Docker" class="i-simple-icons:docker inline-block w-3em h-3em align-middle" /> '
       }
