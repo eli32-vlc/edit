@@ -3,12 +3,18 @@ import { NextResponse } from 'next/server'
 
 export const runtime = 'nodejs'
 
-export async function POST(req: Request) {
-  // SAFETY: embed() validates input itself (TernError on non-string), so a
-  // mis-typed body degrades to a thrown error rather than bad output.
-  const { q } = (await req.json()) as { q?: string }
+const MAX_QUERY_LEN = 2000
 
-  if (!q) {
+export async function POST(req: Request) {
+  let q: unknown
+
+  try {
+    q = ((await req.json()) as { q?: unknown }).q
+  } catch {
+    return NextResponse.json({ error: 'invalid body' }, { status: 400 })
+  }
+
+  if (typeof q !== 'string' || !q.trim() || q.length > MAX_QUERY_LEN) {
     return NextResponse.json({ error: 'missing query' }, { status: 400 })
   }
 
