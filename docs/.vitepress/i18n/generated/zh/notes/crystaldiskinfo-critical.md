@@ -1,0 +1,2 @@
+#### CrystalDiskInfo 警告
+避免使用标有 “Ads” 的版本。

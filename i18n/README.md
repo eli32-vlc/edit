@@ -16,4 +16,4 @@ pnpm i18n:prune                     # drop translations whose English source is 
 pnpm docs:build                     # renders docs/zh from tm.json, no API calls
 ```
 
-After an upstream rebase, run `pnpm i18n:sync`, then commit `tm.json`. Segments that fail validation are left in English and listed in `.cache/i18n-failures.json`; fix them in `overrides.json` or rerun the sync.
+After an upstream rebase, run `pnpm i18n:sync` and `pnpm i18n:render`, then commit `tm.json`, `docs/zh/` and `docs/.vitepress/i18n/generated/`. Segments that fail validation are left in English and listed in `.cache/i18n-failures.json`; fix them in `overrides.json` or rerun the sync.

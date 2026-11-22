@@ -1,0 +1,2 @@
+#### File Converter 警告
+请勿安装 2.2 版本。它目前无法使用。如果你之前没有安装过 File Converter，请从[此处](https://github.com/Tichau/FileConverter/releases/tag/v2.1)安装 2.1 版本。如果你已经安装了 2.2 版本，请按照[此处](https://github.com/Tichau/FileConverter/issues/728#issuecomment-4077979230)的降级指南操作。
