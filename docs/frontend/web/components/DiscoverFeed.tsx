@@ -28,7 +28,7 @@ function hueFor(key: string) {
 
   for (let i = 0; i < key.length; i++) h = (h * 31 + key.charCodeAt(i)) | 0
 
-  return ((h % 360) + 360) % 360
+  return (Math.abs(h) * 137.508) % 360 // golden-angle spread across the wheel
 }
 
 export function DiscoverFeed({ sites }: { sites: Site[] }) {
