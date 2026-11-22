@@ -528,18 +528,38 @@ async function generateRemovedSites() {
     for (const url of document.urls) currentUrls.add(url)
   }
 
+  // Blob contents are read in one `git cat-file --batch` call per history scan.
+  const blobSources = new Map()
+
+  function readBlobs(blobs) {
+    const pending = [...new Set(blobs)].filter(
+      (blob) => !blobSources.has(blob) && !parsedBlobs.has(blob)
+    )
+    if (!pending.length) return
+    const output = execFileSync('git', [...gitDirArgs, 'cat-file', '--batch'], {
+      input: `${pending.join('\n')}\n`,
+      maxBuffer: 1024 * 1024 * 1024
+    })
+    let offset = 0
+    while (offset < output.length) {
+      const headerEnd = output.indexOf(10, offset)
+      const [blob, type, size] = output
+        .toString('utf8', offset, headerEnd)
+        .split(' ')
+      if (type !== 'blob') throw new Error(`Unexpected Git object: ${blob}`)
+      const start = headerEnd + 1
+      const end = start + Number(size)
+      blobSources.set(blob, output.toString('utf8', start, end))
+      offset = end + 1
+    }
+  }
+
   function readDocument(blob, file) {
     if (!blob || /^0+$/.test(blob) || isIgnored(file)) return emptyDocument
     if (!parsedBlobs.has(blob)) {
-      if (parsedBlobs.size >= 128) parsedBlobs.clear()
-      const source = execFileSync(
-        'git',
-        [...gitDirArgs, 'cat-file', 'blob', blob],
-        {
-          encoding: 'utf8',
-          maxBuffer: 10 * 1024 * 1024
-        }
-      )
+      if (!blobSources.has(blob)) readBlobs([blob])
+      const source = blobSources.get(blob)
+      blobSources.delete(blob)
       parsedBlobs.set(
         blob,
         rememberResources(parseDocument(markdown, source), true)
@@ -588,35 +608,58 @@ async function generateRemovedSites() {
 
   if (!commits) {
     commits = []
+    // One log call yields every commit's first-parent raw diff, matching
+    // `git diff-tree <parent> <commit> -- docs/` for each logged commit.
+    const diffs = new Map()
+    const rawLog = execFileSync(
+      'git',
+      [
+        ...gitDirArgs,
+        'log',
+        '-z',
+        '--first-parent',
+        '--diff-merges=first-parent',
+        `--since=${DAYS} days ago`,
+        '--format=%x01%H',
+        '--raw',
+        '-r',
+        '--root',
+        '--no-renames',
+        '--no-abbrev',
+        '--no-ext-diff',
+        '--no-textconv',
+        historyHead,
+        '--',
+        'docs/'
+      ],
+      { maxBuffer: 256 * 1024 * 1024 }
+    ).toString('utf8')
+    for (const entry of rawLog.split('\x01').slice(1)) {
+      const hashEnd = entry.indexOf('\0')
+      diffs.set(entry.slice(0, hashEnd), entry.slice(hashEnd + 1).trimStart())
+    }
     const fields = logOutput.split('\0')
+    readBlobs(
+      [...diffs.values()].flatMap((diff) => {
+        const records = diff.split('\0')
+        const blobs = []
+        for (let offset = 0; offset + 1 < records.length; offset += 2) {
+          if (isIgnored(records[offset + 1])) continue
+          const [, , before, after] = records[offset].split(' ')
+          for (const blob of [before, after])
+            if (blob && !/^0+$/.test(blob)) blobs.push(blob)
+        }
+        return blobs
+      })
+    )
     for (let index = 0; index + 3 < fields.length; index += 4) {
       const hash = fields[index]
-      const parent = fields[index + 1].split(' ')[0]
       const msg = fields[index + 2]
       const date = new Date(Number(fields[index + 3]) * 1000)
         .toISOString()
         .slice(0, 10)
       if (!hash) continue
-      const diff = execFileSync(
-        'git',
-        [
-          ...gitDirArgs,
-          'diff-tree',
-          '--no-commit-id',
-          '--raw',
-          '-z',
-          '-r',
-          '--root',
-          '--no-renames',
-          '--no-abbrev',
-          '--no-ext-diff',
-          '--no-textconv',
-          ...(parent ? [parent, hash] : [hash]),
-          '--',
-          'docs/'
-        ],
-        { maxBuffer: 10 * 1024 * 1024 }
-      ).toString('utf8')
+      const diff = diffs.get(hash) ?? ''
       const changes = []
       const records = diff.split('\0')
       for (let offset = 0; offset + 1 < records.length; offset += 2) {
