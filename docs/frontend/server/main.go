@@ -6,12 +6,15 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
+	"hash/fnv"
 	"log"
 	"net/http"
 	"os"
 	"path/filepath"
 	"regexp"
 	"sort"
+	"strconv"
 	"strings"
 
 	"github.com/gomarkdown/markdown"
@@ -188,7 +191,18 @@ func loadDocs() {
 	})
 }
 
-var siteSeq int
+func internalURL(url string) bool {
+	return strings.Contains(url, "reddit.com/r/FREEMEDIAHECKYEAH/wiki") ||
+		strings.Contains(url, "github.com/fmhy/edit")
+}
+
+// Stable ID: wiki edits must not renumber sites, or saved feed state
+// (likes/saves) would silently transfer to different entries.
+func siteID(slug, url string) string {
+	h := fnv.New64a()
+	fmt.Fprintf(h, "%s|%s", slug, url)
+	return "s" + strconv.FormatUint(h.Sum64(), 36)
+}
 
 func extractSites(line, slug, pageName, section string) {
 	starred := strings.Contains(line, "⭐")
@@ -196,12 +210,23 @@ func extractSites(line, slug, pageName, section string) {
 	if strings.Contains(line, "🌐") {
 		kind = "index"
 	}
-	// Name: first bold-linked name, else first link.
+	// Name: first bold-linked name that points outside the wiki itself, else
+	// first external link. Lines like "* [X](url) - ... **[Site Warning](internal)**"
+	// must resolve to X, not the trailing warning.
 	var name, url string
-	if m := reBoldLink.FindStringSubmatch(line); len(m) > 2 {
-		name, url = cleanName(m[1]), m[2]
-	} else if m := reLink.FindStringSubmatch(line); len(m) > 2 {
-		name, url = cleanName(m[1]), m[2]
+	for _, m := range reBoldLink.FindAllStringSubmatch(line, -1) {
+		if !internalURL(m[2]) {
+			name, url = cleanName(m[1]), m[2]
+			break
+		}
+	}
+	if name == "" {
+		for _, m := range reLink.FindAllStringSubmatch(line, -1) {
+			if !internalURL(m[2]) {
+				name, url = cleanName(m[1]), m[2]
+				break
+			}
+		}
 	}
 	if name == "" || url == "" {
 		return
@@ -216,13 +241,11 @@ func extractSites(line, slug, pageName, section string) {
 	if len(desc) > 140 {
 		desc = desc[:140]
 	}
-	if strings.Contains(url, "reddit.com/r/FREEMEDIAHECKYEAH/wiki") ||
-		strings.Contains(url, "github.com/fmhy/edit") {
+	if internalURL(url) {
 		return // internal cross-references, not sites
 	}
-	siteSeq++
 	s := Site{
-		ID: "s" + itoa(siteSeq), Name: name, URL: url, Desc: desc,
+		ID: siteID(slug, url), Name: name, URL: url, Desc: desc,
 		Page: slug, PageName: pageName, Section: section,
 		Starred: starred, Kind: kind,
 	}
@@ -235,27 +258,19 @@ func extractSites(line, slug, pageName, section string) {
 	}
 }
 
-func itoa(n int) string {
-	const digits = "0123456789"
-	var buf [8]byte
-	i := len(buf)
-	for n > 0 {
-		i--
-		buf[i] = digits[n%10]
-		n /= 10
-	}
-	return string(buf[i:])
-}
-
 func writeJSON(w http.ResponseWriter, v any) {
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	json.NewEncoder(w).Encode(v)
 }
 
+var reRootLink = regexp.MustCompile(`href="/([^/"][^"]*)"`)
+
 func renderMD(src string) string {
 	p := parser.NewWithExtensions(parser.CommonExtensions)
-	return string(markdown.ToHTML([]byte(src), p, nil))
+	html := string(markdown.ToHTML([]byte(src), p, nil))
+	// Root-relative wiki links ("/gaming/#x") are served under /docs/ here.
+	return reRootLink.ReplaceAllString(html, `href="/docs/$1"`)
 }
 
 func main() {
