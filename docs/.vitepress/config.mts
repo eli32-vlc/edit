@@ -35,7 +35,12 @@ export default defineConfig({
   appearance: true,
   base: baseUrl,
   scrollOffset: { selector: '.fmhy-scroll-inset', padding: 0 },
-  srcExclude: ['README.md', 'public/single-page.md', 'single-page'],
+  srcExclude: [
+    'README.md',
+    'public/single-page.md',
+    'single-page',
+    'frontend/**'
+  ],
   ignoreDeadLinks: true,
   sitemap: {
     hostname: meta.hostname
