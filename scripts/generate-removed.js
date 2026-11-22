@@ -1,6 +1,8 @@
 import { execFileSync } from 'node:child_process'
 import crypto from 'node:crypto'
 import fs from 'node:fs'
+import os from 'node:os'
+import { isMainThread, parentPort, Worker } from 'node:worker_threads'
 import { createMarkdownRenderer } from 'vitepress'
 import headers from '../docs/.vitepress/transformer/headers.json' with { type: 'json' }
 
@@ -320,7 +322,63 @@ function cacheInlineTokens(markdown) {
   })
 }
 
-async function generateRemovedSites() {
+async function createParser() {
+  const markdown = await createMarkdownRenderer('docs')
+  markdown.core.ruler.disable('anchor')
+  cacheInlineTokens(markdown)
+  return (source) => {
+    const document = parseDocument(markdown, source)
+    document.resourceKeys = document.bullets.flatMap((bullet) =>
+      extractResources(bullet.text, bullet.links).resources.map(resourceKey)
+    )
+    return document
+  }
+}
+
+// Markdown parsing dominates the history scan, so it runs on worker threads.
+function createParserPool() {
+  const queue = []
+  const workers = []
+  let failure
+  const dispatch = (entry) => {
+    entry.task = queue.shift()
+    if (entry.task) entry.worker.postMessage(entry.task.source)
+  }
+  for (let index = 0; index < os.availableParallelism(); index++) {
+    const entry = { worker: new Worker(new URL(import.meta.url)) }
+    entry.worker.on('message', (document) => {
+      entry.task.resolve(document)
+      dispatch(entry)
+    })
+    entry.worker.on('error', (error) => {
+      failure = error
+      entry.task?.reject(error)
+      for (const task of queue.splice(0)) task.reject(error)
+    })
+    workers.push(entry)
+  }
+  return {
+    parse(sources) {
+      if (failure) return Promise.reject(failure)
+      const tasks = sources.map((source) => {
+        const task = { source }
+        task.promise = new Promise((resolve, reject) =>
+          Object.assign(task, { resolve, reject })
+        )
+        return task
+      })
+      // Largest documents first keeps the workers evenly loaded.
+      queue.push(
+        ...[...tasks].sort((a, b) => b.source.length - a.source.length)
+      )
+      for (const entry of workers) if (!entry.task) dispatch(entry)
+      return Promise.all(tasks.map((task) => task.promise))
+    },
+    close: () => Promise.all(workers.map(({ worker }) => worker.terminate()))
+  }
+}
+
+async function generateRemovedSites(parser) {
   console.log(`Generating recently removed sites from the last ${DAYS} days...`)
   console.log(`Current working directory: ${process.cwd()}`)
   // Start empty so an early return (no Git history) never leaves stale badges.
@@ -499,9 +557,6 @@ async function generateRemovedSites() {
     )
   }
 
-  const markdown = await createMarkdownRenderer('docs')
-  markdown.core.ruler.disable('anchor')
-  cacheInlineTokens(markdown)
   const currentUrls = new Set()
   const knownResources = new Set()
   const removedSites = []
@@ -510,34 +565,26 @@ async function generateRemovedSites() {
   const emptyDocument = { urls: new Set(), bullets: [] }
 
   function rememberResources(document, historical = false) {
-    for (const bullet of document.bullets) {
-      for (const resource of extractResources(bullet.text, bullet.links)
-        .resources) {
-        const key = resourceKey(resource)
-        knownResources.add(key)
-        if (historical) historyResources.add(key)
-      }
+    for (const key of document.resourceKeys) {
+      knownResources.add(key)
+      if (historical) historyResources.add(key)
     }
     return document
   }
 
-  for (const file of getAllDocFiles('docs')) {
-    const document = rememberResources(
-      parseDocument(markdown, fs.readFileSync(file, 'utf8'))
-    )
+  const currentDocuments = await parser.parse(
+    getAllDocFiles('docs').map((file) => fs.readFileSync(file, 'utf8'))
+  )
+  for (const document of currentDocuments) {
+    rememberResources(document)
     for (const url of document.urls) currentUrls.add(url)
   }
 
   // Blob contents are read in one `git cat-file --batch` call per history scan.
-  const blobSources = new Map()
-
   function readBlobs(blobs) {
-    const pending = [...new Set(blobs)].filter(
-      (blob) => !blobSources.has(blob) && !parsedBlobs.has(blob)
-    )
-    if (!pending.length) return
+    const sources = new Map()
     const output = execFileSync('git', [...gitDirArgs, 'cat-file', '--batch'], {
-      input: `${pending.join('\n')}\n`,
+      input: `${blobs.join('\n')}\n`,
       maxBuffer: 1024 * 1024 * 1024
     })
     let offset = 0
@@ -549,23 +596,22 @@ async function generateRemovedSites() {
       if (type !== 'blob') throw new Error(`Unexpected Git object: ${blob}`)
       const start = headerEnd + 1
       const end = start + Number(size)
-      blobSources.set(blob, output.toString('utf8', start, end))
+      sources.set(blob, output.toString('utf8', start, end))
       offset = end + 1
     }
+    return sources
   }
 
+  const rememberedBlobs = new Set()
   function readDocument(blob, file) {
     if (!blob || /^0+$/.test(blob) || isIgnored(file)) return emptyDocument
-    if (!parsedBlobs.has(blob)) {
-      if (!blobSources.has(blob)) readBlobs([blob])
-      const source = blobSources.get(blob)
-      blobSources.delete(blob)
-      parsedBlobs.set(
-        blob,
-        rememberResources(parseDocument(markdown, source), true)
-      )
+    const document = parsedBlobs.get(blob)
+    if (!document) throw new Error(`Unparsed Git blob: ${blob}`)
+    if (!rememberedBlobs.has(blob)) {
+      rememberedBlobs.add(blob)
+      rememberResources(document, true)
     }
-    return parsedBlobs.get(blob)
+    return document
   }
 
   const logOutput = execFileSync('git', [
@@ -639,19 +685,26 @@ async function generateRemovedSites() {
       diffs.set(entry.slice(0, hashEnd), entry.slice(hashEnd + 1).trimStart())
     }
     const fields = logOutput.split('\0')
-    readBlobs(
-      [...diffs.values()].flatMap((diff) => {
-        const records = diff.split('\0')
-        const blobs = []
-        for (let offset = 0; offset + 1 < records.length; offset += 2) {
-          if (isIgnored(records[offset + 1])) continue
-          const [, , before, after] = records[offset].split(' ')
-          for (const blob of [before, after])
-            if (blob && !/^0+$/.test(blob)) blobs.push(blob)
-        }
-        return blobs
-      })
+    const blobs = [
+      ...new Set(
+        [...diffs.values()].flatMap((diff) => {
+          const records = diff.split('\0')
+          const blobs = []
+          for (let offset = 0; offset + 1 < records.length; offset += 2) {
+            if (isIgnored(records[offset + 1])) continue
+            const [, , before, after] = records[offset].split(' ')
+            for (const blob of [before, after])
+              if (blob && !/^0+$/.test(blob)) blobs.push(blob)
+          }
+          return blobs
+        })
+      )
+    ]
+    const blobSources = readBlobs(blobs)
+    const blobDocuments = await parser.parse(
+      blobs.map((blob) => blobSources.get(blob))
     )
+    blobs.forEach((blob, index) => parsedBlobs.set(blob, blobDocuments[index]))
     for (let index = 0; index + 3 < fields.length; index += 4) {
       const hash = fields[index]
       const msg = fields[index + 2]
@@ -965,9 +1018,16 @@ async function generateRemovedSites() {
   }
 }
 
-try {
-  await generateRemovedSites()
-} catch (error) {
-  console.error('Error generating removed sites:', error)
-  process.exit(1)
+if (isMainThread) {
+  const parser = createParserPool()
+  try {
+    await generateRemovedSites(parser)
+  } catch (error) {
+    console.error('Error generating removed sites:', error)
+    process.exit(1)
+  }
+  await parser.close()
+} else {
+  const parse = await createParser()
+  parentPort.on('message', (source) => parentPort.postMessage(parse(source)))
 }
