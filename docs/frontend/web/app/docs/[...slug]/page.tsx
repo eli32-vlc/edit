@@ -16,6 +16,7 @@ export default async function DocPage({
 }) {
   const { slug: parts } = await params
   const slug = parts.join('/')
+
   const [pages, doc] = await Promise.all([
     getPages(),
     getPage(slug).catch(() => null)

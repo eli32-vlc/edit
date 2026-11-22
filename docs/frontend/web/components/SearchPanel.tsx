@@ -10,10 +10,12 @@ import {
   Sparkles
 } from 'lucide-react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 export function SearchPanel() {
-  const [q, setQ] = useState('')
+  const params = useSearchParams()
+  const [q, setQ] = useState(() => params.get('q') ?? '')
   const [results, setResults] = useState<SearchResult[]>([])
   const [busy, setBusy] = useState(false)
   const [ran, setRan] = useState(false)

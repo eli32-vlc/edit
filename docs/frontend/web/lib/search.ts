@@ -9,7 +9,7 @@ export interface SearchResult {
 
 let cache: { corpus: CorpusItem[]; vectors: Float32Array[] } | null = null
 
-async function loadIndex() {
+export async function loadIndex() {
   if (cache) return cache
 
   // SAFETY: both files are build artifacts from scripts/embed.mjs — corpus
@@ -24,7 +24,7 @@ async function loadIndex() {
   return cache
 }
 
-function cosine(a: Float32Array, b: Float32Array) {
+export function cosine(a: Float32Array, b: Float32Array) {
   let d = 0
 
   for (let i = 0; i < a.length; i++) d += a[i] * b[i]
@@ -52,6 +52,7 @@ export async function semanticSearch(
     loadIndex(),
     embedQuery(query)
   ])
+
   const ql = query.trim().toLowerCase()
 
   const scored: SearchResult[] = corpus.map((item, i) => {

@@ -27,6 +27,7 @@ const START_HERE = new Set(['beginners-guide', 'startpage'])
 
 function sections(pages: Page[]) {
   const start = pages.filter((p) => START_HERE.has(p.slug))
+
   const guides = pages
     .filter((p) => !START_HERE.has(p.slug) && p.stars > 0)
     .slice(0, 14)

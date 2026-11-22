@@ -6,9 +6,10 @@ export default async function DiscoverPage() {
 
   return (
     <div className="mx-auto max-w-xl">
-      <h1 className="text-2xl font-semibold tracking-tight">Discover</h1>
+      <h1 className="text-[28px] font-bold tracking-tight text-ink">For You</h1>
       <p className="mt-1 text-ink-2">
-        A feed of sites from the guides — like, save or dismiss to tune it.
+        A semantic feed over 17k sites — it learns from every like, save and
+        dismiss.
       </p>
       <DiscoverFeed sites={sites} />
     </div>

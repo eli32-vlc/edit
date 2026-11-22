@@ -1,4 +1,5 @@
 import type { Site } from '@/lib/api'
+import { cosine, loadIndex } from '@/lib/search'
 
 const KEY = 'fmhy.feed.v1'
 
@@ -21,6 +22,10 @@ export function loadFeed(): FeedState {
   }
 }
 
+export function resetFeed() {
+  localStorage.removeItem(KEY)
+}
+
 function empty(): FeedState {
   return { likes: {}, saves: {}, dismisses: {}, pageW: {}, secW: {}, seen: {} }
 }
@@ -41,13 +46,25 @@ export function act(
   const s = { ...state }
 
   if (action === 'like') {
-    s.likes[site.id] = true
-    bump(s.pageW, site.page, 1)
-    bump(s.secW, site.section, 0.6)
+    if (s.likes[site.id]) {
+      delete s.likes[site.id]
+      bump(s.pageW, site.page, -1)
+      bump(s.secW, site.section, -0.6)
+    } else {
+      s.likes[site.id] = true
+      bump(s.pageW, site.page, 1)
+      bump(s.secW, site.section, 0.6)
+    }
   } else if (action === 'save') {
-    s.saves[site.id] = true
-    bump(s.pageW, site.page, 1.4)
-    bump(s.secW, site.section, 0.8)
+    if (s.saves[site.id]) {
+      delete s.saves[site.id]
+      bump(s.pageW, site.page, -1.4)
+      bump(s.secW, site.section, -0.8)
+    } else {
+      s.saves[site.id] = true
+      bump(s.pageW, site.page, 1.4)
+      bump(s.secW, site.section, 0.8)
+    }
   } else {
     s.dismisses[site.id] = true
     bump(s.pageW, site.page, -1.2)
@@ -66,13 +83,63 @@ export function markSeen(state: FeedState, ids: string[]) {
   persist(state)
 }
 
+/* ---------- embedding taste model ---------- */
+
+export interface TasteModel {
+  vector: Float32Array
+  vectors: Map<string, Float32Array>
+  signals: number
+}
+
+// Builds a taste vector = weighted mean of embeddings of liked (+1) and
+// saved (+1.5) sites, dismissed (-1.2). Sites without embeddings contribute
+// through page/section weights instead.
+export async function buildTaste(state: FeedState): Promise<TasteModel> {
+  const { corpus, vectors } = await loadIndex()
+  const map = new Map<string, Float32Array>()
+
+  corpus.forEach((c, i) => {
+    if (c.kind === 'site') map.set(c.id, vectors[i])
+  })
+
+  const dims = vectors[0]?.length ?? 0
+  const acc = new Float32Array(dims)
+  let signals = 0
+
+  const add = (id: string, w: number) => {
+    const v = map.get(id)
+
+    if (!v) return
+
+    for (let i = 0; i < dims; i++) acc[i] += v[i] * w
+    signals++
+  }
+
+  for (const id of Object.keys(state.likes)) add(id, 1)
+
+  for (const id of Object.keys(state.saves)) add(id, 1.5)
+
+  for (const id of Object.keys(state.dismisses)) add(id, -1.2)
+
+  let norm = 0
+
+  for (let i = 0; i < dims; i++) norm += acc[i] * acc[i]
+  norm = Math.sqrt(norm)
+
+  if (norm > 0) for (let i = 0; i < dims; i++) acc[i] /= norm
+
+  return { vector: acc, vectors: map, signals }
+}
+
+/* ---------- scoring ---------- */
+
 interface Scored {
   site: Site
   score: number
   reason: string
 }
 
-function scoreOne(s: Site, st: FeedState): Scored {
+function scoreOne(s: Site, st: FeedState, taste: TasteModel | null): Scored {
   let score = 0
   let reason = 'Fresh pick'
   let best = 0
@@ -101,6 +168,22 @@ function scoreOne(s: Site, st: FeedState): Scored {
     score += aff * 0.8
   }
 
+  // Semantic similarity to the taste vector — the real personalization.
+  if (taste && taste.signals > 0) {
+    const v = taste.vectors.get(s.id)
+
+    if (v) {
+      const sim = cosine(taste.vector, v) * 4
+
+      score += sim
+
+      if (sim > best) {
+        best = sim
+        reason = 'Matches your taste'
+      }
+    }
+  }
+
   if (!st.seen[s.id]) {
     score += 0.8
 
@@ -125,13 +208,14 @@ export function buildFeed(
   sites: Site[],
   st: FeedState,
   batch: number,
-  cursor: number
+  cursor: number,
+  taste: TasteModel | null = null
 ): Scored[] {
   const visible = sites.filter((s) => !st.dismisses[s.id])
   const byPage = new Map<string, Scored[]>()
 
   for (const s of visible) {
-    const sc = scoreOne(s, st)
+    const sc = scoreOne(s, st, taste)
     const arr = byPage.get(s.page) ?? []
     arr.push(sc)
     byPage.set(s.page, arr)

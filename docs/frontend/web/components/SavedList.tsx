@@ -47,7 +47,7 @@ export function SavedList({ sites }: { sites: Site[] }) {
             <button
               type="button"
               aria-label={`Remove ${s.name} from saved`}
-              onClick={() => state && setState(act(state, s, 'dismiss'))}
+              onClick={() => state && setState(act(state, s, 'save'))}
               className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-star hover:bg-surface-sunken"
             >
               <Star size={15} fill="currentColor" />

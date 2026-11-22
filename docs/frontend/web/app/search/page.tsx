@@ -1,4 +1,5 @@
 import { SearchPanel } from '@/components/SearchPanel'
+import { Suspense } from 'react'
 
 export const metadata = { title: 'Search' }
 
@@ -9,7 +10,9 @@ export default function SearchPage() {
       <p className="mt-1 text-ink-2">
         Meaning-based, not just keywords — runs fully on-device via ternlight.
       </p>
-      <SearchPanel />
+      <Suspense>
+        <SearchPanel />
+      </Suspense>
     </div>
   )
 }
