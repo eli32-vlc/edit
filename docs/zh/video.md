@@ -6,7 +6,6 @@
 这些网站仅在自家定制播放器内检查和播放流媒体。各站片源不同，取决于它们认为哪些来源值得使用。请务必安装[广告拦截器](/privacy/#adblocking)（uBlock Origin 完整版），并注意，有些网站没有弹窗/重定向广告，或允许你在设置中关闭它们。我们在[评分页](https://github.com/fmhy/FMHY/wiki/Stream-Site-Grading) / [2](https://fmhy-grading.pages.dev/) 上标注了各网站的弹窗/重定向广告状态，以及各自的其他优缺点。普通星和超级星每天分别轮换，以保持公平（每日排在最前的超级星移到超级星末位，排在最前的普通星移到普通星末位）。
 :::
 
-- :glowing-star: **[ShuttleTV](https://shuttletv.pk/)**、[2](https://shuttletv.me/) - 4K / 双音轨 / 外挂字幕 / 可关闭广告 / <a target="_blank" href="https://discord.gg/wsPmVB7ZJZ"><span v-tooltip="'Discord'" alt="Discord" class="i-carbon:logo-discord" /></a>
 - :glowing-star: **[FlyStream](https://flystream.net/)** - 4K / 双音轨 / 外挂字幕 / 可关闭广告 / <a target="_blank" href="https://www.reddit.com/r/FlyStream/"><span v-tooltip="'Reddit'" alt="Reddit" class="i-mdi:reddit" /></a> / <a target="_blank" href="https://discord.gg/flystream"><span v-tooltip="'Discord'" alt="Discord" class="i-carbon:logo-discord" /></a>
 - :glowing-star: **[Vivarium](https://vivarium.st/)** - 4K / 双音轨 / 外挂字幕 / 可关闭广告 / <a target="_blank" href="https://discord.gg/pxVxUdFxj5"><span v-tooltip="'Discord'" alt="Discord" class="i-carbon:logo-discord" /></a>
 - :glowing-star: **[ArrowTV](https://arrowtv.net/)**、[2](https://arrowtv.st/) 或 [Cinezo](https://www.cinezo.st/)、[2](https://www.flikhub.net/) - 4K / 双音轨 / 外挂字幕 / 可关闭广告
@@ -16,7 +15,7 @@
 - :glowing-star: **[Cinecat](https://cinecat.eu/)**、[2](https://beta.cinecat.eu/) - 4K / 外挂字幕 / 可关闭广告 / <a target="_blank" href="https://discord.gg/mSKTq4FnC"><span v-tooltip="'Discord'" alt="Discord" class="i-carbon:logo-discord" /></a>
 - :glowing-star: **[PopcornMovies](https://popcornmovies.st/)** 或 [BingeBox](https://bingebox.ac/) - 4K / 外挂字幕 / 可关闭广告
 - :glowing-star: **[Atlantic](https://atlantic.bz/)** 或 [fprime](https://fprime.at/) - 4K / 双音轨 / 外挂字幕 / 可关闭广告 / <a target="_blank" href="https://discord.com/invite/ekUMJ7WVnW"><span v-tooltip="'Discord'" alt="Discord" class="i-carbon:logo-discord" /></a>
-- :star: **[Ghostflix](https://ghostflix.st/)**、[2](https://redflix.st/)、[3](https://redflix.ac/) - 1080p / 双音轨 / 外挂字幕 / 可关闭广告 / [状态](https://redflix.fans/) / [邀请](https://discord.gg/wp5SkSWHW5) / <a target="_blank" href="https://t.me/multichannelofficial"><span v-tooltip="'Telegram'" alt="Telegram" class="i-mdi:telegram" /></a>
+- :glowing-star: **[ShuttleTV](https://shuttletv.pk/)**、[2](https://shuttletv.me/) - 4K / 双音轨 / 外挂字幕 / 可关闭广告 / <a target="_blank" href="https://discord.gg/wsPmVB7ZJZ"><span v-tooltip="'Discord'" alt="Discord" class="i-carbon:logo-discord" /></a>
 - :star: **[dulo](https://dulo.mov/)** - 4K / 外挂字幕 / 可关闭广告 / <a target="_blank" href="https://discord.gg/kSsqjhE2Sp"><span v-tooltip="'Discord'" alt="Discord" class="i-carbon:logo-discord" /></a>
 - :star: **[Spacedom](https://spacedom.live/)** - 4K / 双音轨 / 无弹窗和跳转广告 / <a target="_blank" href="https://discord.com/invite/6NU9thcPYs"><span v-tooltip="'Discord'" alt="Discord" class="i-carbon:logo-discord" /></a>
 - :star: **[Chillflix](https://chillflix.lol/)**、[Toflix](https://toflix.co/) 或 [Vuflix](https://vuflix.co/) - 4K / 双音轨 / 外挂字幕 / 可关闭广告 / <a target="_blank" href="https://discord.gg/6r5KTZgqXV"><span v-tooltip="'Discord'" alt="Discord" class="i-carbon:logo-discord" /></a>
@@ -29,6 +28,7 @@
 - :star: **[MeowTV](https://meowtv.ru/)** 或 [FlickyStream](https://flickystream.mov/) - 1080p / 双音轨 / 外挂字幕 / 可关闭广告
 - :star: **[Flixer](https://flixer.gd)**、[2](https://flixer.su/)、[3](https://flixer.cx/) 或 [Hexa](https://hexa.su/) - 1080p / 可关闭广告
 - :star: **[CineLite](https://cinelite.xyz/)** - 4K / 双音轨 / 可关闭广告 / [状态](https://rentry.co/cinelite)
+- :star: **[Ghostflix](https://ghostflix.st/)**、[2](https://redflix.st/)、[3](https://redflix.ac/) - 1080p / 双音轨 / 外挂字幕 / 可关闭广告 / [状态](https://redflix.fans/) / [邀请](https://discord.gg/wp5SkSWHW5) / <a target="_blank" href="https://t.me/multichannelofficial"><span v-tooltip="'Telegram'" alt="Telegram" class="i-mdi:telegram" /></a>
 - [BingeBang](https://bingebang.st/) - 4K / 外挂字幕 / 无弹窗和跳转广告 / [状态](https://bingebang.club/) / <a target="_blank" href="https://discord.com/invite/v3EmsANYNM"><span v-tooltip="'Discord'" alt="Discord" class="i-carbon:logo-discord" /></a>
 - [Lightflix](https://lightflix.app/) 或 [Afterdusk](https://afterdusk.app/) - 4K / 双音轨 / 外挂字幕 / 可关闭广告
 - [Bingr](https://bingr.st/home) - 1080p / 双音轨 / 外挂字幕 / 可关闭广告 / <a target="_blank" href="https://discord.com/invite/Dxq6bFv4FP"><span v-tooltip="'Discord'" alt="Discord" class="i-carbon:logo-discord" /></a>
