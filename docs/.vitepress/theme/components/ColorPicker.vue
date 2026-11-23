@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import type { ColorNames } from '../themes/configs/colors'
+import { useT } from '../composables/i18n'
 import { themeRegistry } from '../themes/configs'
 import { normalizeColorName } from '../themes/configs/colors'
 import { useTheme } from '../themes/themeHandler'
 import { colors } from '../utils/colors'
+
+const t = useT()
 
 withDefaults(defineProps<{ compact?: boolean }>(), {
   compact: false
@@ -66,13 +69,13 @@ const isPresetActive = (t: string) => {
       <div
         class="text-[11px] font-semibold text-[var(--vp-c-text-3)] uppercase tracking-wider mb-2"
       >
-        Color Themes
+        {{ t('Color Themes') }}
       </div>
       <div
         class="flex flex-wrap"
         :class="compact ? 'gap-1.5' : 'gap-2'"
         role="group"
-        aria-label="Color Themes"
+        :aria-label="t('Color Themes')"
       >
         <div v-for="color in colorOptions" :key="color">
           <button
@@ -86,8 +89,8 @@ const isPresetActive = (t: string) => {
                   : 'scale-110 ring-2 ring-[var(--vp-c-brand-1)] ring-offset-2 ring-offset-[var(--vp-c-bg-elv)] shadow-sm'
                 : 'hover:scale-110 opacity-85 hover:opacity-100'
             ]"
-            :title="normalizeColorName(color)"
-            :aria-label="normalizeColorName(color)"
+            :title="t(normalizeColorName(color))"
+            :aria-label="t(normalizeColorName(color))"
             :aria-pressed="isColorActive(color)"
             @click="selectTheme(`color-${color}`)"
           >
@@ -114,30 +117,30 @@ const isPresetActive = (t: string) => {
       <div
         class="text-[11px] font-semibold text-[var(--vp-c-text-3)] uppercase tracking-wider mb-2"
       >
-        Theme Presets
+        {{ t('Theme Presets') }}
       </div>
       <div
         class="flex flex-wrap"
         :class="compact ? 'gap-1.5' : 'gap-2'"
         role="group"
-        aria-label="Theme Presets"
+        :aria-label="t('Theme Presets')"
       >
-        <div v-for="t in presetThemeNames" :key="t">
+        <div v-for="name in presetThemeNames" :key="name">
           <button
             type="button"
             :class="[
               'relative inline-flex items-center justify-center rounded-full cursor-pointer transition-all duration-200',
               compact ? 'w-5.5 h-5.5' : 'w-6 h-6',
-              isPresetActive(t)
+              isPresetActive(name)
                 ? compact
                   ? 'ring-2 ring-[var(--vp-c-brand-1)] ring-offset-1 ring-offset-[var(--appearance-panel-surface,var(--vp-c-bg-elv))]'
                   : 'scale-110 ring-2 ring-[var(--vp-c-brand-1)] ring-offset-2 ring-offset-[var(--vp-c-bg-elv)] shadow-sm'
                 : 'hover:scale-110 opacity-85 hover:opacity-100'
             ]"
-            :title="themeRegistry[t].displayName"
-            :aria-label="themeRegistry[t].displayName"
-            :aria-pressed="isPresetActive(t)"
-            @click="selectTheme(t)"
+            :title="t(themeRegistry[name].displayName)"
+            :aria-label="t(themeRegistry[name].displayName)"
+            :aria-pressed="isPresetActive(name)"
+            @click="selectTheme(name)"
           >
             <span
               class="relative inline-flex items-center justify-center w-full h-full rounded-full shadow-inner"
@@ -148,12 +151,12 @@ const isPresetActive = (t: string) => {
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat'
                   },
-                  getThemePreviewStyle(t)
+                  getThemePreviewStyle(name)
                 )
               "
             >
               <span
-                v-if="isPresetActive(t)"
+                v-if="isPresetActive(name)"
                 :class="[
                   'i-ph-check text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]',
                   compact ? 'text-[10px]' : 'text-[11px]'

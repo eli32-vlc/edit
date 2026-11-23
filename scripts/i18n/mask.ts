@@ -92,10 +92,11 @@ export function mask(input: string, options: MaskOptions = {}): Masked {
           const url = input.slice(textEnd + 2, urlEnd)
           const closesBold = boldLink && input.startsWith('**', urlEnd + 1)
           const end = closesBold ? urlEnd + 3 : urlEnd + 1
+          // Links to other sections are labelled with a translatable title.
+          const internal = /^(?:\/|#|\.\.?\/)/.test(url)
           const keepWhole =
             isImage ||
-            closesBold ||
-            inNames ||
+            (!internal && (closesBold || inNames)) ||
             /^[\d\s.,]*$/.test(label) ||
             options.keepLinkTexts?.has(label) ||
             !/\p{L}/u.test(label)
@@ -176,5 +177,34 @@ export function validate(
   const before = multiset(parseInline(unmask(source.text, source.tokens)))
   const after = multiset(parseInline(unmask(translated, source.tokens)))
   if (before !== after) return 'markdown structure changed'
+  return undefined
+}
+
+const LINKED_RE =
+  /(\u27E6\d+\u27E7|\]\(\u27E6\d+\u27E7\)\**)\s*[,，、]\s*(?=\u27E6|\*{0,2}\[)/g
+
+// Lists of links use the Chinese enumeration comma, and stray double spaces
+// left by the model are collapsed.
+export function normalize(text: string) {
+  return text
+    .trim()
+    .replace(LINKED_RE, '$1、')
+    .replace(/(\S) {2,}(?=\S)/g, '$1 ')
+}
+
+const squash = (s: string) => s.replace(/\s+/g, '').toLowerCase()
+
+// Every glossary term found in the source must appear in its required
+// rendering.
+export function checkGlossary(
+  translated: string,
+  terms: Record<string, string>
+): string | undefined {
+  const text = squash(translated.replace(PLACEHOLDER_RE, ' '))
+  for (const [en, zh] of Object.entries(terms)) {
+    // "a|b" accepts either rendering.
+    if (!zh.split('|').some((option) => text.includes(squash(option))))
+      return `glossary: render "${en}" as "${zh.split('|')[0]}"`
+  }
   return undefined
 }

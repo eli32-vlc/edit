@@ -2,10 +2,13 @@
 import { useMediaQuery } from '@vueuse/core'
 import { withBase } from 'vitepress'
 import { computed } from 'vue'
+import { useT } from '../composables/i18n'
 
 const props = withDefaults(defineProps<{ title?: string; icon?: string }>(), {
   icon: '/note.svg'
 })
+
+const t = useT()
 
 const resolvedIcon = computed(() => withBase(props.icon))
 
@@ -24,7 +27,7 @@ const triggers = computed(() => (isHoverable.value ? ['hover'] : ['click']))
   >
     <button
       type="button"
-      :aria-label="title || 'More information'"
+      :aria-label="title || t('More information')"
       class="tooltip-trigger relative inline-flex items-center justify-center leading-none p-0 select-none font-bold cursor-pointer transition-all h-[1.5em] w-[1.5em] overflow-visible align-middle"
     >
       <div

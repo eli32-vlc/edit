@@ -1,6 +1,6 @@
 ---
 title: "公开 Discord 服务器"
-description: "我们新的聊天空间。"
+description: "我们全新的聊天空间。"
 date: 2023-10-24
 next: false
 

@@ -1,3 +1,3 @@
-#### Eaglercraft 说明
+#### Eaglercraft 注意事项
 
-为获得最佳性能，请在基于 Chromium 的浏览器上游玩。
+建议使用基于 Chromium 的浏览器游玩，以获得最佳性能。

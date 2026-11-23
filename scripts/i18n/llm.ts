@@ -128,19 +128,22 @@ const SHARED_RULES = `Rules:
 - ⟦n⟧ tokens are placeholders for links, site names, code and markup. Keep every placeholder exactly once, unchanged. Never translate, drop, duplicate or invent placeholders.
 - Keep Markdown syntax intact: [label](⟦n⟧) links (translate a generic label, keep a name), **bold**, *italic*, table pipes |, and every emoji.
 - Keep names of sites, apps, projects, people, companies, communities, file formats, protocols and acronyms in their original form. Also keep every term listed in "keep".
-- Use the "glossary" renderings exactly.
+- "glossary" renderings are mandatory: whenever a glossary term occurs, its rendering must appear in the translation, and the English term must not remain. Inflected or compound forms use the same rendering. "a|b" means either a or b.
+- "refs" says what some placeholders stand for (site name and domain). Use it only to understand the context; never copy it into the output.
+- Translate by meaning in context, not word by word. FMHY's audience is people looking for free media and tools; use the terms that Chinese users of those communities actually use.
+- Link labels pointing to other sections, like [Download Managers](⟦n⟧), are section titles: translate them.
 - Tag lists separated by " / " keep the " / " separators.
 - Put a space between Chinese text and adjacent Latin words, numbers or placeholders. Use full-width Chinese punctuation (，。：；？！（）) in Chinese sentences.
 - Write concise, natural Simplified Chinese as used by mainland tech communities. Do not add, explain or omit anything.
 - Each value is a single line.`
 
 export const TRANSLATE_PROMPT = `You translate FMHY ("freemediaheckyeah"), a wiki that indexes free websites, apps and tools, from English into Simplified Chinese.
-Input: JSON with "page", "glossary", "keep" and "items" (id, section, text).
+Input: JSON with "page", "glossary", "keep" and "items" (id, section heading path, refs, text). Items are consecutive lines of the page; use the neighbouring items as context. Some items carry "previous" and "problem": an earlier attempt that was rejected; fix the problem.
 Output: a JSON object mapping every item id to its Chinese translation.
 ${SHARED_RULES}`
 
 export const REVIEW_PROMPT = `You review Simplified Chinese translations of FMHY ("freemediaheckyeah"), a wiki that indexes free websites, apps and tools.
-Input: JSON with "page", "glossary", "keep" and "items" (id, section, source, draft).
-Check each draft against its source for mistranslation, omissions, additions, unnatural Chinese and rule violations.
+Input: JSON with "page", "glossary", "keep" and "items" (id, section heading path, refs, source, draft).
+Check each draft against its source for mistranslation, wrong sense for the context, omissions, additions, English left untranslated that is not a name, unnatural Chinese and rule violations.
 Output: a JSON object mapping the id of every draft that needs a change to its corrected full translation. Leave out drafts that are already correct. Output {} when all are correct.
 ${SHARED_RULES}`

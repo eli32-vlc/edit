@@ -143,6 +143,7 @@ export function segmentMarkdown(
   let inComment = false
   let rawUntil: string | undefined
   let section = ''
+  const headingPath: string[] = []
   let open: Block | undefined
   const pending: (Line | Block)[] = []
 
@@ -235,7 +236,12 @@ export function segmentMarkdown(
       continue
     }
     flush()
-    if (isHeading) section = body.replace(/\{#[^}]+\}\s*$/, '').trim()
+    if (isHeading) {
+      const level = line.trim().match(/^#+/)![0].length
+      headingPath.length = level - 1
+      headingPath[level - 1] = body.replace(/\{#[^}]+\}\s*$/, '').trim()
+      section = headingPath.filter(Boolean).join(' › ')
+    }
     const block: Block = {
       prefix,
       body,

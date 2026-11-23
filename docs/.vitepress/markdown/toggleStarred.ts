@@ -15,7 +15,10 @@
  */
 
 import type { MarkdownRenderer } from 'vitepress'
+import type { Translate } from '../i18n/shared'
 import { readFileSync } from 'node:fs'
+import { t as translate } from '../i18n/node'
+import { LOCALE } from '../i18n/shared'
 
 const excluded = ['Beginners Guide']
 const starredMarkers = [':star:', ':glowing-star:', '⭐', '🌟']
@@ -46,8 +49,8 @@ function normalizeUrl(value: string) {
 }
 
 // Same hover card as the Recently Removed dates ("2 days ago" + full date).
-const newBadge = (date: string) =>
-  `<button type="button" class="new-badge" aria-label="New, added ${date}" v-tooltip="{ content: () => $removedDateTooltip('${date}'), html: true, triggers: $removedDateTriggers, autoHide: true, popperClass: 'new-badge-popper' }"><span class="new-badge-text">New</span></button>`
+const newBadge = (date: string, t: Translate) =>
+  `<button type="button" class="new-badge" aria-label="${t('New, added {date}', { date })}" v-tooltip="{ content: () => $removedDateTooltip('${date}'), html: true, triggers: $removedDateTriggers, autoHide: true, popperClass: 'new-badge-popper' }"><span class="new-badge-text">${t('New')}</span></button>`
 
 type InlineToken = NonNullable<
   ReturnType<MarkdownRenderer['parse']>[number]['children']
@@ -58,7 +61,8 @@ type InlineToken = NonNullable<
 function markNewLinks(
   children: InlineToken[],
   newSites: Record<string, string>,
-  Token: new (type: string, tag: string, nesting: number) => InlineToken
+  t: Translate,
+  Token: new (type: string, tag: string, nesting: 0) => InlineToken
 ) {
   let found = false
   for (let i = 0; i < children.length; i++) {
@@ -78,7 +82,7 @@ function markNewLinks(
       if (children[j].type === 'link_open') depth++
       if (children[j].type === 'link_close' && --depth === 0) {
         const badge = new Token('html_inline', '', 0)
-        badge.content = newBadge(addedOn)
+        badge.content = newBadge(addedOn, t)
         children.splice(j + 1, 0, badge)
         break
       }
@@ -97,8 +101,11 @@ export function toggleStarredPlugin(md: MarkdownRenderer) {
     if (!contentToken) return self.renderToken(tokens, index, options)
 
     const content = contentToken.content
+    const localized = env.relativePath?.startsWith(`${LOCALE}/`)
+    const t: Translate = localized ? translate : (en) => en
     const isStarred =
       !excluded.includes(env.frontmatter.title) &&
+      !env.relativePath?.endsWith('beginners-guide.md') &&
       starredMarkers.some((marker) => content.includes(marker))
     const isIndex = indexMarkers.some((marker) => content.includes(marker))
     const isNew =
@@ -106,6 +113,7 @@ export function toggleStarredPlugin(md: MarkdownRenderer) {
       markNewLinks(
         contentToken.children,
         newSites,
+        t,
         md.core.State.prototype.Token
       )
 

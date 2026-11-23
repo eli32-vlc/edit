@@ -5,6 +5,8 @@ import { basename, join } from 'node:path'
 import { createMarkdownRenderer } from 'vitepress'
 import { meta, nav, sidebar } from '../../docs/.vitepress/constants'
 import { defs } from '../../docs/.vitepress/markdown/emoji'
+import { normalizeColorName } from '../../docs/.vitepress/theme/themes/configs/colors'
+import { colors } from '../../docs/.vitepress/theme/utils/colors'
 import { isWikiPage, transformPage } from '../../docs/.vitepress/transformer'
 import { headers } from '../../docs/.vitepress/transformer/constants'
 import { containerLabels, makeSegment, segmentMarkdown } from './documents'
@@ -133,6 +135,24 @@ export function loadStrings(): StringSource[] {
   ]))
     add(text, 'Navigation menu label')
   for (const label of containerLabels) add(label, 'Callout box label')
+  // Screen-reader labels of VitePress components, patched in config.mts.
+  for (const label of [
+    'Main Navigation',
+    'Sidebar Navigation',
+    'Pager',
+    'extra navigation',
+    'mobile navigation',
+    'toggle section'
+  ])
+    add(label, 'Screen-reader label')
+  const themesDir = 'docs/.vitepress/theme/themes/configs'
+  for (const file of readdirSync(themesDir))
+    for (const m of readFileSync(join(themesDir, file), 'utf8').matchAll(
+      /displayName: '([^']+)'/g
+    ))
+      add(m[1], 'Colour theme name')
+  for (const name of Object.keys(colors))
+    add(normalizeColorName(name), 'Colour theme name')
 
   const files = (readdirSync(CODE_ROOT, { recursive: true }) as string[])
     .map(posix)

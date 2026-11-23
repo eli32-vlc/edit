@@ -1,4 +1,4 @@
-#### Steam Currency Converter 说明
+#### Steam 货币转换器说明
 
 如需即时货币转换：
 

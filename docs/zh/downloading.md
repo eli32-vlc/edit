@@ -1,28 +1,28 @@
 ## 软件网站 {#software-sites}
 
 ::: tip 提示
-安装前请始终用 **[VirusTotal](https://www.virustotal.com/gui/)** 扫描下载的软件，并在 **[Triage](https://tria.ge/)** 等沙箱环境中运行，以防系统被入侵。注意，任何带有虚假名称的应用通常都不值得使用。许多热门文件托管站点的下载按钮会重定向到虚假的恶意下载页面。使用完整版 [uBlock Origin](/privacy/#adblocking) 可以防止这种情况，但并非总是有效。阅读这篇[指南](https://cs.rin.ru/forum/viewtopic.php?f=14&t=159345)，了解虚假恶意下载页面长什么样以及如何避开它们。一般规则是：避开会在新标签页或重定向页面中打开的下载页面，真正的下载会发生在文件托管站点的同一页面内。
+安装前务必用 **[VirusTotal](https://www.virustotal.com/gui/)** 扫描已下载的软件，并在 **[Triage](https://tria.ge/)** 之类的沙盒环境中运行，以防系统被入侵。注意，任何使用虚假名称的应用通常都不值得使用。许多热门文件托管站的下载按钮会重定向到虚假的恶意下载页面。使用完整版 [uBlock Origin](/privacy/#adblocking) 可以避免这种情况，但并非总是有效。阅读这份[指南](https://cs.rin.ru/forum/viewtopic.php?f=14&t=159345)，了解虚假恶意下载页面的样子以及如何避开它们。一条通用规则是：避开会在新标签页或重定向页面中打开的下载页面，真正的下载发生在文件托管站的同一页面内。
 :::
 
-- :globe-with-meridians: **[Adobe Alternatives](https://github.com/KenneyNL/Adobe-Alternatives)** - Adobe 软件替代品索引
-- :repeat-button:️ **[Editing Software](/torrenting/#torrent-sites)** 或 [Keyflame](https://rentry.co/FMHYB64#keyflame) - 编辑软件
-- :star: **[Virgil Software Search](https://virgil.samidy.com/?engine=software)**、[2](https://virgil-search.pages.dev/?engine=software) / <a target="_blank" href="https://github.com/SamidyFR/Virgil"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a> 或 [Software CSE](https://cse.google.com/cse?cx=ae17d0c72fa6cbcd4) - 多站点软件搜索
+- :globe-with-meridians: **[Adobe Alternatives](https://github.com/KenneyNL/Adobe-Alternatives)** - Adobe 软件替代索引
+- :repeat-button:️ **[编辑软件](/torrenting/#torrent-sites)** 或 [Keyflame](https://rentry.co/FMHYB64#keyflame) - 编辑软件
+- :star: **[Virgil Software Search](https://virgil.samidy.com/?engine=software)**、[2](https://virgil-search.pages.dev/?engine=software) / <a target="_blank" href="https://github.com/SamidyFR/Virgil"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a> 或 [Software CSE](https://cse.google.com/cse?cx=ae17d0c72fa6cbcd4) - 多网站软件搜索
 - :star: **[CracksURL](https://cracksurl.com/)** / [Download Guide](https://cracksurl.com/how-to-download/) / <a target="_blank" href="https://t.me/+Fu_l5ukw7wNkMDll"><span v-tooltip="'Telegram'" alt="Telegram" class="i-mdi:telegram" /></a>, [2](https://t.me/+8zQaYybFs_wyMzhl)
 - :star: **[Soft98](https://soft98.ir/)** - 使用[翻译器](/text-tools/#translators)
-- :star: **[Nsane Forums](https://www.nsaneforums.com/)** - 需要注册
-- :star: **[Mobilism](https://forum.mobilism.org/)** - 需要注册 / [用户等级](https://github.com/fmhy/edit/blob/main/docs/.vitepress/notes/mobilism-ranks.md)
+- :star: **[Nsane Forums](https://www.nsaneforums.com/)** - 需注册
+- :star: **[Mobilism](https://forum.mobilism.org/)** - 需注册 / [用户等级](https://github.com/fmhy/edit/blob/main/docs/.vitepress/notes/mobilism-ranks.md)
 - :star: **[LRepacks](https://lrepacks.net/)** - 避开重定向 / 使用广告拦截 + [翻译器](/text-tools/#translators)
 - :star: **[AlternativeTo](https://alternativeto.net/)** 或 [European Alternatives](https://european-alternatives.eu/) - 众包推荐
 - [DownloadHa](https://www.downloadha.com/) - 使用[翻译器](/text-tools/#translators)
 - [Moum](https://moum.top/en/)
-- [RetroSystemRevival](https://retrosystemsrevival.blogspot.com/) - 老式软件
+- [RetroSystemRevival](https://retrosystemsrevival.blogspot.com/) - 老派软件
 - [Libreware](https://t.me/Libreware) - Telegram 频道
-- [ZXPInstaller](https://zxpinstaller.com/) - Adobe 扩展安装器
+- [ZXPInstaller](https://zxpinstaller.com/) - Adobe 扩展安装程序
 
 ### FOSS 网站 {#foss-sites}
 
 - :globe-with-meridians: **[Awesome Open Source](https://awesomeopensource.com/)**、[⁠definitive-opensource](https://github.com/mustbeperfect/definitive-opensource)、[Awesome Useful Projects](https://github.com/Furthir/awesome-useful-projects) 或 [Awesome OSS](https://github.com/RunaCapital/awesome-oss-alternatives) - FOSS 索引
-- :repeat-button:️ **[Git Project Indexes](/misc/#git-project-indexes)**
+- :repeat-button:️ **[Git 项目索引](/misc/#git-project-indexes)**
 - :star: **[new(releases)](https://newreleases.io/)** - 软件发布通知 / <a target="_blank" href="https://github.com/newreleasesio"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a>
 - :star: **[Is It Really FOSS](https://isitreallyfoss.com)** - 判断软件是否为 FOSS / <a target="_blank" href="https://codeberg.org/danb/isitreallyfoss"><span v-tooltip="'Source Code'" alt="Source Code" class="i-gravity-ui:code" /></a>
 - [SourceForge](https://sourceforge.net/) - FOSS 仓库
@@ -31,19 +31,19 @@
 - [Gadgeteer](https://gadgeteer.co.za/opensourcesoftware/) - FOSS 目录
 - [FossHub](https://www.fosshub.com/) - FOSS 目录
 - [OSS Gallery](https://oss.gallery/) - FOSS 目录 / <a target="_blank" href="https://github.com/dubinc/oss-gallery"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a>
-- [Opensource Builders](https://opensource.builders/) - FOSS 备选目录 / <a target="_blank" href="https://github.com/junaid33/opensource.builders"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a>
-- [OpenAlternative](https://openalternative.co/) - FOSS 备选目录
-- [opensourcealternative.to](https://www.opensourcealternative.to/) - FOSS 备选目录
+- [Opensource Builders](https://opensource.builders/) - FOSS 替代品目录 / <a target="_blank" href="https://github.com/junaid33/opensource.builders"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a>
+- [OpenAlternative](https://openalternative.co/) - FOSS 替代品目录
+- [opensourcealternative.to](https://www.opensourcealternative.to/) - FOSS 替代品目录
 - [Awesome CLI Apps](https://github.com/toolleeo/awesome-cli-apps-in-a-csv) 或 [CLI Club](https://cli.club/) / <a target="_blank" href="https://github.com/cli-club/cli-club.github.io"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a> - FOSS CLI 应用 / 工具
-- [FOSS Wiki](https://wikipedia.org/wiki/Portal:Free_and_open-source_software/Categories) - FOSS Wiki
+- [FOSS Wiki](https://wikipedia.org/wiki/Portal:Free_and_open-source_software/Categories) - FOSS 维基
 
 ### 免费软件网站 {#freeware-sites}
 
 - :globe-with-meridians: **[Awesome Free Software](https://github.com/Axorax/awesome-free-apps)**、[Awesome Free Apps](https://github.com/Axorax/awesome-free-apps)、[Windows Ultimate Collection](https://xdaforums.com/t/windows-ultimate-collection-guides.4507867/) 或 [Free Lunch](https://github.com/auctors/free-lunch) - 免费软件索引
 - :globe-with-meridians: **[Awesome Python Applications](https://github.com/mahmoud/awesome-python-applications)** - Python 应用索引
-- :repeat-button:️ **[Software Package Managers](/system-tools/#package-managers)**
-- :star: **[FluentStore](https://github.com/yoshiask/FluentStore)** - 替代 Microsoft Store 应用 /  <span v-tooltip="'Windows'" alt="Windows" class="i-qlementine-icons:windows-24" /> 
-- :star: **[DanStore](https://danstore.kavangi.co.ke/)**、**[store.rg](https://store.rg-adguard.net/)** 或 [StoreWeb](https://msft-store.tplant.com.au/) / <a target="_blank" href="https://github.com/StoreDev"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a> - Microsoft Store WebUI / [指南](https://rentry.co/paidAppsMsStore)
+- :repeat-button:️ **[软件包管理器](/system-tools/#package-managers)**
+- :star: **[FluentStore](https://github.com/yoshiask/FluentStore)** - Microsoft Store 替代应用 / <span v-tooltip="'Windows'" alt="Windows" class="i-qlementine-icons:windows-24" /> 
+- :star: **[DanStore](https://danstore.kavangi.co.ke/)**、**[store.rg](https://store.rg-adguard.net/)** 或 [StoreWeb](https://msft-store.tplant.com.au/) / <a target="_blank" href="https://github.com/StoreDev"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a> - Microsoft Store 网页界面 / [指南](https://rentry.co/paidAppsMsStore)
 - [MajorGeeks](https://www.majorgeeks.com/) - 免费软件下载
 - [Softpedia](https://www.softpedia.com/) - 免费软件目录
 - [Realityripple](https://realityripple.com/) - 免费软件目录
@@ -59,7 +59,7 @@
 - [Nirsoft](https://www.nirsoft.net/)、[Windows-Utilities](https://orga.cat/windows-utilities)、[OS Vault](https://osvault.weebly.com/directory.html) 或 [WinTools](https://www.wintools.info/) - Windows 软件
 - [Suckless](https://suckless.org/) - 极简软件生态
 - [VETUSWARE](https://vetusware.com/) - 废弃软件 / 操作系统 / 游戏
-- [OldVersion](https://www.oldversion.com/) - 软件旧版本
+- [OldVersion](https://www.oldversion.com/) - 旧版本软件
 - [Vintage Software Collection](https://rentry.co/FMHYB64#the-vintage-software-collection) 或 [SCiZE's Classic Warez](https://scenelist.org/) - 复古软件
 - [⁠Commodore Software](https://commodore.software/search/) - Commodore 64 / Commodore 128 / VIC-20 软件
 
@@ -70,26 +70,26 @@
 ## 下载目录 {#download-directories}
 
 ::: tip 提示
-部分开放目录会追踪 IP 地址。访问这些资源时请始终使用 [VPN](/privacy/#vpn) 或 [Tor](/privacy/#browser-privacy)。
+部分开放目录会追踪 IP 地址。访问这些资源时请务必使用 [VPN](/privacy/#vpn) 或 [Tor](/privacy/#browser-privacy)。
 :::
 
-- :globe-with-meridians: **[r/opendirectories](https://www.reddit.com/r/opendirectories/)** - 开放目录 Subreddit / <a target="_blank" href="https://t.me/r_OpenDirectories"><span v-tooltip="'Telegram'" alt="Telegram" class="i-mdi:telegram" /></a> / [/u/ODScanner](https://reddit.com/u/ODScanner)
+- :globe-with-meridians: **[r/opendirectories](https://www.reddit.com/r/opendirectories/)** - 开放目录子版块 / <a target="_blank" href="https://t.me/r_OpenDirectories"><span v-tooltip="'Telegram'" alt="Telegram" class="i-mdi:telegram" /></a> / [/u/ODScanner](https://reddit.com/u/ODScanner)
 - :star: **[EyeDex](https://www.eyedex.org/)**、[ODCrawler](https://odcrawler.xyz/) / <a target="_blank" href="https://github.com/MCOfficer/odcrawler-discovery"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a> 或 [mmnt](https://www.mmnt.net/) - 开放目录搜索引擎
-- :star: **[Nicotine+](https://nicotine-plus.org/)** / <a target="_blank" href="https://github.com/nicotine-plus/nicotine-plus"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a> 或 [Soulseek](https://slsknet.org/) - 文件分享应用 /  <span v-tooltip="'Windows'" alt="Windows" class="i-qlementine-icons:windows-24" />  <div v-tooltip="'macOS'" alt="macOS" class="i-qlementine-icons:mac-fill-16" />  <span v-tooltip="'Linux'" alt="Linux" class="i-fluent-mdl2:linux-logo-32" />  / [统计](https://github.com/mrusse/Slsk-Upload-Stats-Tracker) / [服务端应用](https://github.com/slskd/slskd) / [批量 DDL](https://github.com/fiso64/sldl)
-- [eMule](https://www.emule-project.com/) - 文件分享应用 /  <span v-tooltip="'Windows'" alt="Windows" class="i-qlementine-icons:windows-24" />  / <a target="_blank" href="https://github.com/irwir/eMule"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a>
-- [⁠RetroShare](https://retroshare.cc/) - 文件分享应用 / <a target="_blank" href="https://github.com/RetroShare/RetroShare/"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a>
+- :star: **[Nicotine+](https://nicotine-plus.org/)** / <a target="_blank" href="https://github.com/nicotine-plus/nicotine-plus"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a> 或 [Soulseek](https://slsknet.org/) - 文件共享应用 / <span v-tooltip="'Windows'" alt="Windows" class="i-qlementine-icons:windows-24" /> <div v-tooltip="'macOS'" alt="macOS" class="i-qlementine-icons:mac-fill-16" /> <span v-tooltip="'Linux'" alt="Linux" class="i-fluent-mdl2:linux-logo-32" /> / [统计](https://github.com/mrusse/Slsk-Upload-Stats-Tracker) / [服务器应用](https://github.com/slskd/slskd) / [批量 DDL](https://github.com/fiso64/sldl)
+- [eMule](https://www.emule-project.com/) - 文件共享应用 / <span v-tooltip="'Windows'" alt="Windows" class="i-qlementine-icons:windows-24" /> / <a target="_blank" href="https://github.com/irwir/eMule"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a>
+- [⁠RetroShare](https://retroshare.cc/) - 文件共享应用 / <a target="_blank" href="https://github.com/RetroShare/RetroShare/"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a>
 - [mega.archive (Discord)](https://discord.gg/R3zEZUPp3Q) / [Chat](https://discord.gg/ZRhpUtzvkC) - Megadrive 档案库
 - [Mamont](https://www.mmnt.ru/int/) 或 [Search-22](https://search-22.com/ftp-search-tools) - FTP 搜索
-- [Sala De Espera](https://matrix.to/#/!qbOtnJEDGsPuWZBHLX:matrix.org?via=matrix.org) - 网盘分享社区
-- [Open Directory Downloader](https://github.com/KoalaBear84/OpenDirectoryDownloader) - 开放目录索引器
+- [Sala De Espera](https://matrix.to/#/!qbOtnJEDGsPuWZBHLX:matrix.org?via=matrix.org) - 网盘共享社区
+- [Open Directory Downloader](https://github.com/KoalaBear84/OpenDirectoryDownloader) - 开放目录索引工具
 - [DemoZoo](https://demozoo.org/)、[Pouet](https://www.pouet.net/prodlist.php)、[Curio](https://curio.scene.org/) 或 [scene.org](https://files.scene.org/) - Demoscene 档案库
 - [CD.TextFiles](http://cd.textfiles.com/) - CD 文本文件档案库
 - [Defacto2](https://defacto2.net/) - Scene / Sub-Scene 数据库
 
-## 下载站点 {#download-sites}
+## 下载网站 {#download-sites}
 
 ::: tip 提示
-通用 DDL 站点使用多个来源，因此最好避免用它们获取软件和游戏。如有需要，可使用 **[redirect bypassers](/internet-tools/#redirect-bypass)** 跳过短链接服务。许多热门文件托管站的下载按钮会重定向到虚假的恶意下载页面。使用完整版 [uBlock Origin](/privacy/#adblocking) 可以防止这种情况，但并非总是有效。阅读这份 [指南](https://cs.rin.ru/forum/viewtopic.php?f=14&t=159345) 了解虚假恶意下载页面的样子以及如何避开它们。一个通用原则是：避免会打开新标签页或跳转到其他页面的下载页面，真正的下载发生在文件托管站的同一页面内。
+综合 DDL 站点使用多个来源，因此最好避免用它们下载软件和游戏。如有需要，可使用 **[重定向绕过工具](/internet-tools/#redirect-bypass)** 跳过短链接。许多热门文件托管站的下载按钮会重定向到伪造的恶意下载页面。使用完整版 [uBlock Origin](/privacy/#adblocking) 可以阻止这种情况，但并不总是有效。阅读这篇[指南](https://cs.rin.ru/forum/viewtopic.php?f=14&t=159345)了解伪造的恶意下载页面长什么样以及如何避开它们。一条通用规则是：避开会在新标签页或重定向页面中打开的下载页，真正的下载会在与文件托管站相同的页面内进行。
 :::
 
 - :star: **[Internet Archive](https://archive.org/)** - 视频 / 音频 / 书籍 / 杂志 / 报纸 / ROMs / [工具](/storage/#internet-archive-tools)
@@ -99,7 +99,7 @@
 - [SceneSource](https://www.scnsrc.me/)、[2](https://www.scenesource.me/) - 视频 / 音频 / ROMs / 书籍
 - [WorldSRC](https://www.worldsrc.net/) - 视频 / 音频
 - [AditHD](https://www.adit-hd.com/) - 视频 / 音频 / 书籍
-- [wJungle](https://wjungle.net/) - 音频 / 书籍 / NSFW / 需要注册
+- [wJungle](https://wjungle.net/) - 音频 / 书籍 / NSFW / 需注册
 - [Novanon](https://novanon.net/) - 音频 / 杂志 / 漫画 / 书籍 / 课程
 - [ReleaseBB](https://rlsbb.ru/)、[2](https://rlsbb.to/)、[3](https://rlsbb.cc/)、[4](https://rlsbb.in/) - 音频 / 书籍 / 杂志 / [剧集追踪](https://openuserjs.org/scripts/drdre1/ReleaseBB_rlsbb_TV_Show_Tracker) / [PreDB](https://log.rlsbb.ru/)
 - [Psycho downloads](https://psychodownloads.com/) - 音频 / 书籍 / 杂志
@@ -112,13 +112,13 @@
 - [SoftArchive](https://softarchive.download/)、[2](https://softarchive.is/)、[3](https://sanet.lc/)、[4](https://sanet.st/)、[5](https://sanet.sb/)、[6](https://soft.ac/)、[7](https://sanet.ws/) - 音频 / 书籍 / 漫画 / 报纸 / 杂志 / [状态](https://sastatus.com/) / [警告](https://github.com/fmhy/edit/blob/main/docs/.vitepress/notes/sanet-critical.md)
 - [⁠ReleaseHive](https://releasehive.com/) - 视频 / 音频 / 书籍 / 需要 [Debrid](/downloading/#debrid-leeches)
 
-### 搜索站点 {#search-sites}
+### 搜索网站 {#search-sites}
 
 ::: tip 提示
-这些站点从多个来源聚合内容，所以下载软件 / 游戏最好避开它们。
+这些网站聚合多个来源，因此最好避免用它们来获取软件 / 游戏。
 :::
 
-- :star: **[Download CSE](https://cse.google.com/cse?cx=006516753008110874046:1ugcdt3vo7z)** / [CSE 2](https://cse.google.com/cse?cx=006516753008110874046:reodoskmj7h) - 多站点搜索
+- :star: **[Download CSE](https://cse.google.com/cse?cx=006516753008110874046:1ugcdt3vo7z)** / [CSE 2](https://cse.google.com/cse?cx=006516753008110874046:reodoskmj7h) - 多网站搜索
 - :star: **[4Shared](https://www.4shared.com/)**
 - [File Host Search](https://cse.google.com/cse?cx=90a35b59cee2a42e1)
 - [Linktury](https://www.ddlspot.com/)
@@ -126,15 +126,15 @@
 - [WarezOmen](https://warezomen.com/) - 索引器 / 搜索引擎
 - [XDCC.EU](https://www.xdcc.eu/) - XDCC / 搜索引擎
 
-### [视频站点](/video/#download-sites) {#video-sites}
+### [视频网站](/video/#download-sites) {#video-sites}
 
-### [动漫站点](/video/#anime-downloading) {#anime-sites}
+### [动漫网站](/video/#anime-downloading) {#anime-sites}
 
-### [教育站点](/educational/#downloading) {#educational-sites}
+### [教育网站](/educational/#downloading) {#educational-sites}
 
-### [游戏站点](/gaming/#download-games) {#game-sites}
+### [游戏网站](/gaming/#download-games) {#game-sites}
 
-### [音频站点](/audio/#download-sites) {#audio-sites}
+### [音频网站](/audio/#download-sites) {#audio-sites}
 
 ## Usenet {#usenet}
 
@@ -163,31 +163,31 @@
 - [altHUB](https://althub.co.za) - 无限免费试用
 - [Spotweb](https://github.com/spotweb/spotweb) - Spotnet 客户端
 
-### 服务提供商 {#providers}
+### 提供商 {#providers}
 
-- :globe-with-meridians: **[r/usenet Providers](https://www.reddit.com/r/usenet/wiki/providers)** - 服务商列表
-- :globe-with-meridians: **[r/usenet Deals](https://www.reddit.com/r/usenet/wiki/providerdeals)** - 服务商优惠
+- :globe-with-meridians: **[r/usenet Providers](https://www.reddit.com/r/usenet/wiki/providers)** - 提供商列表
+- :globe-with-meridians: **[r/usenet Deals](https://www.reddit.com/r/usenet/wiki/providerdeals)** - 提供商优惠
 - :globe-with-meridians: **[Usenet Provider Deals](https://usenet.rexum.space/deals)**
 - [Usenet Providers Map](https://usenet.rexum.space/tree)
 
 ### 下载器 {#downloaders}
 
 - :star: **[sabnzbd](https://sabnzbd.org/)** /  <span v-tooltip="'Windows'" alt="Windows" class="i-qlementine-icons:windows-24" />  <div v-tooltip="'macOS'" alt="macOS" class="i-qlementine-icons:mac-fill-16" />  <span v-tooltip="'Linux'" alt="Linux" class="i-fluent-mdl2:linux-logo-32" />  / [Grabber](https://github.com/lem6ns/sabgrab)
-- :star: **[NZBUnity](https://github.com/tumblfeed/nzbunity)** - 将 NZB 发送到客户端 / [Firefox](https://addons.mozilla.org/en-US/firefox/addon/nzb-unity/) / [Chrome](https://chromewebstore.google.com/detail/nzb-unity/mpejfoghnejnbfkpbiafklkmlhebkapb)
+- :star: **[NZBUnity](https://github.com/tumblfeed/nzbunity)** - 发送 NZB 到客户端 / [Firefox](https://addons.mozilla.org/en-US/firefox/addon/nzb-unity/) / [Chrome](https://chromewebstore.google.com/detail/nzb-unity/mpejfoghnejnbfkpbiafklkmlhebkapb)
 - [NZBGet](https://nzbget.com/) / <a target="_blank" href="https://github.com/nzbgetcom/nzbget"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a>
-- [Usenet File Hashes](https://gist.github.com/4chenz/de3a3490aff19fd72e4fdd9b7dafc8f4) - 链接文件哈希
+- [Usenet File Hashes](https://gist.github.com/4chenz/de3a3490aff19fd72e4fdd9b7dafc8f4) - 文件哈希链接
 
-## Debrid / 吸血 {#debrid-leeches}
+## Debrid / 离线下载 {#debrid-leeches}
 
 - :globe-with-meridians: **[Debrid Services Comparison](https://debridcompare.pages.dev/)** / <a target="_blank" href="https://github.com/fynks/debrid-services-comparison"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a>
-- :repeat-button:️ **[Debrid Compatible Apps](/video/#torrent-apps)**
-- :star: **[TorBox](https://torbox.app/)** - 免费增值 / 10GB + 每月 10 次免费 DDL / 需注册 / [网盘](https://torbox.app/hosters) / [非官方移动客户端](https://github.com/93Pd9s8Jt/atba)，[2](https://gitlab.com/forgiving/yatba) / <a target="_blank" href="https://www.reddit.com/r/TorBoxApp/"><span v-tooltip="'Reddit'" alt="Reddit" class="i-mdi:reddit" /></a> / <a target="_blank" href="https://discord.com/invite/torbox"><span v-tooltip="'Discord'" alt="Discord" class="i-carbon:logo-discord" /></a> / <a target="_blank" href="https://github.com/TorBox-App"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a>
+- :repeat-button:️ **[Debrid 兼容应用](/video/#torrent-apps)**
+- :star: **[TorBox](https://torbox.app/)** - 免费增值 / 10GB + 每月 10 次免费 DDL / 需注册 / [网盘](https://torbox.app/hosters) / [非官方移动端客户端](https://github.com/93Pd9s8Jt/atba)、[2](https://gitlab.com/forgiving/yatba) / <a target="_blank" href="https://www.reddit.com/r/TorBoxApp/"><span v-tooltip="'Reddit'" alt="Reddit" class="i-mdi:reddit" /></a> / <a target="_blank" href="https://discord.com/invite/torbox"><span v-tooltip="'Discord'" alt="Discord" class="i-carbon:logo-discord" /></a> / <a target="_blank" href="https://github.com/TorBox-App"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a>
 - [Real-Debrid](https://real-debrid.com/) - 付费 / [Android 客户端](https://github.com/LivingWithHippos/unchained-android) / [BT 客户端](https://github.com/rogerfar/rdt-client) / [DDL 客户端](https://github.com/ItsYeBoi20/TorrentDownloaderRD)
-- [⁠NullBeat](https://nullbeat.thevolecitor.qzz.io/) - 基于 TorBox 的高解析音频及 CD FLAC 提取工具
-- [⁠Get4All](https://get4all.org/) - 高级链接绕过 / 配合 UBO + [过滤器](https://pastebin.com/VFrdqPTe) 及 [重定向绕过器](/internet-tools/#redirect-bypass)
-- [⁠Rip Anything From Anywhere](https://anything.rip/) - 多站点绕过
+- [⁠NullBeat](https://nullbeat.thevolecitor.qzz.io/) - 基于 TorBox 的高解析音频与 CD FLAC 提取工具
+- [⁠Get4All](https://get4all.org/) - 高级会员链接绕过 / 配合 UBO + [过滤器](https://pastebin.com/VFrdqPTe) 和 [重定向绕过器](/internet-tools/#redirect-bypass) 使用
+- [⁠Rip Anything From Anywhere](https://anything.rip/) - 多网站绕过
 - [iTeraPlay](https://iteraplay.com/)、[Terabox Downloader](https://getindevice.com/terabox-downloader/)、[⁠TeraBox Gen](https://terabox.hnn.workers.dev/)、[TeraFetch](https://terafetch.com/) 或 [1024TeraDL](https://1024teradl.com/) - TeraBox 视频下载器
-- [Multi-OCH Helper](https://greasyfork.org/en/scripts/13884-multi-och-helper) - 快速将 DDL 链接发送至 Premiumize 与 NoPremium
+- [Multi-OCH Helper](https://greasyfork.org/en/scripts/13884-multi-och-helper) - 快速将 DDL 链接发送至 Premiumize 和 NoPremium
 - [Debrid Media Manager](https://debridmediamanager.com/)、[⁠Debrid Vault](https://debridvault.elfhosted.com/) 或 [Debrid Vault + Eclipse](https://discord.gg/B3QKzPRjhM) - Debrid 管理器 / 云盘管理器
 - [Pixeldrain Limit Bypass](https://pixeldrain-bypass.gamedrive.org/) / [Note](https://github.com/fmhy/edit/blob/main/docs/.vitepress/notes/pixeldrain.md)
 
@@ -196,7 +196,7 @@
 - :globe-with-meridians: **[Awesome IRC](https://github.com/davisonio/awesome-irc)** - IRC 资源
 - :globe-with-meridians: **[NetSplit](https://netsplit.de/)** - IRC 频道索引
 - :globe-with-meridians: **[IRC Client Comparisons](https://wikipedia.org/wiki/Comparison_of_IRC_clients)**
-- :repeat-button:️ **[Android IRC Clients](/mobile/#android-internet)**
+- :repeat-button:️ **[Android IRC 客户端](/mobile/#android-internet)**
 - [IRC Guide](https://rentry.org/ircfmhyguide)、[Libera Guides](https://libera.chat/guides/)、[New Blood](https://anonops.com/newblood/) 或 [Simple Wiki Guide](https://wikipedia.org/wiki/Wikipedia:IRC/Tutorial) - IRC 指南
 - [AdiIRC](https://adiirc.com/)、[KVIrc](https://github.com/kvirc/KVIrc) 或 [Halloy](https://github.com/squidowl/halloy) - IRC 客户端 / <span v-tooltip="'Windows'" alt="Windows" class="i-qlementine-icons:windows-24" /> <div v-tooltip="'macOS'" alt="macOS" class="i-qlementine-icons:mac-fill-16" /> <span v-tooltip="'Linux'" alt="Linux" class="i-fluent-mdl2:linux-logo-32" /> 
 - [Konversation](https://konversation.kde.org/) - IRC 客户端 / <span v-tooltip="'Windows'" alt="Windows" class="i-qlementine-icons:windows-24" /> <span v-tooltip="'Linux'" alt="Linux" class="i-fluent-mdl2:linux-logo-32" /> / <a target="_blank" href="https://github.com/KDE/konversation"><span v-tooltip="'GitHub'" alt="GitHub" class="i-carbon:logo-github" /></a>

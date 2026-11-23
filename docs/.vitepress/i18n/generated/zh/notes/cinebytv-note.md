@@ -1,3 +1,3 @@
-#### CinebyTV 说明
+#### CinebyTV 提示
 
-请注意，CinebyTV 与 Cineby（gdn）均与原 Cineby 网站无任何关联。
+请注意，CinebyTV 和 Cineby（gdn）均与原版 Cineby 网站无关。

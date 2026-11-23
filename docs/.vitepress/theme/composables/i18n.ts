@@ -7,7 +7,9 @@ const generated = import.meta.glob<Record<string, string>>(
   '../../i18n/generated/zh/strings.json',
   { eager: true, import: 'default' }
 )
-const translateLocale = createTranslate(Object.values(generated)[0] ?? {})
+export const translateLocale = createTranslate(
+  Object.values(generated)[0] ?? {}
+)
 const translateRoot = createTranslate({})
 
 export function useT() {

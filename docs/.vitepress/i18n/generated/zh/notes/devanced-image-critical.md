@@ -1,2 +1,2 @@
-#### DeVanced Google Photos 警告
-使用较新的 Google 账户来使用此补丁，可能导致封禁或限制
+#### DeVanced Google 照片警告
+使用较新的 Google 账号应用此补丁，可能会导致封禁或限制

@@ -19,6 +19,7 @@ import {
 import { generateFeed, generateImages, generateMeta } from './hooks'
 import { hasLocale, t } from './i18n/node'
 import { LOCALE, localizeItems, localizePath } from './i18n/shared'
+import { anchorLabelPlugin } from './markdown/anchorLabel'
 import { defs, emojiRender, movePlugin } from './markdown/emoji'
 import { headersPlugin } from './markdown/headers'
 import { localLinksPlugin } from './markdown/localLinks'
@@ -262,6 +263,23 @@ export default defineConfig({
     },
     optimizeDeps: { exclude: ['workbox-window'] },
     plugins: [
+      {
+        // VitePress hard-codes these screen-reader labels.
+        name: 'fmhy-i18n-vitepress-labels',
+        enforce: 'pre',
+        transform(code, id) {
+          if (/VP(NavBarMenu|Sidebar|DocFooter)\.vue$/.test(id))
+            return code.replace(
+              /(id="(?:main-nav|sidebar|doc-footer)-aria-label"[^>]*>)\s*(Main Navigation|Sidebar Navigation|Pager)\s*</g,
+              (_, open, label) => `${open}{{ $i18nT('${label}') }}<`
+            )
+          if (/VP(NavBarExtra|NavBarHamburger|SidebarItem)\.vue$/.test(id))
+            return code.replace(
+              /\b(label|aria-label)="(extra navigation|mobile navigation|toggle section)"/g,
+              (_, attr, label) => `:${attr}="$i18nT('${label}')"`
+            )
+        }
+      },
       OptimizeExclude(),
       Terminal({
         console: 'terminal',
@@ -358,6 +376,7 @@ export default defineConfig({
       md.use(emojiRender)
       md.use(toggleStarredPlugin)
       md.use(localLinksPlugin, baseUrl)
+      md.use(anchorLabelPlugin)
       meta.build.api && md.use(headersPlugin)
       replaceNoteLink(md)
     }

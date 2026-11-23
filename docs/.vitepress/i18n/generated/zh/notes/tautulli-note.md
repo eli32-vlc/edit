@@ -1,3 +1,3 @@
-#### Tautulli 说明
+#### Tautulli 注意事项
 
-这有时会被 Windows Defender 误报并自动移除，因此可能需要手动允许。
+它有时会被 Windows Defender 误报并自动删除，因此可能需要手动允许它。

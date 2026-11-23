@@ -32,33 +32,67 @@ export function sortStore(store: Store): Store {
   )
 }
 
+// A term maps to one rendering, or to renderings that apply on some pages
+// only (`pages` are path prefixes such as "gaming"); the first match wins.
+export type GlossaryTerm = string | { zh: string; pages?: string[] }[]
+
 export interface Glossary {
-  terms: Record<string, string>
+  version?: number
+  terms: Record<string, GlossaryTerm>
+  // Single words whose rendering is enforced; other single words only guide
+  // the model, since generic words ("Music", "Site") have many valid forms.
+  strict?: string[]
   keep: string[]
 }
 
 const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+const wordRe = (en: string, flags: string) =>
+  new RegExp(`(?<![\\p{L}\\d])${escapeRe(en)}(?![\\p{L}\\d])`, flags)
 
 export function glossaryMatcher(glossary: Glossary) {
-  const terms = Object.entries(glossary.terms).map(([en, zh]) => ({
+  const terms = Object.entries(glossary.terms).map(([en, value]) => ({
     en,
-    zh,
-    re: new RegExp(`(?<![\\p{L}\\d])${escapeRe(en)}(?![\\p{L}\\d])`, 'iu')
+    options: typeof value === 'string' ? [{ zh: value }] : value,
+    re: wordRe(en, 'iu')
   }))
-  const keep = glossary.keep.map((en) => ({
-    en,
-    re: new RegExp(`(?<![\\p{L}\\d])${escapeRe(en)}(?![\\p{L}\\d])`, 'u')
-  }))
-  return (seg: Segment) => {
-    const text = seg.masked.text.replace(PLACEHOLDER_RE, ' ')
-    const matched = terms.filter((t) => t.re.test(text))
+  const keep = glossary.keep.map((en) => ({ en, re: wordRe(en, 'u') }))
+  const strict = new Set(glossary.strict ?? [])
+  const version = `v${glossary.version ?? 1}`
+  return (seg: Segment, page: string) => {
+    let text = seg.masked.text.replace(PLACEHOLDER_RE, ' ')
     const kept = keep.filter((k) => k.re.test(text)).map((k) => k.en)
+    // Words inside kept names ("Game Boy") are not glossary terms.
+    for (const k of keep) text = text.replace(new RegExp(k.re, 'gu'), ' ')
+    const matched: Record<string, string> = {}
+    for (const term of terms) {
+      if (!term.re.test(text)) continue
+      const option = term.options.find(
+        (o) => !o.pages || o.pages.some((p) => page.startsWith(p))
+      )
+      if (option) matched[term.en] = option.zh
+    }
+    // A longer matched term owns the words it contains ("Homebrew Apps"
+    // overrides "Apps"), so only the longest overlapping terms are enforced.
+    const names = Object.keys(matched)
+    for (const en of names) {
+      if (
+        names.some(
+          (o) => o !== en && o.length > en.length && wordRe(en, 'iu').test(o)
+        )
+      )
+        delete matched[en]
+    }
+    const signature = Object.entries(matched).map(([en, zh]) => `${en}=${zh}`)
+    const enforced = Object.fromEntries(
+      Object.entries(matched).filter(
+        ([en]) => en.includes(' ') || strict.has(en)
+      )
+    )
     return {
-      terms: Object.fromEntries(matched.map((t) => [t.en, t.zh])),
+      terms: matched,
+      enforced,
       keep: kept,
-      key: matched.length
-        ? hashKey(matched.map((t) => `${t.en}=${t.zh}`).join('\n'))
-        : undefined
+      key: hashKey([version, ...signature].join('\n'))
     }
   }
 }

@@ -24,7 +24,7 @@ title: "沙盒"
 测试详情
 :::
 
-### 关键提示测试 {#critical-note-test}
+### 严重提示测试 {#critical-note-test}
 
 - [Pangu7](https://ios.cfw.guide/installing-pangu7/) - 测试警告图标 / [警告](https://github.com/fmhy/edit/blob/main/docs/.vitepress/notes/pangu7-critical.md)
-- [Buster](https://github.com/dessant/buster) - 测试非关键提示框 / [提示](https://github.com/fmhy/edit/blob/main/docs/.vitepress/notes/buster-note.md)
+- [Buster](https://github.com/dessant/buster) - 测试非严重提示框 / [备注](https://github.com/fmhy/edit/blob/main/docs/.vitepress/notes/buster-note.md)

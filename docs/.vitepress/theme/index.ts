@@ -16,6 +16,8 @@
 
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import { LOCALE_PREFIX } from '../i18n/shared'
+import { translateLocale } from './composables/i18n'
 import { loadProgress } from './composables/nprogress'
 import {
   cancelPendingScroll,
@@ -125,6 +127,11 @@ export default {
     app.component('CriticalBadge', CriticalBadge)
     app.component('Tooltip', Tooltip)
     app.config.globalProperties.$removedDateTooltip = removedDateTooltip
+    // Used by the VitePress components patched in config.mts.
+    app.config.globalProperties.$i18nT = (en: string) =>
+      router.route.path.startsWith(`${LOCALE_PREFIX}/`)
+        ? translateLocale(en)
+        : en
     app.config.globalProperties.$removedDateTriggers =
       typeof window !== 'undefined' &&
       !window.matchMedia('(hover: hover)').matches
